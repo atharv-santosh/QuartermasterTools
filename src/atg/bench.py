@@ -312,16 +312,29 @@ def taxonomy(attempts: Sequence[Attempt], *, sizes: Iterable[int] | None = None)
 
 
 def disagreements(attempts: Sequence[Attempt]) -> dict[str, Any]:
-    """Where recall@k and task success point different directions."""
+    """Where recall@k and task success point different directions.
+
+    Three quantities, because the disagreement is not symmetric. Recall counting a
+    hit while the task fails is common. Recall counting a miss while the task
+    succeeds needs the gold tool to be absent from the shortlist and an acceptable
+    substitute present, which is rare because a substitute that does the same job
+    reads almost the same to a retriever and is nearly always retrieved alongside
+    it. The third quantity, a task completed by a tool other than the one recall is
+    scored against, is the part of that effect that actually shows up.
+    """
     rows = list(attempts)
     hit_fail = [a for a in rows if a.recall_hit and not a.success]
     miss_pass = [a for a in rows if not a.recall_hit and a.success]
+    off_gold = [a for a in rows if a.success and a.action_tool not in (None, a.gold_tool)]
     by_outcome: dict[str, int] = {}
     for a in hit_fail:
         by_outcome[a.outcome] = by_outcome.get(a.outcome, 0) + 1
     by_kind: dict[str, int] = {}
     for a in miss_pass:
         by_kind[a.task_kind] = by_kind.get(a.task_kind, 0) + 1
+    off_gold_kind: dict[str, int] = {}
+    for a in off_gold:
+        off_gold_kind[a.task_kind] = off_gold_kind.get(a.task_kind, 0) + 1
     return {
         "n": len(rows),
         "recall_hit_task_fail": len(hit_fail),
@@ -330,6 +343,9 @@ def disagreements(attempts: Sequence[Attempt]) -> dict[str, Any]:
         "recall_miss_task_pass": len(miss_pass),
         "recall_miss_task_pass_share": round(len(miss_pass) / len(rows), 4) if rows else 0.0,
         "recall_miss_task_pass_by_kind": by_kind,
+        "success_via_non_gold_tool": len(off_gold),
+        "success_via_non_gold_tool_share": round(len(off_gold) / len(rows), 4) if rows else 0.0,
+        "success_via_non_gold_tool_by_kind": off_gold_kind,
     }
 
 
@@ -368,14 +384,24 @@ def full_report(
         progress=progress,
         trajectory=trajectory,
     )
+    full = max(sweep.sizes)
+    # Compression is measured at two catalog sizes on purpose. At the full
+    # catalog, wrong-tool selection dominates the failures and swamps the
+    # argument-placement errors that dropping parameter descriptions actually
+    # causes, so the accuracy cost of compression only becomes visible at a size
+    # where tool choice is mostly right.
     compression = run_compression(
         catalog=catalog, tasks=tasks, k=k, indexes=indexes, progress=progress
     )
-    full = max(sweep.sizes)
+    small = min(s for s in sweep.sizes if s >= 25)
+    compression_small = run_compression(
+        catalog=catalog, tasks=tasks, k=k, size=small, indexes=indexes, progress=progress
+    )
     payload = {
         "generated_utc": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
         "sweep": sweep.to_dict(),
         "compression": [asdict(r) for r in compression],
+        "compression_small_catalog": [asdict(r) for r in compression_small],
         "taxonomy_full_catalog": taxonomy(sweep.attempts, sizes=[full]),
         "taxonomy_all_sizes": taxonomy(sweep.attempts),
         "disagreement_full_catalog": disagreements(

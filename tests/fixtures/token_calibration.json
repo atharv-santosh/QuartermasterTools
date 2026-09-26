@@ -1,0 +1,3069 @@
+{
+  "model": "gemini-2.5-flash-lite",
+  "recorded_utc": "2026-09-26T06:55:53Z",
+  "catalog_seed": 20260925,
+  "catalog_fingerprint": "265448f30be670de",
+  "note": "Recipes only. Text is regenerated from the catalog; real_tokens came from Vertex count_tokens.",
+  "samples": [
+    {
+      "fmt": "json_schema",
+      "tools": [
+        "archive_ranking_profile"
+      ],
+      "real_tokens": 241,
+      "split": "fit"
+    },
+    {
+      "fmt": "json_schema",
+      "tools": [
+        "revision_update"
+      ],
+      "real_tokens": 308,
+      "split": "fit"
+    },
+    {
+      "fmt": "json_schema",
+      "tools": [
+        "export_cost_center"
+      ],
+      "real_tokens": 266,
+      "split": "fit"
+    },
+    {
+      "fmt": "json_schema",
+      "tools": [
+        "delete_coupon"
+      ],
+      "real_tokens": 278,
+      "split": "fit"
+    },
+    {
+      "fmt": "json_schema",
+      "tools": [
+        "cors_policy.get"
+      ],
+      "real_tokens": 271,
+      "split": "fit"
+    },
+    {
+      "fmt": "json_schema",
+      "tools": [
+        "create_segment"
+      ],
+      "real_tokens": 233,
+      "split": "fit"
+    },
+    {
+      "fmt": "json_schema",
+      "tools": [
+        "delete_payout"
+      ],
+      "real_tokens": 204,
+      "split": "fit"
+    },
+    {
+      "fmt": "json_schema",
+      "tools": [
+        "update_funnel"
+      ],
+      "real_tokens": 291,
+      "split": "fit"
+    },
+    {
+      "fmt": "json_schema",
+      "tools": [
+        "list_segment"
+      ],
+      "real_tokens": 192,
+      "split": "fit"
+    },
+    {
+      "fmt": "json_schema",
+      "tools": [
+        "delete_recurring_series"
+      ],
+      "real_tokens": 299,
+      "split": "fit"
+    },
+    {
+      "fmt": "json_schema",
+      "tools": [
+        "create_draft"
+      ],
+      "real_tokens": 177,
+      "split": "fit"
+    },
+    {
+      "fmt": "json_schema",
+      "tools": [
+        "migration.list"
+      ],
+      "real_tokens": 199,
+      "split": "fit"
+    },
+    {
+      "fmt": "json_schema",
+      "tools": [
+        "archive_availability"
+      ],
+      "real_tokens": 341,
+      "split": "fit"
+    },
+    {
+      "fmt": "json_schema",
+      "tools": [
+        "list_direct_message"
+      ],
+      "real_tokens": 196,
+      "split": "fit"
+    },
+    {
+      "fmt": "json_schema",
+      "tools": [
+        "sku_search"
+      ],
+      "real_tokens": 184,
+      "split": "fit"
+    },
+    {
+      "fmt": "json_schema",
+      "tools": [
+        "legacy_purchase_order_create"
+      ],
+      "real_tokens": 211,
+      "split": "fit"
+    },
+    {
+      "fmt": "json_schema",
+      "tools": [
+        "update_account"
+      ],
+      "real_tokens": 256,
+      "split": "fit"
+    },
+    {
+      "fmt": "json_schema",
+      "tools": [
+        "runbook.search"
+      ],
+      "real_tokens": 148,
+      "split": "fit"
+    },
+    {
+      "fmt": "json_schema",
+      "tools": [
+        "get_dispute"
+      ],
+      "real_tokens": 195,
+      "split": "fit"
+    },
+    {
+      "fmt": "json_schema",
+      "tools": [
+        "get_cost_center"
+      ],
+      "real_tokens": 160,
+      "split": "fit"
+    },
+    {
+      "fmt": "json_schema",
+      "tools": [
+        "create_reindex_job"
+      ],
+      "real_tokens": 279,
+      "split": "fit"
+    },
+    {
+      "fmt": "json_schema",
+      "tools": [
+        "get_working_hours"
+      ],
+      "real_tokens": 270,
+      "split": "fit"
+    },
+    {
+      "fmt": "json_schema",
+      "tools": [
+        "legacy_cost_center_create"
+      ],
+      "real_tokens": 172,
+      "split": "fit"
+    },
+    {
+      "fmt": "json_schema",
+      "tools": [
+        "alert_rule.update"
+      ],
+      "real_tokens": 279,
+      "split": "fit"
+    },
+    {
+      "fmt": "json_schema",
+      "tools": [
+        "export_label"
+      ],
+      "real_tokens": 318,
+      "split": "fit"
+    },
+    {
+      "fmt": "json_schema",
+      "tools": [
+        "get_ad_group"
+      ],
+      "real_tokens": 171,
+      "split": "fit"
+    },
+    {
+      "fmt": "json_schema",
+      "tools": [
+        "revision_export"
+      ],
+      "real_tokens": 282,
+      "split": "fit"
+    },
+    {
+      "fmt": "json_schema",
+      "tools": [
+        "device_delete"
+      ],
+      "real_tokens": 329,
+      "split": "fit"
+    },
+    {
+      "fmt": "json_schema",
+      "tools": [
+        "config_map.create"
+      ],
+      "real_tokens": 337,
+      "split": "fit"
+    },
+    {
+      "fmt": "json_schema",
+      "tools": [
+        "replica.delete"
+      ],
+      "real_tokens": 321,
+      "split": "fit"
+    },
+    {
+      "fmt": "json_schema",
+      "tools": [
+        "create_reminder",
+        "firmware_bundle_update",
+        "space_archive"
+      ],
+      "real_tokens": 865,
+      "split": "fit"
+    },
+    {
+      "fmt": "json_schema",
+      "tools": [
+        "device_archive",
+        "incident.list",
+        "archive_delivery_receipt"
+      ],
+      "real_tokens": 609,
+      "split": "fit"
+    },
+    {
+      "fmt": "json_schema",
+      "tools": [
+        "revision_get",
+        "update_knowledge_article",
+        "mfa_enrollment.export"
+      ],
+      "real_tokens": 957,
+      "split": "fit"
+    },
+    {
+      "fmt": "json_schema",
+      "tools": [
+        "search_escalation_path",
+        "create_credit_note",
+        "search_funnel",
+        "shipment_delete",
+        "list_analyzer_chain",
+        "delete_template_render",
+        "search_expense_report",
+        "list_sla_policy"
+      ],
+      "real_tokens": 1583,
+      "split": "fit"
+    },
+    {
+      "fmt": "json_schema",
+      "tools": [
+        "ota_job_list",
+        "lead_get",
+        "search_refund",
+        "get_audience_list",
+        "label_taxonomy_list",
+        "delete_sms",
+        "search_queue",
+        "export_sla_policy"
+      ],
+      "real_tokens": 1716,
+      "split": "fit"
+    },
+    {
+      "fmt": "json_schema",
+      "tools": [
+        "object.search",
+        "alert_rule.search",
+        "migration.archive",
+        "update_expense_report",
+        "signed_url.archive",
+        "legacy_synonym_set_delete",
+        "review_cycle_list",
+        "send_bulk_email"
+      ],
+      "real_tokens": 2163,
+      "split": "fit"
+    },
+    {
+      "fmt": "json_schema",
+      "tools": [
+        "delete_payment_method",
+        "export_reaction",
+        "bucket.create",
+        "carrier_rate_get",
+        "ota_job_delete",
+        "create_campaign",
+        "update_index_document",
+        "get_ranking_profile",
+        "export_draft",
+        "archive_webhook_post",
+        "get_coupon",
+        "update_delivery_receipt",
+        "delete_sla_policy",
+        "get_funnel",
+        "archive_synonym_set",
+        "update_message",
+        "archive_tax_document",
+        "legacy_ip_allowlist_update",
+        "export_campaign",
+        "search_budget"
+      ],
+      "real_tokens": 4863,
+      "split": "fit"
+    },
+    {
+      "fmt": "json_schema",
+      "tools": [
+        "search_event_stream",
+        "post_thread_reply",
+        "erp_ad_group_get",
+        "archive_label",
+        "payroll_run_get",
+        "update_pinned_item",
+        "create_reaction",
+        "incident.update",
+        "rollout.create",
+        "create_budget",
+        "get_synonym_set",
+        "list_cost_center",
+        "stock_level_update",
+        "role_binding.list",
+        "delete_attribution_model",
+        "job_requisition_get",
+        "search_digest",
+        "update_alias",
+        "send_email",
+        "get_coupon"
+      ],
+      "real_tokens": 4696,
+      "split": "fit"
+    },
+    {
+      "fmt": "json_schema",
+      "tools": [
+        "storage_class.list",
+        "firewall_rule.update",
+        "job_requisition_update",
+        "delete_drip_sequence",
+        "replication.update",
+        "search_retention_curve",
+        "search_label",
+        "create_dashboard",
+        "revision_search",
+        "export_tax_document",
+        "archive_payment_method",
+        "archive_knowledge_article",
+        "training_job.get",
+        "list_user_group",
+        "rollout.pause",
+        "delete_stopword_list",
+        "search_thread",
+        "delete_retention_curve",
+        "search_channel_message",
+        "list_dispute"
+      ],
+      "real_tokens": 4443,
+      "split": "fit"
+    },
+    {
+      "fmt": "json_schema",
+      "tools": [
+        "purchase_order_create",
+        "comment_get",
+        "delete_reminder",
+        "update_ticket",
+        "update_message",
+        "list_creative_asset",
+        "delete_index_document",
+        "export_ad_group",
+        "list_knowledge_article",
+        "delete_room_booking",
+        "create_segment",
+        "org_unit_search",
+        "device_get",
+        "shipment_update",
+        "delete_retention_curve",
+        "autoscaler.get",
+        "incident.get",
+        "update_queue",
+        "archive_coupon",
+        "update_dispute",
+        "delete_payout",
+        "erp_sla_policy_update",
+        "export_user_group",
+        "delete_query_suggestion",
+        "update_invoice",
+        "search_tax_document",
+        "territory_update",
+        "lead_archive",
+        "incident.create",
+        "get_message",
+        "dataset_split.list",
+        "list_account",
+        "attachment_get",
+        "delete_digest",
+        "export_payment_method",
+        "provisioning_claim_archive",
+        "archive_charge",
+        "search_digest",
+        "update_direct_message",
+        "search_cost_center"
+      ],
+      "real_tokens": 9514,
+      "split": "fit"
+    },
+    {
+      "fmt": "json_schema",
+      "tools": [
+        "review_cycle_update",
+        "export_reminder",
+        "get_channel_message",
+        "training_job.archive",
+        "delete_working_hours",
+        "archive_coupon",
+        "create_dispute",
+        "create_reaction",
+        "page_get",
+        "list_index_document",
+        "delete_reaction",
+        "export_utm_link",
+        "deal_update",
+        "delete_message",
+        "label_taxonomy_export",
+        "list_working_hours",
+        "get_webhook_post",
+        "update_dispute",
+        "update_utm_link",
+        "legacy_firewall_rule_get",
+        "replication.list",
+        "ip_allowlist.search",
+        "delete_index_document",
+        "update_reconciliation",
+        "runbook.update",
+        "delete_subscription_pref",
+        "create_invoice",
+        "table.export",
+        "job_requisition_list",
+        "alert_rule.delete",
+        "export_invoice",
+        "contact_list",
+        "update_reaction",
+        "get_tax_rate",
+        "role_binding.create",
+        "pipeline_get",
+        "get_escalation_path",
+        "search_satisfaction_survey",
+        "export_refund",
+        "device_group_get"
+      ],
+      "real_tokens": 9844,
+      "split": "fit"
+    },
+    {
+      "fmt": "json_schema",
+      "tools": [
+        "deployment.delete",
+        "archive_utm_link",
+        "ip_allowlist.create",
+        "secret.update",
+        "firmware_bundle_search",
+        "export_subscription_pref",
+        "get_funnel",
+        "create_synonym_set",
+        "shipment_archive",
+        "replica.export",
+        "search_synonym_set",
+        "create_reindex_job",
+        "model_version.list",
+        "bucket.archive",
+        "export_channel",
+        "delete_macro",
+        "delete_vacation_responder",
+        "label_taxonomy_get",
+        "role_binding.search",
+        "create_audience_list",
+        "config_map.export",
+        "update_sms",
+        "create_reminder",
+        "search_escalation_path",
+        "activity_search",
+        "create_cost_center",
+        "get_calendar",
+        "connection_pool.list",
+        "delete_reminder",
+        "object.signed_url_read",
+        "archive_invite",
+        "archive_dashboard",
+        "legacy_purchase_order_create",
+        "get_pinned_item",
+        "archive_charge",
+        "ip_allowlist.archive",
+        "replica.archive",
+        "update_invoice",
+        "activity_archive",
+        "update_attribution_model"
+      ],
+      "real_tokens": 9023,
+      "split": "fit"
+    },
+    {
+      "fmt": "compact_json",
+      "tools": [
+        "device_archive"
+      ],
+      "real_tokens": 111,
+      "split": "fit"
+    },
+    {
+      "fmt": "compact_json",
+      "tools": [
+        "revision_list"
+      ],
+      "real_tokens": 130,
+      "split": "fit"
+    },
+    {
+      "fmt": "compact_json",
+      "tools": [
+        "deployment.get"
+      ],
+      "real_tokens": 88,
+      "split": "fit"
+    },
+    {
+      "fmt": "compact_json",
+      "tools": [
+        "employee_delete"
+      ],
+      "real_tokens": 107,
+      "split": "fit"
+    },
+    {
+      "fmt": "compact_json",
+      "tools": [
+        "list_filter"
+      ],
+      "real_tokens": 113,
+      "split": "fit"
+    },
+    {
+      "fmt": "compact_json",
+      "tools": [
+        "get_template_render"
+      ],
+      "real_tokens": 96,
+      "split": "fit"
+    },
+    {
+      "fmt": "compact_json",
+      "tools": [
+        "create_reminder"
+      ],
+      "real_tokens": 154,
+      "split": "fit"
+    },
+    {
+      "fmt": "compact_json",
+      "tools": [
+        "offer_get"
+      ],
+      "real_tokens": 99,
+      "split": "fit"
+    },
+    {
+      "fmt": "compact_json",
+      "tools": [
+        "list_creative_asset"
+      ],
+      "real_tokens": 92,
+      "split": "fit"
+    },
+    {
+      "fmt": "compact_json",
+      "tools": [
+        "create_calendar"
+      ],
+      "real_tokens": 135,
+      "split": "fit"
+    },
+    {
+      "fmt": "compact_json",
+      "tools": [
+        "create_signature"
+      ],
+      "real_tokens": 125,
+      "split": "fit"
+    },
+    {
+      "fmt": "compact_json",
+      "tools": [
+        "page_update"
+      ],
+      "real_tokens": 110,
+      "split": "fit"
+    },
+    {
+      "fmt": "compact_json",
+      "tools": [
+        "search_template_render"
+      ],
+      "real_tokens": 178,
+      "split": "fit"
+    },
+    {
+      "fmt": "compact_json",
+      "tools": [
+        "runbook.list"
+      ],
+      "real_tokens": 113,
+      "split": "fit"
+    },
+    {
+      "fmt": "compact_json",
+      "tools": [
+        "runbook.create"
+      ],
+      "real_tokens": 188,
+      "split": "fit"
+    },
+    {
+      "fmt": "compact_json",
+      "tools": [
+        "delete_funnel"
+      ],
+      "real_tokens": 133,
+      "split": "fit"
+    },
+    {
+      "fmt": "compact_json",
+      "tools": [
+        "get_event_stream"
+      ],
+      "real_tokens": 164,
+      "split": "fit"
+    },
+    {
+      "fmt": "compact_json",
+      "tools": [
+        "post_webhook_message"
+      ],
+      "real_tokens": 93,
+      "split": "fit"
+    },
+    {
+      "fmt": "compact_json",
+      "tools": [
+        "bucket.archive"
+      ],
+      "real_tokens": 94,
+      "split": "fit"
+    },
+    {
+      "fmt": "compact_json",
+      "tools": [
+        "ota_job_archive"
+      ],
+      "real_tokens": 178,
+      "split": "fit"
+    },
+    {
+      "fmt": "compact_json",
+      "tools": [
+        "create_ad_group"
+      ],
+      "real_tokens": 134,
+      "split": "fit"
+    },
+    {
+      "fmt": "compact_json",
+      "tools": [
+        "ip_allowlist.list"
+      ],
+      "real_tokens": 108,
+      "split": "fit"
+    },
+    {
+      "fmt": "compact_json",
+      "tools": [
+        "contact_export"
+      ],
+      "real_tokens": 147,
+      "split": "fit"
+    },
+    {
+      "fmt": "compact_json",
+      "tools": [
+        "cycle_count_search"
+      ],
+      "real_tokens": 157,
+      "split": "fit"
+    },
+    {
+      "fmt": "compact_json",
+      "tools": [
+        "update_working_hours"
+      ],
+      "real_tokens": 192,
+      "split": "fit"
+    },
+    {
+      "fmt": "compact_json",
+      "tools": [
+        "review_cycle_get"
+      ],
+      "real_tokens": 94,
+      "split": "fit"
+    },
+    {
+      "fmt": "compact_json",
+      "tools": [
+        "bucket.update"
+      ],
+      "real_tokens": 129,
+      "split": "fit"
+    },
+    {
+      "fmt": "compact_json",
+      "tools": [
+        "template_list"
+      ],
+      "real_tokens": 116,
+      "split": "fit"
+    },
+    {
+      "fmt": "compact_json",
+      "tools": [
+        "search_campaign"
+      ],
+      "real_tokens": 113,
+      "split": "fit"
+    },
+    {
+      "fmt": "compact_json",
+      "tools": [
+        "create_subscription_pref"
+      ],
+      "real_tokens": 71,
+      "split": "fit"
+    },
+    {
+      "fmt": "compact_json",
+      "tools": [
+        "export_reconciliation",
+        "archive_webhook_post",
+        "create_subscription"
+      ],
+      "real_tokens": 446,
+      "split": "fit"
+    },
+    {
+      "fmt": "compact_json",
+      "tools": [
+        "comment_search",
+        "index.update",
+        "cors_policy.archive"
+      ],
+      "real_tokens": 353,
+      "split": "fit"
+    },
+    {
+      "fmt": "compact_json",
+      "tools": [
+        "sku_list",
+        "bucket.export",
+        "delete_expense_report"
+      ],
+      "real_tokens": 427,
+      "split": "fit"
+    },
+    {
+      "fmt": "compact_json",
+      "tools": [
+        "export_reaction",
+        "get_alias",
+        "export_campaign",
+        "create_coupon",
+        "export_job_search",
+        "search_analyzer_chain",
+        "archive_metric",
+        "export_alias"
+      ],
+      "real_tokens": 1038,
+      "split": "fit"
+    },
+    {
+      "fmt": "compact_json",
+      "tools": [
+        "review_cycle_search",
+        "runbook.list",
+        "alert_rule.delete",
+        "list_room_booking",
+        "payroll_run_update",
+        "index.update",
+        "firewall_rule.delete",
+        "get_calendar"
+      ],
+      "real_tokens": 1019,
+      "split": "fit"
+    },
+    {
+      "fmt": "compact_json",
+      "tools": [
+        "update_user_group",
+        "bucket.get",
+        "lead_get",
+        "archive_ranking_profile",
+        "delete_user_group",
+        "list_dispute",
+        "space_create",
+        "list_analyzer_chain"
+      ],
+      "real_tokens": 1022,
+      "split": "fit"
+    },
+    {
+      "fmt": "compact_json",
+      "tools": [
+        "delete_budget",
+        "endpoint.list",
+        "create_index_document",
+        "archive_push_notification",
+        "get_forwarding_rule",
+        "grant.update",
+        "update_analyzer_chain",
+        "get_alias",
+        "search_subscription_pref",
+        "endpoint.search",
+        "delete_payout",
+        "alert_rule.export",
+        "delete_account",
+        "runbook.get",
+        "legacy_tax_rate_get",
+        "get_invoice",
+        "get_pinned_item",
+        "archive_availability",
+        "dataset_split.list",
+        "create_message"
+      ],
+      "real_tokens": 2568,
+      "split": "fit"
+    },
+    {
+      "fmt": "compact_json",
+      "tools": [
+        "delete_index_document",
+        "config_map.export",
+        "hyperparam_sweep.get",
+        "export_job_list",
+        "page_archive",
+        "timeoff_request_delete",
+        "create_sla_policy",
+        "post_thread_reply",
+        "prefix.get",
+        "replication.search",
+        "lifecycle_rule.update",
+        "export_job_delete",
+        "quote_delete",
+        "revision_create",
+        "list_payment_method",
+        "archive_expense_report",
+        "export_reminder",
+        "cycle_count_archive",
+        "erp_timeoff_request_list",
+        "list_expense_report"
+      ],
+      "real_tokens": 2836,
+      "split": "fit"
+    },
+    {
+      "fmt": "compact_json",
+      "tools": [
+        "archive_ticket",
+        "delete_sla_policy",
+        "create_working_hours",
+        "review_cycle_create",
+        "legacy_macro_delete",
+        "alert_rule.delete",
+        "list_knowledge_article",
+        "search_reminder",
+        "contact_anonymize",
+        "activity_create",
+        "export_cohort",
+        "list_escalation_path",
+        "update_reindex_job",
+        "get_delivery_receipt",
+        "purchase_order_export",
+        "space_archive",
+        "warehouse_bin_delete",
+        "api_key.search",
+        "payroll_run_export",
+        "archive_knowledge_article"
+      ],
+      "real_tokens": 2617,
+      "split": "fit"
+    },
+    {
+      "fmt": "compact_json",
+      "tools": [
+        "archive_message",
+        "search_audience_list",
+        "create_calendar",
+        "cors_policy.delete",
+        "company_create",
+        "delete_user_group",
+        "update_reminder",
+        "table.archive",
+        "job_requisition_delete",
+        "pipeline_update",
+        "export_push_notification",
+        "export_thread",
+        "device_archive",
+        "job_requisition_export",
+        "search_cohort",
+        "lead_archive",
+        "payroll_run_update",
+        "create_query_suggestion",
+        "get_user_group",
+        "deployment.list",
+        "archive_metric",
+        "get_digest",
+        "pipeline_get",
+        "export_recurring_series",
+        "archive_dispute",
+        "training_job.delete",
+        "get_tax_rate",
+        "dataset_split.delete",
+        "create_alias",
+        "create_drip_sequence",
+        "contact_export",
+        "territory_delete",
+        "page_create",
+        "export_tax_rate",
+        "update_stopword_list",
+        "create_attribution_model",
+        "bucket.search",
+        "list_landing_page",
+        "search_filter",
+        "finding.search"
+      ],
+      "real_tokens": 5219,
+      "split": "fit"
+    },
+    {
+      "fmt": "compact_json",
+      "tools": [
+        "ip_allowlist.export",
+        "update_template_render",
+        "dataset_split.get",
+        "get_template_render",
+        "revision_update",
+        "secret.get",
+        "device_group_get",
+        "index.archive",
+        "attachment_delete",
+        "archive_tax_rate",
+        "stock_level_get",
+        "company_delete",
+        "update_payment_method",
+        "archive_channel_message",
+        "activity_search",
+        "training_job.search",
+        "archive_user_group",
+        "job_requisition_search",
+        "pod.list",
+        "erp_landing_page_delete",
+        "list_reaction",
+        "reverse_payout",
+        "firmware_bundle_list",
+        "create_stopword_list",
+        "delete_queue",
+        "list_refund",
+        "template_export",
+        "alert_rule.search",
+        "deal_search",
+        "role_binding.archive",
+        "search_draft",
+        "search_cost_center",
+        "activity_delete",
+        "erp_stopword_list_list",
+        "delete_journal_entry",
+        "update_account",
+        "archive_index_document",
+        "firewall_rule.delete",
+        "update_availability",
+        "label_taxonomy_export"
+      ],
+      "real_tokens": 5357,
+      "split": "fit"
+    },
+    {
+      "fmt": "compact_json",
+      "tools": [
+        "search_budget",
+        "create_audience_list",
+        "model_version.update",
+        "delete_room_booking",
+        "device_group_archive",
+        "list_label",
+        "telemetry_stream_update",
+        "archive_funnel",
+        "connection_pool.get",
+        "purchase_order_get",
+        "delete_dispute",
+        "update_index_document",
+        "delete_sms",
+        "get_subscription_pref",
+        "delete_macro",
+        "connection_pool.export",
+        "list_draft",
+        "object.list",
+        "migration.delete",
+        "role_binding.export",
+        "schedule_channel_message",
+        "alert_rule.get",
+        "export_creative_asset",
+        "list_event",
+        "delete_pinned_item",
+        "table.delete",
+        "ota_job_export",
+        "search_escalation_path",
+        "device_group_list",
+        "legacy_signed_url_get",
+        "export_landing_page",
+        "export_reconciliation",
+        "prefix.delete",
+        "service.get",
+        "pod.create",
+        "grant.create",
+        "snapshot.search",
+        "create_user_group",
+        "export_direct_message",
+        "lead_delete"
+      ],
+      "real_tokens": 5043,
+      "split": "fit"
+    },
+    {
+      "fmt": "signature",
+      "tools": [
+        "delete_queue"
+      ],
+      "real_tokens": 23,
+      "split": "fit"
+    },
+    {
+      "fmt": "signature",
+      "tools": [
+        "ota_job_get"
+      ],
+      "real_tokens": 40,
+      "split": "fit"
+    },
+    {
+      "fmt": "signature",
+      "tools": [
+        "api_key.delete"
+      ],
+      "real_tokens": 28,
+      "split": "fit"
+    },
+    {
+      "fmt": "signature",
+      "tools": [
+        "deployment.list"
+      ],
+      "real_tokens": 23,
+      "split": "fit"
+    },
+    {
+      "fmt": "signature",
+      "tools": [
+        "export_direct_message"
+      ],
+      "real_tokens": 53,
+      "split": "fit"
+    },
+    {
+      "fmt": "signature",
+      "tools": [
+        "note_list"
+      ],
+      "real_tokens": 36,
+      "split": "fit"
+    },
+    {
+      "fmt": "signature",
+      "tools": [
+        "get_charge"
+      ],
+      "real_tokens": 58,
+      "split": "fit"
+    },
+    {
+      "fmt": "signature",
+      "tools": [
+        "secret.search"
+      ],
+      "real_tokens": 25,
+      "split": "fit"
+    },
+    {
+      "fmt": "signature",
+      "tools": [
+        "shipment_archive"
+      ],
+      "real_tokens": 60,
+      "split": "fit"
+    },
+    {
+      "fmt": "signature",
+      "tools": [
+        "audit_log.search"
+      ],
+      "real_tokens": 26,
+      "split": "fit"
+    },
+    {
+      "fmt": "signature",
+      "tools": [
+        "secret.delete"
+      ],
+      "real_tokens": 55,
+      "split": "fit"
+    },
+    {
+      "fmt": "signature",
+      "tools": [
+        "update_audience_list"
+      ],
+      "real_tokens": 55,
+      "split": "fit"
+    },
+    {
+      "fmt": "signature",
+      "tools": [
+        "offer_delete"
+      ],
+      "real_tokens": 68,
+      "split": "fit"
+    },
+    {
+      "fmt": "signature",
+      "tools": [
+        "bucket.list"
+      ],
+      "real_tokens": 34,
+      "split": "fit"
+    },
+    {
+      "fmt": "signature",
+      "tools": [
+        "lead_get"
+      ],
+      "real_tokens": 22,
+      "split": "fit"
+    },
+    {
+      "fmt": "signature",
+      "tools": [
+        "geofence_delete"
+      ],
+      "real_tokens": 37,
+      "split": "fit"
+    },
+    {
+      "fmt": "signature",
+      "tools": [
+        "firewall_rule.export"
+      ],
+      "real_tokens": 36,
+      "split": "fit"
+    },
+    {
+      "fmt": "signature",
+      "tools": [
+        "deal_list"
+      ],
+      "real_tokens": 41,
+      "split": "fit"
+    },
+    {
+      "fmt": "signature",
+      "tools": [
+        "grant.list"
+      ],
+      "real_tokens": 19,
+      "split": "fit"
+    },
+    {
+      "fmt": "signature",
+      "tools": [
+        "query_job.list"
+      ],
+      "real_tokens": 26,
+      "split": "fit"
+    },
+    {
+      "fmt": "signature",
+      "tools": [
+        "signed_url.list"
+      ],
+      "real_tokens": 45,
+      "split": "fit"
+    },
+    {
+      "fmt": "signature",
+      "tools": [
+        "label_taxonomy_delete"
+      ],
+      "real_tokens": 26,
+      "split": "fit"
+    },
+    {
+      "fmt": "signature",
+      "tools": [
+        "create_filter"
+      ],
+      "real_tokens": 42,
+      "split": "fit"
+    },
+    {
+      "fmt": "signature",
+      "tools": [
+        "review_cycle_create"
+      ],
+      "real_tokens": 25,
+      "split": "fit"
+    },
+    {
+      "fmt": "signature",
+      "tools": [
+        "delete_label"
+      ],
+      "real_tokens": 46,
+      "split": "fit"
+    },
+    {
+      "fmt": "signature",
+      "tools": [
+        "lead_archive"
+      ],
+      "real_tokens": 42,
+      "split": "fit"
+    },
+    {
+      "fmt": "signature",
+      "tools": [
+        "audit_log.update"
+      ],
+      "real_tokens": 44,
+      "split": "fit"
+    },
+    {
+      "fmt": "signature",
+      "tools": [
+        "delete_working_hours"
+      ],
+      "real_tokens": 56,
+      "split": "fit"
+    },
+    {
+      "fmt": "signature",
+      "tools": [
+        "comment_search"
+      ],
+      "real_tokens": 28,
+      "split": "fit"
+    },
+    {
+      "fmt": "signature",
+      "tools": [
+        "grant.delete"
+      ],
+      "real_tokens": 35,
+      "split": "fit"
+    },
+    {
+      "fmt": "signature",
+      "tools": [
+        "get_escalation_path",
+        "finding.export",
+        "archive_user_group"
+      ],
+      "real_tokens": 184,
+      "split": "fit"
+    },
+    {
+      "fmt": "signature",
+      "tools": [
+        "telemetry_stream_create",
+        "export_refund",
+        "create_direct_message"
+      ],
+      "real_tokens": 170,
+      "split": "fit"
+    },
+    {
+      "fmt": "signature",
+      "tools": [
+        "get_pinned_item",
+        "sku_archive",
+        "page_list"
+      ],
+      "real_tokens": 112,
+      "split": "fit"
+    },
+    {
+      "fmt": "signature",
+      "tools": [
+        "update_reindex_job",
+        "archive_pinned_item",
+        "replica.search",
+        "firmware_bundle_search",
+        "update_signature",
+        "api_key.create",
+        "export_thread",
+        "api_key.export"
+      ],
+      "real_tokens": 389,
+      "split": "fit"
+    },
+    {
+      "fmt": "signature",
+      "tools": [
+        "telemetry_stream_export",
+        "list_escalation_path",
+        "list_vacation_responder",
+        "archive_forwarding_rule",
+        "delete_payout",
+        "delete_creative_asset",
+        "ip_allowlist.get",
+        "export_utm_link"
+      ],
+      "real_tokens": 369,
+      "split": "fit"
+    },
+    {
+      "fmt": "signature",
+      "tools": [
+        "list_message",
+        "update_sla_policy",
+        "export_reindex_job",
+        "comment_archive",
+        "object.export",
+        "rollout.search",
+        "export_campaign",
+        "template_get"
+      ],
+      "real_tokens": 324,
+      "split": "fit"
+    },
+    {
+      "fmt": "signature",
+      "tools": [
+        "update_budget",
+        "deal_list",
+        "search_campaign",
+        "search_ranking_profile",
+        "list_tax_document",
+        "update_drip_sequence",
+        "export_template_render",
+        "list_channel",
+        "list_coupon",
+        "export_pinned_item",
+        "payroll_run_list",
+        "archive_stopword_list",
+        "object.make_public",
+        "search_analyzer_chain",
+        "comment_search",
+        "list_utm_link",
+        "search_invite",
+        "export_expense_report",
+        "pipeline_export",
+        "search_working_hours"
+      ],
+      "real_tokens": 860,
+      "split": "fit"
+    },
+    {
+      "fmt": "signature",
+      "tools": [
+        "update_metric",
+        "quote_create",
+        "update_webhook_post",
+        "migration.get",
+        "attachment_get",
+        "update_message",
+        "export_channel_message",
+        "role_binding.search",
+        "create_subscription_pref",
+        "get_reconciliation",
+        "export_message",
+        "api_key.list",
+        "finding.list",
+        "warehouse_bin_list",
+        "archive_sla_policy",
+        "list_user_group",
+        "get_vacation_responder",
+        "delete_attribution_model",
+        "lead_delete",
+        "device_group_update"
+      ],
+      "real_tokens": 857,
+      "split": "fit"
+    },
+    {
+      "fmt": "signature",
+      "tools": [
+        "company_update",
+        "update_account",
+        "delete_event_stream",
+        "bucket.delete",
+        "list_utm_link",
+        "update_metric",
+        "feature_view.update",
+        "update_funnel",
+        "replica.search",
+        "delete_vacation_responder",
+        "endpoint.delete",
+        "table.get",
+        "search_event_stream",
+        "post_direct_message",
+        "template_search",
+        "contact_update",
+        "contact_search",
+        "archive_channel_message",
+        "firewall_rule.list",
+        "evaluation.get"
+      ],
+      "real_tokens": 870,
+      "split": "fit"
+    },
+    {
+      "fmt": "signature",
+      "tools": [
+        "note_list",
+        "archive_campaign",
+        "get_reconciliation",
+        "get_ticket",
+        "archive_dispute",
+        "space_search",
+        "archive_journal_entry",
+        "telemetry_stream_export",
+        "training_job.search",
+        "archive_knowledge_article",
+        "training_job.update",
+        "lead_list",
+        "shipment_list",
+        "connection_pool.export",
+        "ip_allowlist.get",
+        "object.search",
+        "archive_signature",
+        "secret.get",
+        "update_landing_page",
+        "update_satisfaction_survey",
+        "pipeline_update",
+        "geofence_update",
+        "archive_delivery_receipt",
+        "snapshot.search",
+        "post_thread_reply",
+        "autoscaler.archive",
+        "list_event_stream",
+        "export_reconciliation",
+        "provisioning_claim_search",
+        "archive_sla_policy",
+        "export_cohort",
+        "search_index_document",
+        "cors_policy.get",
+        "archive_escalation_path",
+        "rollout.list",
+        "telemetry_stream_get",
+        "config_map.delete",
+        "carrier_rate_archive",
+        "archive_payout",
+        "template_delete"
+      ],
+      "real_tokens": 1649,
+      "split": "fit"
+    },
+    {
+      "fmt": "signature",
+      "tools": [
+        "company_archive",
+        "delete_delivery_receipt",
+        "signed_url.archive",
+        "lead_delete",
+        "delete_retention_curve",
+        "get_event",
+        "review_cycle_search",
+        "rollout.update",
+        "update_room_booking",
+        "update_direct_message",
+        "list_synonym_set",
+        "get_metric",
+        "get_query_suggestion",
+        "search_digest",
+        "list_funnel",
+        "list_landing_page",
+        "page_export",
+        "get_sms",
+        "model_version.create",
+        "delete_campaign",
+        "service.get",
+        "search_dispute",
+        "list_channel_message",
+        "get_coupon",
+        "export_delivery_receipt",
+        "pod.search",
+        "search_thread",
+        "deal_create",
+        "object.copy",
+        "delete_refund",
+        "list_cohort",
+        "archive_satisfaction_survey",
+        "object.get",
+        "delete_availability",
+        "alert_rule.list",
+        "feature_view.create",
+        "lead_get",
+        "mfa_enrollment.delete",
+        "create_reconciliation",
+        "cycle_count_list"
+      ],
+      "real_tokens": 1514,
+      "split": "fit"
+    },
+    {
+      "fmt": "signature",
+      "tools": [
+        "create_synonym_set",
+        "search_channel_message",
+        "archive_ticket",
+        "get_metric",
+        "search_recurring_series",
+        "export_reconciliation",
+        "config_map.search",
+        "legacy_delivery_receipt_delete",
+        "audit_log.get",
+        "autoscaler.archive",
+        "delete_invite",
+        "search_sla_policy",
+        "payroll_run_search",
+        "ip_allowlist.get",
+        "geofence_update",
+        "update_sms",
+        "company_export",
+        "legacy_ip_allowlist_update",
+        "export_utm_link",
+        "archive_refund",
+        "get_creative_asset",
+        "create_analyzer_chain",
+        "update_invite",
+        "search_creative_asset",
+        "telemetry_stream_search",
+        "list_invite",
+        "legacy_event_stream_update",
+        "search_dashboard",
+        "deal_archive",
+        "payroll_run_list",
+        "update_reminder",
+        "device_group_list",
+        "update_index_document",
+        "archive_quiet_hours",
+        "update_reconciliation",
+        "get_filter",
+        "finding.search",
+        "carrier_rate_search",
+        "export_payment_method",
+        "list_vacation_responder"
+      ],
+      "real_tokens": 1780,
+      "split": "fit"
+    },
+    {
+      "fmt": "oneline",
+      "tools": [
+        "delete_landing_page"
+      ],
+      "real_tokens": 20,
+      "split": "fit"
+    },
+    {
+      "fmt": "oneline",
+      "tools": [
+        "list_reaction"
+      ],
+      "real_tokens": 17,
+      "split": "fit"
+    },
+    {
+      "fmt": "oneline",
+      "tools": [
+        "get_forwarding_rule"
+      ],
+      "real_tokens": 38,
+      "split": "fit"
+    },
+    {
+      "fmt": "oneline",
+      "tools": [
+        "query_job.update"
+      ],
+      "real_tokens": 38,
+      "split": "fit"
+    },
+    {
+      "fmt": "oneline",
+      "tools": [
+        "cycle_count_get"
+      ],
+      "real_tokens": 36,
+      "split": "fit"
+    },
+    {
+      "fmt": "oneline",
+      "tools": [
+        "delete_alias"
+      ],
+      "real_tokens": 26,
+      "split": "fit"
+    },
+    {
+      "fmt": "oneline",
+      "tools": [
+        "sku_delete"
+      ],
+      "real_tokens": 34,
+      "split": "fit"
+    },
+    {
+      "fmt": "oneline",
+      "tools": [
+        "note_update"
+      ],
+      "real_tokens": 27,
+      "split": "fit"
+    },
+    {
+      "fmt": "oneline",
+      "tools": [
+        "attachment_archive"
+      ],
+      "real_tokens": 30,
+      "split": "fit"
+    },
+    {
+      "fmt": "oneline",
+      "tools": [
+        "device_delete"
+      ],
+      "real_tokens": 51,
+      "split": "fit"
+    },
+    {
+      "fmt": "oneline",
+      "tools": [
+        "dataset_split.search"
+      ],
+      "real_tokens": 43,
+      "split": "fit"
+    },
+    {
+      "fmt": "oneline",
+      "tools": [
+        "query_job.list"
+      ],
+      "real_tokens": 18,
+      "split": "fit"
+    },
+    {
+      "fmt": "oneline",
+      "tools": [
+        "delete_payout"
+      ],
+      "real_tokens": 24,
+      "split": "fit"
+    },
+    {
+      "fmt": "oneline",
+      "tools": [
+        "storage_class.get"
+      ],
+      "real_tokens": 38,
+      "split": "fit"
+    },
+    {
+      "fmt": "oneline",
+      "tools": [
+        "get_availability"
+      ],
+      "real_tokens": 22,
+      "split": "fit"
+    },
+    {
+      "fmt": "oneline",
+      "tools": [
+        "list_reindex_job"
+      ],
+      "real_tokens": 23,
+      "split": "fit"
+    },
+    {
+      "fmt": "oneline",
+      "tools": [
+        "get_drip_sequence"
+      ],
+      "real_tokens": 30,
+      "split": "fit"
+    },
+    {
+      "fmt": "oneline",
+      "tools": [
+        "get_budget"
+      ],
+      "real_tokens": 18,
+      "split": "fit"
+    },
+    {
+      "fmt": "oneline",
+      "tools": [
+        "rollout.pause"
+      ],
+      "real_tokens": 9,
+      "split": "fit"
+    },
+    {
+      "fmt": "oneline",
+      "tools": [
+        "timeoff_request_create"
+      ],
+      "real_tokens": 17,
+      "split": "fit"
+    },
+    {
+      "fmt": "oneline",
+      "tools": [
+        "create_filter"
+      ],
+      "real_tokens": 34,
+      "split": "fit"
+    },
+    {
+      "fmt": "oneline",
+      "tools": [
+        "feature_view.search"
+      ],
+      "real_tokens": 20,
+      "split": "fit"
+    },
+    {
+      "fmt": "oneline",
+      "tools": [
+        "deal_create"
+      ],
+      "real_tokens": 18,
+      "split": "fit"
+    },
+    {
+      "fmt": "oneline",
+      "tools": [
+        "create_metric"
+      ],
+      "real_tokens": 24,
+      "split": "fit"
+    },
+    {
+      "fmt": "oneline",
+      "tools": [
+        "get_attribution_model"
+      ],
+      "real_tokens": 26,
+      "split": "fit"
+    },
+    {
+      "fmt": "oneline",
+      "tools": [
+        "search_metric"
+      ],
+      "real_tokens": 21,
+      "split": "fit"
+    },
+    {
+      "fmt": "oneline",
+      "tools": [
+        "update_room_booking"
+      ],
+      "real_tokens": 30,
+      "split": "fit"
+    },
+    {
+      "fmt": "oneline",
+      "tools": [
+        "list_analyzer_chain"
+      ],
+      "real_tokens": 28,
+      "split": "fit"
+    },
+    {
+      "fmt": "oneline",
+      "tools": [
+        "replica.export"
+      ],
+      "real_tokens": 28,
+      "split": "fit"
+    },
+    {
+      "fmt": "oneline",
+      "tools": [
+        "snapshot.export"
+      ],
+      "real_tokens": 44,
+      "split": "fit"
+    },
+    {
+      "fmt": "oneline",
+      "tools": [
+        "create_channel",
+        "search_cohort",
+        "export_job_export"
+      ],
+      "real_tokens": 135,
+      "split": "fit"
+    },
+    {
+      "fmt": "oneline",
+      "tools": [
+        "archive_stopword_list",
+        "offer_export",
+        "query_job.archive"
+      ],
+      "real_tokens": 131,
+      "split": "fit"
+    },
+    {
+      "fmt": "oneline",
+      "tools": [
+        "archive_push_notification",
+        "delete_drip_sequence",
+        "snapshot.archive"
+      ],
+      "real_tokens": 123,
+      "split": "fit"
+    },
+    {
+      "fmt": "oneline",
+      "tools": [
+        "page_list",
+        "get_query_suggestion",
+        "delete_quiet_hours",
+        "list_dispute",
+        "grant.export",
+        "rollout.create",
+        "archive_knowledge_article",
+        "carrier_rate_archive"
+      ],
+      "real_tokens": 214,
+      "split": "fit"
+    },
+    {
+      "fmt": "oneline",
+      "tools": [
+        "mfa_enrollment.get",
+        "list_user_group",
+        "alert_rule.list",
+        "create_pinned_item",
+        "delete_index_document",
+        "search_coupon",
+        "update_direct_message",
+        "list_calendar"
+      ],
+      "real_tokens": 284,
+      "split": "fit"
+    },
+    {
+      "fmt": "oneline",
+      "tools": [
+        "update_expense_report",
+        "incident.export",
+        "territory_get",
+        "rollout.delete",
+        "finding.delete",
+        "activity_archive",
+        "deal_list",
+        "template_get"
+      ],
+      "real_tokens": 260,
+      "split": "fit"
+    },
+    {
+      "fmt": "oneline",
+      "tools": [
+        "list_quiet_hours",
+        "territory_update",
+        "dataset_split.update",
+        "list_sla_policy",
+        "bucket.delete",
+        "grant.update",
+        "telemetry_stream_get",
+        "export_digest",
+        "purchase_order_export",
+        "firewall_rule.list",
+        "rollout.pause",
+        "payroll_run_create",
+        "offer_get",
+        "archive_knowledge_article",
+        "update_journal_entry",
+        "firewall_rule.update",
+        "note_search",
+        "export_segment",
+        "export_reindex_job",
+        "review_cycle_archive"
+      ],
+      "real_tokens": 595,
+      "split": "fit"
+    },
+    {
+      "fmt": "oneline",
+      "tools": [
+        "list_delivery_receipt",
+        "export_refund",
+        "search_campaign",
+        "evaluation.search",
+        "ip_allowlist.update",
+        "template_update",
+        "search_channel",
+        "search_sms",
+        "list_availability",
+        "create_funnel",
+        "geofence_get",
+        "search_query_suggestion",
+        "delete_webhook_post",
+        "quote_list",
+        "storage_class.create",
+        "create_attribution_model",
+        "list_reminder",
+        "create_drip_sequence",
+        "quote_export",
+        "get_quiet_hours"
+      ],
+      "real_tokens": 679,
+      "split": "fit"
+    },
+    {
+      "fmt": "oneline",
+      "tools": [
+        "territory_create",
+        "delete_campaign",
+        "api_key.create",
+        "telemetry_stream_search",
+        "migration.export",
+        "warehouse_bin_list",
+        "stock_level_archive",
+        "quote_create",
+        "lifecycle_rule.create",
+        "replica.get",
+        "search_audience_list",
+        "archive_digest",
+        "model_version.delete",
+        "incident.list",
+        "role_binding.archive",
+        "update_pinned_item",
+        "export_ranking_profile",
+        "note_delete",
+        "service.delete",
+        "audit_log.export"
+      ],
+      "real_tokens": 689,
+      "split": "fit"
+    },
+    {
+      "fmt": "oneline",
+      "tools": [
+        "page_update",
+        "create_attribution_model",
+        "template_export",
+        "snapshot.get",
+        "deal_search",
+        "erp_sla_policy_update",
+        "get_cohort",
+        "list_alias",
+        "list_pinned_item",
+        "archive_metric",
+        "cycle_count_list",
+        "export_dashboard",
+        "create_recurring_series",
+        "org_unit_export",
+        "get_quiet_hours",
+        "get_refund",
+        "update_journal_entry",
+        "export_audience_list",
+        "note_get",
+        "mfa_enrollment.archive",
+        "role_binding.search",
+        "model_version.get",
+        "activity_get",
+        "purchase_order_list",
+        "export_index_document",
+        "payroll_run_search",
+        "storage_class.archive",
+        "employee_get",
+        "contact_list",
+        "snapshot.archive",
+        "update_label",
+        "search_retention_curve",
+        "audit_log.delete",
+        "evaluation.get",
+        "archive_synonym_set",
+        "shipment_archive",
+        "bucket.get",
+        "archive_alias",
+        "prefix.archive",
+        "replica.export"
+      ],
+      "real_tokens": 1335,
+      "split": "fit"
+    },
+    {
+      "fmt": "oneline",
+      "tools": [
+        "firewall_rule.get",
+        "create_working_hours",
+        "update_ranking_profile",
+        "refund_charge_partial",
+        "get_dashboard",
+        "legacy_tax_rate_update",
+        "autoscaler.delete",
+        "deployment.get",
+        "api_key.create",
+        "query_job.search",
+        "table.export",
+        "post_channel_message",
+        "service.export",
+        "lead_archive",
+        "search_digest",
+        "archive_payment_method",
+        "quote_get",
+        "autoscaler.create",
+        "snapshot.search",
+        "telemetry_stream_list",
+        "cors_policy.list",
+        "ota_job_get",
+        "archive_journal_entry",
+        "feature_view.search",
+        "pod.archive",
+        "runbook.export",
+        "connection_pool.search",
+        "get_ad_group",
+        "list_room_booking",
+        "get_reaction",
+        "ip_allowlist.get",
+        "list_direct_message",
+        "migration.delete",
+        "search_room_booking",
+        "replication.export",
+        "archive_index_document",
+        "territory_list",
+        "update_reaction",
+        "list_vacation_responder",
+        "lifecycle_rule.update"
+      ],
+      "real_tokens": 1209,
+      "split": "fit"
+    },
+    {
+      "fmt": "oneline",
+      "tools": [
+        "delete_event",
+        "purchase_order_get",
+        "prefix.delete",
+        "delete_creative_asset",
+        "cycle_count_get",
+        "org_unit_create",
+        "geofence_archive",
+        "archive_draft",
+        "replica.delete",
+        "get_event",
+        "list_availability",
+        "export_attribution_model",
+        "archive_ticket",
+        "review_cycle_get",
+        "update_funnel",
+        "endpoint.list",
+        "grant.delete",
+        "list_message",
+        "device_group_get",
+        "get_queue",
+        "search_cohort",
+        "create_dispute",
+        "archive_working_hours",
+        "export_digest",
+        "job_requisition_export",
+        "revision_delete",
+        "delete_ticket",
+        "search_tax_document",
+        "firmware_bundle_export",
+        "list_reminder",
+        "contact_update",
+        "export_campaign",
+        "org_unit_archive",
+        "export_calendar",
+        "template_export",
+        "delete_alias",
+        "snapshot.get",
+        "runbook.get",
+        "post_thread_reply",
+        "prefix.get"
+      ],
+      "real_tokens": 1268,
+      "split": "fit"
+    },
+    {
+      "fmt": "json_schema",
+      "tools": [
+        "space_update"
+      ],
+      "real_tokens": 246,
+      "split": "holdout"
+    },
+    {
+      "fmt": "json_schema",
+      "tools": [
+        "export_escalation_path"
+      ],
+      "real_tokens": 345,
+      "split": "holdout"
+    },
+    {
+      "fmt": "json_schema",
+      "tools": [
+        "get_webhook_post"
+      ],
+      "real_tokens": 199,
+      "split": "holdout"
+    },
+    {
+      "fmt": "json_schema",
+      "tools": [
+        "replica.get"
+      ],
+      "real_tokens": 309,
+      "split": "holdout"
+    },
+    {
+      "fmt": "json_schema",
+      "tools": [
+        "delete_dashboard"
+      ],
+      "real_tokens": 165,
+      "split": "holdout"
+    },
+    {
+      "fmt": "json_schema",
+      "tools": [
+        "get_coupon"
+      ],
+      "real_tokens": 154,
+      "split": "holdout"
+    },
+    {
+      "fmt": "json_schema",
+      "tools": [
+        "search_knowledge_article"
+      ],
+      "real_tokens": 234,
+      "split": "holdout"
+    },
+    {
+      "fmt": "json_schema",
+      "tools": [
+        "search_reindex_job"
+      ],
+      "real_tokens": 245,
+      "split": "holdout"
+    },
+    {
+      "fmt": "json_schema",
+      "tools": [
+        "cors_policy.search"
+      ],
+      "real_tokens": 343,
+      "split": "holdout"
+    },
+    {
+      "fmt": "json_schema",
+      "tools": [
+        "revision_delete"
+      ],
+      "real_tokens": 253,
+      "split": "holdout"
+    },
+    {
+      "fmt": "json_schema",
+      "tools": [
+        "archive_journal_entry"
+      ],
+      "real_tokens": 203,
+      "split": "holdout"
+    },
+    {
+      "fmt": "json_schema",
+      "tools": [
+        "list_creative_asset"
+      ],
+      "real_tokens": 151,
+      "split": "holdout"
+    },
+    {
+      "fmt": "json_schema",
+      "tools": [
+        "label_taxonomy_list",
+        "legacy_finding_get",
+        "delete_landing_page",
+        "config_map.export",
+        "offer_create"
+      ],
+      "real_tokens": 1224,
+      "split": "holdout"
+    },
+    {
+      "fmt": "json_schema",
+      "tools": [
+        "get_message",
+        "email_draft_create",
+        "create_dashboard",
+        "snapshot.archive",
+        "archive_macro"
+      ],
+      "real_tokens": 930,
+      "split": "holdout"
+    },
+    {
+      "fmt": "json_schema",
+      "tools": [
+        "update_reaction",
+        "activity_list",
+        "index.export",
+        "export_reaction",
+        "model_version.create"
+      ],
+      "real_tokens": 1106,
+      "split": "holdout"
+    },
+    {
+      "fmt": "json_schema",
+      "tools": [
+        "create_landing_page",
+        "search_attribution_model",
+        "create_payment_method",
+        "secret.search",
+        "create_delivery_receipt",
+        "company_list",
+        "archive_cost_center",
+        "search_signature",
+        "export_job_archive",
+        "archive_payout",
+        "export_dashboard",
+        "payroll_run_update",
+        "create_coupon",
+        "index.get",
+        "get_queue",
+        "alert_rule.delete",
+        "update_payout",
+        "post_thread_reply",
+        "bucket.search",
+        "secret.get",
+        "firewall_rule.export",
+        "grant.update",
+        "list_invoice",
+        "update_tax_rate",
+        "activity_create"
+      ],
+      "real_tokens": 5950,
+      "split": "holdout"
+    },
+    {
+      "fmt": "json_schema",
+      "tools": [
+        "legacy_pinned_item_update",
+        "grant.search",
+        "create_tax_rate",
+        "mfa_enrollment.search",
+        "mfa_enrollment.update",
+        "export_delivery_receipt",
+        "hyperparam_sweep.create",
+        "purchase_order_archive",
+        "provisioning_claim_get",
+        "index.get",
+        "list_message",
+        "update_query_suggestion",
+        "archive_invoice",
+        "device_group_list",
+        "create_delivery_receipt",
+        "contact_archive",
+        "list_room_booking",
+        "secret.search",
+        "search_payout",
+        "create_quiet_hours",
+        "post_direct_message",
+        "list_journal_entry",
+        "grant.export",
+        "runbook.create",
+        "runbook.delete"
+      ],
+      "real_tokens": 5792,
+      "split": "holdout"
+    },
+    {
+      "fmt": "json_schema",
+      "tools": [
+        "stock_level_create",
+        "training_job.search",
+        "archive_campaign",
+        "export_index_document",
+        "org_unit_update",
+        "search_journal_entry",
+        "get_delivery_receipt",
+        "archive_queue",
+        "template_delete",
+        "get_creative_asset",
+        "deployment.get",
+        "export_subscription",
+        "bucket.create",
+        "quote_archive",
+        "storage_class.search",
+        "pipeline_archive",
+        "replica.list",
+        "get_sla_policy",
+        "list_label",
+        "create_pinned_item",
+        "archive_macro",
+        "migration.search",
+        "migration.export",
+        "object.signed_url_write",
+        "endpoint.list"
+      ],
+      "real_tokens": 5774,
+      "split": "holdout"
+    },
+    {
+      "fmt": "compact_json",
+      "tools": [
+        "employee_get"
+      ],
+      "real_tokens": 109,
+      "split": "holdout"
+    },
+    {
+      "fmt": "compact_json",
+      "tools": [
+        "archive_room_booking"
+      ],
+      "real_tokens": 133,
+      "split": "holdout"
+    },
+    {
+      "fmt": "compact_json",
+      "tools": [
+        "create_drip_sequence"
+      ],
+      "real_tokens": 96,
+      "split": "holdout"
+    },
+    {
+      "fmt": "compact_json",
+      "tools": [
+        "offer_update"
+      ],
+      "real_tokens": 140,
+      "split": "holdout"
+    },
+    {
+      "fmt": "compact_json",
+      "tools": [
+        "erp_sla_policy_update"
+      ],
+      "real_tokens": 127,
+      "split": "holdout"
+    },
+    {
+      "fmt": "compact_json",
+      "tools": [
+        "export_availability"
+      ],
+      "real_tokens": 109,
+      "split": "holdout"
+    },
+    {
+      "fmt": "compact_json",
+      "tools": [
+        "create_sms"
+      ],
+      "real_tokens": 139,
+      "split": "holdout"
+    },
+    {
+      "fmt": "compact_json",
+      "tools": [
+        "pipeline_search"
+      ],
+      "real_tokens": 149,
+      "split": "holdout"
+    },
+    {
+      "fmt": "compact_json",
+      "tools": [
+        "pod.search"
+      ],
+      "real_tokens": 167,
+      "split": "holdout"
+    },
+    {
+      "fmt": "compact_json",
+      "tools": [
+        "create_quiet_hours"
+      ],
+      "real_tokens": 156,
+      "split": "holdout"
+    },
+    {
+      "fmt": "compact_json",
+      "tools": [
+        "ota_job_archive"
+      ],
+      "real_tokens": 178,
+      "split": "holdout"
+    },
+    {
+      "fmt": "compact_json",
+      "tools": [
+        "update_drip_sequence"
+      ],
+      "real_tokens": 201,
+      "split": "holdout"
+    },
+    {
+      "fmt": "compact_json",
+      "tools": [
+        "object.get",
+        "search_subscription",
+        "storage_class.list",
+        "carrier_rate_archive",
+        "list_escalation_path"
+      ],
+      "real_tokens": 627,
+      "split": "holdout"
+    },
+    {
+      "fmt": "compact_json",
+      "tools": [
+        "telemetry_stream_list",
+        "snapshot.export",
+        "create_satisfaction_survey",
+        "search_reconciliation",
+        "export_ticket"
+      ],
+      "real_tokens": 609,
+      "split": "holdout"
+    },
+    {
+      "fmt": "compact_json",
+      "tools": [
+        "purchase_order_list",
+        "signed_url.archive",
+        "search_label",
+        "evaluation.list",
+        "label_taxonomy_update"
+      ],
+      "real_tokens": 736,
+      "split": "holdout"
+    },
+    {
+      "fmt": "compact_json",
+      "tools": [
+        "erp_note_get",
+        "list_signature",
+        "incident.archive",
+        "revision_list",
+        "grant.update",
+        "evaluation.update",
+        "archive_channel",
+        "snapshot.search",
+        "delete_budget",
+        "post_thread_reply",
+        "export_job_list",
+        "company_list",
+        "stock_level_get",
+        "update_webhook_post",
+        "update_cohort",
+        "ip_allowlist.delete",
+        "create_direct_message",
+        "revision_create",
+        "update_digest",
+        "create_ticket",
+        "table.get",
+        "export_reconciliation",
+        "archive_metric",
+        "export_invoice",
+        "erp_ad_group_get"
+      ],
+      "real_tokens": 3607,
+      "split": "holdout"
+    },
+    {
+      "fmt": "compact_json",
+      "tools": [
+        "replication.get",
+        "firmware_bundle_delete",
+        "legacy_stopword_list_create",
+        "get_analyzer_chain",
+        "shipment_export",
+        "erp_activity_delete",
+        "export_tax_rate",
+        "search_room_booking",
+        "grant.update",
+        "connection_pool.delete",
+        "get_stopword_list",
+        "telemetry_stream_archive",
+        "ip_allowlist.search",
+        "training_job.search",
+        "list_synonym_set",
+        "revision_delete",
+        "signed_url.delete",
+        "export_utm_link",
+        "company_export",
+        "update_dispute",
+        "replica.list",
+        "signed_url.archive",
+        "note_list",
+        "lifecycle_rule.update",
+        "sku_delete"
+      ],
+      "real_tokens": 3390,
+      "split": "holdout"
+    },
+    {
+      "fmt": "compact_json",
+      "tools": [
+        "query_job.get",
+        "list_satisfaction_survey",
+        "search_satisfaction_survey",
+        "stock_level_archive",
+        "search_message",
+        "feature_view.archive",
+        "list_thread",
+        "stock_level_get",
+        "search_direct_message",
+        "object.signed_url_read",
+        "config_map.search",
+        "update_reconciliation",
+        "archive_thread",
+        "list_channel_message",
+        "create_subscription_pref",
+        "connection_pool.create",
+        "job_requisition_get",
+        "erp_label_taxonomy_create",
+        "get_subscription",
+        "create_dispute",
+        "audit_log.delete",
+        "deployment.rollback",
+        "label_taxonomy_export",
+        "archive_user_group",
+        "signed_url.search"
+      ],
+      "real_tokens": 3182,
+      "split": "holdout"
+    },
+    {
+      "fmt": "signature",
+      "tools": [
+        "archive_event_stream"
+      ],
+      "real_tokens": 38,
+      "split": "holdout"
+    },
+    {
+      "fmt": "signature",
+      "tools": [
+        "rollout.update"
+      ],
+      "real_tokens": 49,
+      "split": "holdout"
+    },
+    {
+      "fmt": "signature",
+      "tools": [
+        "company_search"
+      ],
+      "real_tokens": 32,
+      "split": "holdout"
+    },
+    {
+      "fmt": "signature",
+      "tools": [
+        "search_utm_link"
+      ],
+      "real_tokens": 43,
+      "split": "holdout"
+    },
+    {
+      "fmt": "signature",
+      "tools": [
+        "update_sms"
+      ],
+      "real_tokens": 36,
+      "split": "holdout"
+    },
+    {
+      "fmt": "signature",
+      "tools": [
+        "company_export"
+      ],
+      "real_tokens": 44,
+      "split": "holdout"
+    },
+    {
+      "fmt": "signature",
+      "tools": [
+        "firewall_rule.get"
+      ],
+      "real_tokens": 39,
+      "split": "holdout"
+    },
+    {
+      "fmt": "signature",
+      "tools": [
+        "review_cycle_delete"
+      ],
+      "real_tokens": 47,
+      "split": "holdout"
+    },
+    {
+      "fmt": "signature",
+      "tools": [
+        "update_sla_policy"
+      ],
+      "real_tokens": 33,
+      "split": "holdout"
+    },
+    {
+      "fmt": "signature",
+      "tools": [
+        "archive_channel_message"
+      ],
+      "real_tokens": 37,
+      "split": "holdout"
+    },
+    {
+      "fmt": "signature",
+      "tools": [
+        "label_taxonomy_list"
+      ],
+      "real_tokens": 25,
+      "split": "holdout"
+    },
+    {
+      "fmt": "signature",
+      "tools": [
+        "mfa_enrollment.update"
+      ],
+      "real_tokens": 70,
+      "split": "holdout"
+    },
+    {
+      "fmt": "signature",
+      "tools": [
+        "snapshot.archive",
+        "export_job_search",
+        "signed_url.delete",
+        "create_channel",
+        "create_queue"
+      ],
+      "real_tokens": 238,
+      "split": "holdout"
+    },
+    {
+      "fmt": "signature",
+      "tools": [
+        "archive_metric",
+        "archive_subscription",
+        "export_macro",
+        "audit_log.delete",
+        "query_job.export"
+      ],
+      "real_tokens": 256,
+      "split": "holdout"
+    },
+    {
+      "fmt": "signature",
+      "tools": [
+        "delete_subscription_pref",
+        "get_macro",
+        "object.archive",
+        "archive_availability",
+        "search_working_hours"
+      ],
+      "real_tokens": 284,
+      "split": "holdout"
+    },
+    {
+      "fmt": "signature",
+      "tools": [
+        "audit_log.export",
+        "secret.archive",
+        "model_version.update",
+        "erp_ad_group_get",
+        "contact_list",
+        "list_channel_message",
+        "list_subscription_pref",
+        "list_calendar",
+        "delete_coupon",
+        "create_audience_list",
+        "archive_room_booking",
+        "storage_class.search",
+        "attachment_delete",
+        "deployment.update",
+        "create_satisfaction_survey",
+        "post_channel_message",
+        "stock_level_get",
+        "note_search",
+        "search_refund",
+        "export_payment_method",
+        "training_job.archive",
+        "device_get",
+        "update_queue",
+        "export_sms",
+        "attachment_create"
+      ],
+      "real_tokens": 936,
+      "split": "holdout"
+    },
+    {
+      "fmt": "signature",
+      "tools": [
+        "role_binding.update",
+        "list_cohort",
+        "get_template_render",
+        "search_synonym_set",
+        "list_retention_curve",
+        "ota_job_export",
+        "create_recurring_series",
+        "migration.update",
+        "legacy_tax_rate_update",
+        "replica.update",
+        "search_sms",
+        "send_email_template",
+        "deal_update",
+        "shipment_delete",
+        "archive_subscription_pref",
+        "search_availability",
+        "update_index_document",
+        "export_funnel",
+        "offer_get",
+        "list_room_booking",
+        "replication.list",
+        "get_pinned_item",
+        "autoscaler.get",
+        "firewall_rule.update",
+        "export_digest"
+      ],
+      "real_tokens": 993,
+      "split": "holdout"
+    },
+    {
+      "fmt": "signature",
+      "tools": [
+        "snapshot.search",
+        "legacy_pinned_item_update",
+        "firewall_rule.list",
+        "lifecycle_rule.update",
+        "org_unit_update",
+        "replica.delete",
+        "search_webhook_post",
+        "sku_search",
+        "archive_query_suggestion",
+        "update_cost_center",
+        "update_recurring_series",
+        "create_credit_note",
+        "get_landing_page",
+        "object.signed_url_write",
+        "mfa_enrollment.get",
+        "bucket.get",
+        "search_utm_link",
+        "legacy_tax_rate_update",
+        "archive_queue",
+        "timeoff_request_search",
+        "hyperparam_sweep.export",
+        "review_cycle_create",
+        "table.create",
+        "deal_list",
+        "secret.export"
+      ],
+      "real_tokens": 1014,
+      "split": "holdout"
+    },
+    {
+      "fmt": "oneline",
+      "tools": [
+        "review_cycle_list"
+      ],
+      "real_tokens": 46,
+      "split": "holdout"
+    },
+    {
+      "fmt": "oneline",
+      "tools": [
+        "get_index_document"
+      ],
+      "real_tokens": 32,
+      "split": "holdout"
+    },
+    {
+      "fmt": "oneline",
+      "tools": [
+        "get_charge"
+      ],
+      "real_tokens": 50,
+      "split": "holdout"
+    },
+    {
+      "fmt": "oneline",
+      "tools": [
+        "bucket.archive"
+      ],
+      "real_tokens": 18,
+      "split": "holdout"
+    },
+    {
+      "fmt": "oneline",
+      "tools": [
+        "territory_export"
+      ],
+      "real_tokens": 49,
+      "split": "holdout"
+    },
+    {
+      "fmt": "oneline",
+      "tools": [
+        "legacy_signed_url_get"
+      ],
+      "real_tokens": 20,
+      "split": "holdout"
+    },
+    {
+      "fmt": "oneline",
+      "tools": [
+        "create_message"
+      ],
+      "real_tokens": 43,
+      "split": "holdout"
+    },
+    {
+      "fmt": "oneline",
+      "tools": [
+        "storage_class.export"
+      ],
+      "real_tokens": 31,
+      "split": "holdout"
+    },
+    {
+      "fmt": "oneline",
+      "tools": [
+        "offer_create"
+      ],
+      "real_tokens": 26,
+      "split": "holdout"
+    },
+    {
+      "fmt": "oneline",
+      "tools": [
+        "erp_activity_delete"
+      ],
+      "real_tokens": 28,
+      "split": "holdout"
+    },
+    {
+      "fmt": "oneline",
+      "tools": [
+        "endpoint.create"
+      ],
+      "real_tokens": 12,
+      "split": "holdout"
+    },
+    {
+      "fmt": "oneline",
+      "tools": [
+        "delete_working_hours"
+      ],
+      "real_tokens": 48,
+      "split": "holdout"
+    },
+    {
+      "fmt": "oneline",
+      "tools": [
+        "config_map.export",
+        "legacy_macro_delete",
+        "sku_export",
+        "delete_subscription",
+        "firewall_rule.update"
+      ],
+      "real_tokens": 217,
+      "split": "holdout"
+    },
+    {
+      "fmt": "oneline",
+      "tools": [
+        "archive_direct_message",
+        "replication.search",
+        "create_drip_sequence",
+        "delete_ticket",
+        "training_job.update"
+      ],
+      "real_tokens": 182,
+      "split": "holdout"
+    },
+    {
+      "fmt": "oneline",
+      "tools": [
+        "prefix.search",
+        "sku_archive",
+        "export_tax_document",
+        "create_availability",
+        "delete_draft"
+      ],
+      "real_tokens": 185,
+      "split": "holdout"
+    },
+    {
+      "fmt": "oneline",
+      "tools": [
+        "snapshot.list",
+        "page_export",
+        "update_reconciliation",
+        "create_expense_report",
+        "delete_quiet_hours",
+        "page_update",
+        "device_group_update",
+        "create_journal_entry",
+        "archive_pinned_item",
+        "ota_job_create",
+        "review_cycle_list",
+        "device_archive",
+        "revision_get",
+        "delete_tax_rate",
+        "prefix.archive",
+        "delete_reindex_job",
+        "archive_message",
+        "archive_refund",
+        "update_charge",
+        "get_creative_asset",
+        "sku_export",
+        "export_payout",
+        "list_cohort",
+        "create_retention_curve",
+        "job_requisition_export"
+      ],
+      "real_tokens": 808,
+      "split": "holdout"
+    },
+    {
+      "fmt": "oneline",
+      "tools": [
+        "create_push_notification",
+        "export_escalation_path",
+        "snapshot.list",
+        "provisioning_claim_search",
+        "list_ad_group",
+        "get_landing_page",
+        "delete_refund",
+        "archive_queue",
+        "archive_stopword_list",
+        "ip_allowlist.export",
+        "list_knowledge_article",
+        "refund_charge_partial",
+        "update_invite",
+        "lead_delete",
+        "erp_charge_create",
+        "storage_class.get",
+        "get_recurring_series",
+        "pipeline_export",
+        "delete_ad_group",
+        "get_message",
+        "object.make_public",
+        "job_requisition_delete",
+        "delete_payout",
+        "get_signature",
+        "config_map.search"
+      ],
+      "real_tokens": 729,
+      "split": "holdout"
+    },
+    {
+      "fmt": "oneline",
+      "tools": [
+        "get_digest",
+        "delete_expense_report",
+        "export_job_list",
+        "legacy_event_stream_update",
+        "page_get",
+        "pod.export",
+        "alert_rule.export",
+        "delete_cost_center",
+        "get_reindex_job",
+        "erp_thread_delete",
+        "purchase_order_export",
+        "list_thread",
+        "firmware_bundle_export",
+        "incident.get",
+        "training_job.delete",
+        "query_job.create",
+        "export_invite",
+        "telemetry_stream_update",
+        "attachment_export",
+        "connection_pool.list",
+        "secret.get",
+        "update_funnel",
+        "delete_funnel",
+        "get_ranking_profile",
+        "prefix.export"
+      ],
+      "real_tokens": 892,
+      "split": "holdout"
+    }
+  ]
+}
