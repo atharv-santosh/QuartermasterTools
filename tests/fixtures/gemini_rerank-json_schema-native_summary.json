@@ -1,0 +1,48 @@
+{
+  "tag": "rerank-json_schema-native",
+  "model": "gemini-2.5-flash-lite",
+  "convention": "native",
+  "fmt": "json_schema",
+  "strategy": "rerank",
+  "k": 8,
+  "n_sampled": 6,
+  "sample_seed": 99,
+  "task_ids": [
+    "t0117",
+    "t0019",
+    "t0007",
+    "t0059",
+    "t0213",
+    "t0002"
+  ],
+  "rows": [
+    {
+      "size": 25,
+      "n": 6,
+      "task_success": 0.5,
+      "recall_at_k": 1.0,
+      "failures": {
+        "hallucinated_argument": 1,
+        "wrong_argument_value": 1,
+        "no_action": 1
+      },
+      "recall_hit_task_fail": 3,
+      "recall_miss_task_pass": 0,
+      "outcomes": {
+        "wrong_argument_value": 1,
+        "success": 3,
+        "hallucinated_argument": 1,
+        "no_action": 1
+      }
+    }
+  ],
+  "usage": {
+    "model": "gemini-2.5-flash-lite",
+    "calls": 6,
+    "retries": 1,
+    "prompt_tokens": 4281,
+    "output_tokens": 553,
+    "total_tokens": 4834,
+    "cost_usd_list_price": 0.000649
+  }
+}
