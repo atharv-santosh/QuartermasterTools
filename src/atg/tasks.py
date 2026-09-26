@@ -331,10 +331,12 @@ def grade(task: Task, action: Action, catalog: Catalog, *, gold_rank: int | None
         return Grade(_miss_kind(gold_rank, k), False, "agent produced no action")
 
     if isinstance(action, Clarify):
-        if task.kind != "underspecified":
-            return Grade("missing_argument", False, f"clarified on a fully specified task: {action.missing}")
+        # Tool choice is graded before the question it asked, so a clarification
+        # about the wrong tool is reported as a wrong tool.
         if action.tool not in task.acceptable:
             return Grade(_wrong_tool_kind(task, action.tool, gold_rank, k), False, action.tool)
+        if task.kind != "underspecified":
+            return Grade("missing_argument", False, f"clarified on a fully specified task: {action.missing}")
         if action.missing != task.missing_param:
             return Grade("missing_argument", False, f"asked for {action.missing}, needed {task.missing_param}")
         return Grade("success", True, "correctly refused to invent a value")

@@ -43,7 +43,7 @@ def _unit_hash(*parts: str) -> float:
 
 _QUOTED = re.compile(r"'([^']+)'")
 _EMAIL = re.compile(r"\b[\w.\-+]+@[\w.\-]+\b")
-_URL = re.compile(r"https?://\S+?(?=[\s.,]|$)")
+_URL = re.compile(r"https?://[^\s'\"]+")
 _DATE = re.compile(r"\b\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z\b")
 _ID = re.compile(r"\b[a-z]{1,5}_\d{5,9}\b")
 _MONEY = re.compile(r"\b\d+\.\d{2}\b")
@@ -63,6 +63,14 @@ _KIND_PATTERNS: tuple[tuple[str, re.Pattern[str]], ...] = (
 )
 
 
+_ENUM_WORD = re.compile(
+    r"\b(?:true|false|csv|json|parquet|private|team|public|active|paused|archived"
+    r"|low|normal|urgent|us-east-1|eu-west-1|ap-south-1)\b"
+)
+_WORDS_BEFORE = 5
+_CONTEXT_WINDOW = 48
+
+
 @dataclass(frozen=True, slots=True)
 class Mention:
     """A literal in the query the model could copy into an argument."""
@@ -70,46 +78,118 @@ class Mention:
     value: str
     kinds: frozenset[str]
     context: frozenset[str]
+    start: int
+    end: int
+
+
+def _context_words(query: str, start: int) -> frozenset[str]:
+    """The words just before a literal, stopwords kept.
+
+    Keeping them matters: 'in', 'to', 'at' and 'as' are exactly the words that
+    say which parameter a value belongs to, and a stopword list throws them away.
+    """
+    window = query[max(0, start - _CONTEXT_WINDOW) : start].lower()
+    raw = re.findall(r"[a-z0-9_]+", window)[-_WORDS_BEFORE:]
+    return frozenset(raw) | frozenset(tokenize(" ".join(raw)))
 
 
 def extract_mentions(query: str) -> tuple[Mention, ...]:
-    """Every literal in the query, with the words that introduced it."""
-    found: dict[str, set[str]] = {}
+    """Every literal in the query, with the words that introduced it.
 
-    def add(value: str, kind: str) -> None:
-        value = value.strip().rstrip(".,;")
-        if value:
-            found.setdefault(value, set()).add(kind)
+    Matches nested inside a longer match are dropped, so the host part of a URL
+    does not become a candidate path and an enum word inside a quoted sentence
+    does not become a candidate enum.
+    """
+    raw: list[tuple[int, int, str, str]] = []
+
+    def add(start: int, end: int, value: str, kind: str) -> None:
+        stripped = value.rstrip(".,;")
+        if stripped:
+            raw.append((start, start + len(stripped), stripped, kind))
 
     for match in _QUOTED.finditer(query):
-        add(match.group(1), "text")
         inner = match.group(1)
+        at = match.start(1)
+        add(at, match.end(1), inner, "text")
         if _IMAGE.fullmatch(inner) or _PATHY.fullmatch(inner):
-            add(inner, "path")
-        if "=" in inner:
-            add(inner, "text")
+            add(at, match.end(1), inner, "path")
+    for pattern, kind in ((_URL, "url"), (_EMAIL, "email"), (_IMAGE, "text"), (_CHANNEL, "text")):
+        for match in pattern.finditer(query):
+            add(match.start(), match.end(), match.group(0), kind)
     for kind, pattern in _KIND_PATTERNS:
         for match in pattern.finditer(query):
-            add(match.group(0), kind)
-    for match in _CHANNEL.finditer(query):
-        add(match.group(0), "text")
-    for match in _IMAGE.finditer(query):
-        add(match.group(0), "text")
-        add(match.group(0), "path")
-    for word in re.findall(r"\b(?:true|false|csv|json|parquet|private|team|public|active|paused|archived|low|normal|urgent|us-east-1|eu-west-1|ap-south-1)\b", query):
-        add(word, "bool" if word in ("true", "false") else "enum")
+            add(match.start(), match.end(), match.group(0), kind)
+    for match in _ENUM_WORD.finditer(query):
+        word = match.group(0)
+        add(match.start(), match.end(), word, "bool" if word in ("true", "false") else "enum")
 
-    lower = query.lower()
-    mentions: list[Mention] = []
-    for value, kinds in found.items():
-        pos = lower.find(value.lower())
-        before = tokenize(query[max(0, pos - 40) : pos])
-        mentions.append(Mention(value, frozenset(kinds), frozenset(before[-4:])))
-    return tuple(mentions)
+    spans = {(s, e) for s, e, _, _ in raw}
+    kept: dict[tuple[int, int, str], set[str]] = {}
+    for start, end, value, kind in raw:
+        contained = any(
+            (os_ <= start and end <= oe) and (os_, oe) != (start, end) for os_, oe in spans
+        )
+        if contained:
+            continue
+        kept.setdefault((start, end, value), set()).add(kind)
+
+    mentions = [
+        Mention(value, frozenset(kinds), _context_words(query, start), start, end)
+        for (start, end, value), kinds in kept.items()
+    ]
+    return tuple(sorted(mentions, key=lambda m: m.start))
+
+
+# English words that point at a parameter, which a real model knows and a
+# string-matcher does not. Kept small and generic on purpose: the point is that
+# the simulator is not deciding argument placement on a coin flip, not that it
+# has been shown how the benchmark phrases things.
+_PARAM_CUES: dict[str, tuple[str, ...]] = {
+    "name": ("called", "named", "titled"),
+    "notes": ("note", "comment", "remark"),
+    "subject": ("subject", "line", "re"),
+    "body": ("saying", "say", "content", "text", "message"),
+    "text": ("saying", "say", "message", "note"),
+    "query": ("matching", "match", "search"),
+    "fields": ("setting", "set"),
+    "format": ("as", "format"),
+    "limit": ("cap", "capped", "most", "max"),
+    "amount": ("amount", "back", "credit"),
+    "recipients": ("to", "list"),
+    "to": ("to",),
+    "user": ("to", "dm", "privately"),
+    "channel": ("channel", "in"),
+    "service": ("service", "of"),
+    "image": ("image", "build"),
+    "bucket": ("bucket", "from", "in"),
+    "key": ("key", "download", "upload"),
+    "dest": ("to", "over", "into"),
+    "owner_email": ("owned", "owner"),
+    "effective_at": ("effective", "at", "from"),
+    "post_at": ("at", "out"),
+    "webhook_url": ("webhook", "through"),
+    "callback_url": ("callback", "calling"),
+    "template_id": ("template", "using"),
+    "path": ("path", "at"),
+    "visibility": ("visibility", "visible"),
+    "status": ("status",),
+    "priority": ("priority",),
+    "region": ("region",),
+    "dry_run": ("dry", "run"),
+}
+
+# Every JSON Schema string parameter is just `"type": "string"`, so an id, a
+# path and a sentence are indistinguishable by type alone. The model therefore
+# has to place them by name and description, which is exactly the evidence
+# compression removes.
+_STRINGY = frozenset({"text", "id", "path", "email", "url", "date", "enum"})
 
 
 def _param_words(param: ViewParam) -> frozenset[str]:
-    return frozenset(tokenize(param.name.replace("_", " ") + " " + param.description))
+    cues = _PARAM_CUES.get(param.name, ())
+    if param.name.endswith("_id"):
+        cues = (*cues, "id", *tokenize(param.name[:-3].replace("_", " ")))
+    return frozenset(tokenize(param.name.replace("_", " ") + " " + param.description)) | frozenset(cues)
 
 
 def _kind_of_hint(hint: str) -> str:
@@ -121,6 +201,14 @@ def _kind_of_hint(hint: str) -> str:
         "date-time": "date",
         "uri": "url",
     }.get(hint, hint)
+
+
+def _compatible(kind: str, param: ViewParam, mention: Mention) -> bool:
+    if param.enum:
+        return mention.value in param.enum
+    if kind == "text":
+        return bool(mention.kinds & _STRINGY)
+    return kind in mention.kinds
 
 
 def _select_score(view: ToolView, query: str, position: int, total: int) -> float:
@@ -211,14 +299,20 @@ def fill_arguments(view: ToolView, query: str) -> Action:
         for mention in mentions:
             if mention.value in used:
                 continue
-            compatible = kind in mention.kinds or (kind == "text" and "text" in mention.kinds)
-            if not compatible:
+            if not _compatible(kind, param, mention):
                 continue
-            if kind == "enum" and param.enum and mention.value not in param.enum:
-                continue
-            context_score = len(words & mention.context) / max(1, len(words))
+            hits = words & mention.context
+            context_score = len(hits) / max(1, len(mention.context))
             exact = 1.0 if param.name in mention.context else 0.0
-            score = 2.0 * exact + 1.4 * context_score + 0.15 * _unit_hash(query, param.name, mention.value)
+            # A typed literal landing on a same-typed parameter is weak evidence
+            # on its own, but it separates an id from a sentence.
+            typed = 0.6 if (kind != "text" and kind in mention.kinds) else 0.0
+            score = (
+                2.0 * exact
+                + 1.8 * context_score
+                + typed
+                + 0.15 * _unit_hash(query, param.name, mention.value)
+            )
             if best is None or score > best[0]:
                 best = (score, mention.value)
         if best is not None:

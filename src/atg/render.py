@@ -112,7 +112,7 @@ def _parse_json(rendered: str, fmt: Format) -> ToolView:
     params = tuple(
         ViewParam(
             name=name,
-            type_hint=spec.get("format") or spec.get("type", "string"),
+            type_hint="enum" if spec.get("enum") else (spec.get("format") or spec.get("type", "string")),
             required=name in required,
             description=spec.get("description", ""),
             enum=tuple(spec.get("enum", ())),
