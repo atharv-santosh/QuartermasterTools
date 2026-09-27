@@ -1,15 +1,15 @@
 {
   "model": "gemini-2.5-flash-lite",
   "convention": "proxy",
-  "recorded_utc": "2026-09-27T01:22:09Z",
+  "recorded_utc": "2026-09-27T01:46:25Z",
   "usage": {
     "model": "gemini-2.5-flash-lite",
-    "calls": 33,
-    "retries": 8,
-    "prompt_tokens": 20868,
-    "output_tokens": 5140,
-    "total_tokens": 26008,
-    "cost_usd_list_price": 0.004143
+    "calls": 40,
+    "retries": 16,
+    "prompt_tokens": 25199,
+    "output_tokens": 5878,
+    "total_tokens": 31077,
+    "cost_usd_list_price": 0.004871
   },
   "records": [
     {
@@ -398,6 +398,88 @@
       },
       "prompt_tokens": 663,
       "output_tokens": 112
+    },
+    {
+      "key": "{\"c\": \"proxy\", \"q\": \"Patch the ad group id ag_5345671, setting 'owner_email=ops-team@northwind.example', notes 'follow up after month end' - it has to go out from our own domain, which is already set up for it.\", \"v\": [\"update_ad_group(ad_group_id:id!, fields:str!, region:us-east-1|eu-west-1|ap-south-1, notes:str!, name:str) - Update fields on an existing ad group. Only valid when the sending domain has completed DKIM verification.\", \"get_ad_group(ad_group_id:id!, owner_email:email) - Retrieve a single ad group by id.\", \"archive_ad_group(ad_group_id:id!, limit:int, name:str) - Archive a ad group without deleting it.\", \"delete_ad_group(ad_group_id:id!, owner_email:email!, limit:int) - Permanently delete a ad group.\", \"erp_ad_group_get(ad_group_id:id!, owner_email:email) - Get a ad group record via the legacy ERP bridge.\", \"export_ad_group(limit:int, format:csv|json|parquet!, visibility:private|team|public, effective_at:date, owner_email:email!) - Export ad groups to a file.\", \"list_ad_group(limit:int, visibility:private|team|public, effective_at:date) - List ad groups with optional paging.\", \"create_ad_group(name:str!, effective_at:date, priority:low|normal|urgent) - Create a new ad group in marketing. Only valid when sending to more than 50 recipients in one call.\"]}",
+      "query": "Patch the ad group id ag_5345671, setting 'owner_email=ops-team@northwind.example', notes 'follow up after month end' - it has to go out from our own domain, which is already set up for it.",
+      "n_candidates": 8,
+      "fmt": "signature",
+      "name": null,
+      "args": {},
+      "prompt_tokens": 681,
+      "output_tokens": 0
+    },
+    {
+      "key": "{\"c\": \"proxy\", \"q\": \"Amend the budget code id cc_6321292, setting 'status=paused' in the finance system.\", \"v\": [\"erp_cost_center_update(cost_center_id:id!, fields:str!, status:active|paused|archived, amount:num, limit:int) - Update a cost center record via the legacy ERP bridge.\", \"get_invoice(invoice_id:id!, limit:int, dry_run:bool, status:active|paused|archived) - Retrieve a single invoice by id.\", \"update_cost_center(cost_center_id:id!, fields:str!, status:active|paused|archived, amount:num, limit:int) - Update fields on an existing cost center.\", \"delete_journal_entry(journal_entry_id:id!, limit:int, visibility:private|team|public!, status:active|paused|archived) - Permanently delete a journal entry.\", \"space_get(space_id:id!, dry_run:bool) - Retrieve a single space by id.\", \"query_job.delete(query_job_id:id!, dry_run:bool!, notes:str) - Permanently delete a query job. Only valid when operating against the sandbox environment, not production.\", \"payroll_run_get(payroll_run_id:id!, priority:low|normal|urgent, effective_at:date, visibility:private|team|public!, notes:str) - Retrieve a single payroll run by id.\", \"model_version.delete(model_version_id:id!, dry_run:bool, visibility:private|team|public, limit:int!) - Permanently delete a model version. Only valid when operating against the sandbox environment, not production.\"]}",
+      "query": "Amend the budget code id cc_6321292, setting 'status=paused' in the finance system.",
+      "n_candidates": 8,
+      "fmt": "signature",
+      "name": "ask_user",
+      "args": {
+        "missing": "fields",
+        "tool": "update_cost_center"
+      },
+      "prompt_tokens": 673,
+      "output_tokens": 362
+    },
+    {
+      "key": "{\"c\": \"proxy\", \"q\": \"Read back the offer id o_2397740.\", \"v\": [\"offer_get(offer_id:id!, name:str, limit:int) - Retrieve a single offer by id.\", \"pipeline_get(pipeline_id:id!, visibility:private|team|public, notes:str) - Retrieve a single pipeline by id.\", \"signed_url.get(signed_url_id:id!, limit:int) - Retrieve a single signed url by id.\", \"device_get(device_id:id!, notes:str, owner_email:email, name:str) - Retrieve a single device by id.\", \"comment_get(comment_id:id!, effective_at:date, owner_email:email) - Retrieve a single comment by id.\", \"get_working_hours(working_hours_id:id!, dry_run:bool, priority:low|normal|urgent, status:active|paused|archived) - Retrieve a single working hours by id.\", \"grant.get(grant_id:id!, priority:low|normal|urgent, notes:str!) - Retrieve a single grant by id.\", \"archive_digest(digest_id:id!, effective_at:date) - Archive a digest without deleting it.\"]}",
+      "query": "Read back the offer id o_2397740.",
+      "n_candidates": 8,
+      "fmt": "signature",
+      "name": null,
+      "args": {},
+      "prompt_tokens": 565,
+      "output_tokens": 0
+    },
+    {
+      "key": "{\"c\": \"proxy\", \"q\": \"Add a coupon called 'EU customer export' in the payments system.\", \"v\": [\"create_coupon(name:str!, notes:str, visibility:private|team|public) - Create a new coupon in payments.\", \"get_coupon(coupon_id:id!, amount:num!) - Retrieve a single coupon by id.\", \"replication.create(name:str!, path:path) - Create a new replication in storage.\", \"incident.create(name:str!, visibility:private|team|public, callback_url:url) - Create a new incident in devops.\", \"geofence_create(name:str!, dry_run:bool, effective_at:date) - Create a new geofence in iot.\", \"signed_url.export(limit:int, format:csv|json|parquet!, priority:low|normal|urgent!) - Export signed urls to a file.\", \"export_availability(limit:int, format:csv|json|parquet!, visibility:private|team|public!) - Export availabilitys to a file.\", \"ip_allowlist.create(name:str!, status:active|paused|archived!, limit:int) - Create a new ip allowlist in security.\"]}",
+      "query": "Add a coupon called 'EU customer export' in the payments system.",
+      "n_candidates": 8,
+      "fmt": "signature",
+      "name": "ask_user",
+      "args": {
+        "tool": "create_coupon",
+        "missing": "visibility"
+      },
+      "prompt_tokens": 552,
+      "output_tokens": 139
+    },
+    {
+      "key": "{\"c\": \"proxy\", \"q\": \"Patch the cors policy id cp_2845508, setting 'priority=urgent'.\", \"v\": [\"cors_policy.update(cors_policy_id:id!, fields:str!, format:csv|json|parquet, limit:int, visibility:private|team|public) - Update fields on an existing cors policy.\", \"table.update(table_id:id!, fields:str!, dry_run:bool!, region:us-east-1|eu-west-1|ap-south-1, notes:str) - Update fields on an existing table.\", \"update_filter(filter_id:id!, fields:str!, effective_at:date, limit:int) - Update fields on an existing filter.\", \"update_expense_report(expense_report_id:id!, fields:str!, notes:str, owner_email:email) - Update fields on an existing expense report.\", \"shipment_update(shipment_id:id!, fields:str!, owner_email:email, dry_run:bool) - Update fields on an existing shipment.\", \"warehouse_bin_update(warehouse_bin_id:id!, fields:str!, owner_email:email, region:us-east-1|eu-west-1|ap-south-1, name:str) - Update fields on an existing warehouse bin.\", \"archive_label(label_id:id!, name:str, priority:low|normal|urgent) - Archive a label without deleting it.\", \"erp_cost_center_update(cost_center_id:id!, fields:str!, status:active|paused|archived, amount:num, limit:int) - Update a cost center record via the legacy ERP bridge.\"]}",
+      "query": "Patch the cors policy id cp_2845508, setting 'priority=urgent'.",
+      "n_candidates": 8,
+      "fmt": "signature",
+      "name": null,
+      "args": {},
+      "prompt_tokens": 666,
+      "output_tokens": 0
+    },
+    {
+      "key": "{\"c\": \"proxy\", \"q\": \"Push 'close is done, books are locked' through the incoming webhook at https://cb.northwind.example/ingest.\", \"v\": [\"post_webhook_message(webhook_url:url!, text:str!) - Post via an incoming webhook URL.\", \"update_push_notification(push_notification_id:id!, fields:str!, visibility:private|team|public, effective_at:date, callback_url:url) - Update fields on an existing push notification.\", \"index.export(limit:int, format:csv|json|parquet!) - Export indexs to a file.\", \"post_thread_reply(thread_ts:id!, text:str!) - Reply inside an existing message thread.\", \"get_metric(metric_id:id!, status:active|paused|archived, notes:str) - Retrieve a single metric by id.\", \"schedule_channel_message(channel:str!, text:str!, post_at:date!) - Schedule a channel message for later delivery.\", \"post_channel_message(channel:str!, text:str!) - Post a message to a channel.\", \"list_availability(limit:int, owner_email:email!) - List availabilitys with optional paging.\"]}",
+      "query": "Push 'close is done, books are locked' through the incoming webhook at https://cb.northwind.example/ingest.",
+      "n_candidates": 8,
+      "fmt": "signature",
+      "name": "call_tool",
+      "args": {
+        "arguments_json": "{\"webhook_url\": \"https://cb.northwind.example/ingest\", \"text\": \"close is done, books are locked\"}",
+        "name": "post_webhook_message"
+      },
+      "prompt_tokens": 555,
+      "output_tokens": 140
+    },
+    {
+      "key": "{\"c\": \"proxy\", \"q\": \"Change the pinned item id pi_1144339.\", \"v\": [\"update_pinned_item(pinned_item_id:id!, fields:str!, dry_run:bool) - Update fields on an existing pinned item.\", \"company_update(company_id:id!, fields:str!, owner_email:email!, status:active|paused|archived, notes:str) - Update fields on an existing company. Only valid when the record is under legal hold and cannot be hard deleted.\", \"alert_rule.create(name:str!, effective_at:date, visibility:private|team|public!) - Create a new alert rule in devops.\", \"get_creative_asset(creative_asset_id:id!, owner_email:email!, notes:str!, name:str) - Retrieve a single creative asset by id.\", \"archive_satisfaction_survey(satisfaction_survey_id:id!, notes:str, region:us-east-1|eu-west-1|ap-south-1, limit:int) - Archive a satisfaction survey without deleting it.\", \"get_dispute(dispute_id:id!, dry_run:bool!, notes:str) - Retrieve a single dispute by id.\", \"evaluation.get(evaluation_id:id!, name:str, effective_at:date, priority:low|normal|urgent, callback_url:url) - Retrieve a single evaluation by id.\", \"index.delete(index_id:id!, status:active|paused|archived!, visibility:private|team|public!) - Permanently delete a index.\"]}",
+      "query": "Change the pinned item id pi_1144339.",
+      "n_candidates": 8,
+      "fmt": "signature",
+      "name": "ask_user",
+      "args": {
+        "missing": "fields",
+        "tool": "update_pinned_item"
+      },
+      "prompt_tokens": 639,
+      "output_tokens": 97
     }
   ]
 }

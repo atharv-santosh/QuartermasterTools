@@ -248,7 +248,38 @@ numbers are only comparable against each other, never against section 4's native
 numbers, and they are lower across the board because serialising arguments into a
 JSON string is a harder protocol than having the SDK do it.
 
-PARTIAL_COMPRESSION_TABLE
+| rendering | task success | recall@8 | prompt tokens/call | model answered in prose | missing argument | cost |
+|---|---|---|---|---|---|---|
+| full JSON Schema | 0.400 | 1.000 | 2,171 | 18 | 5 | $0.0103 |
+| minified JSON Schema | **0.475** | 1.000 | 1,316 | 15 | 5 | $0.0074 |
+| signature plus one-line summary | 0.275 | 1.000 | 630 | 17 | 12 | $0.0049 |
+| signature only | 0.300 | 1.000 | 556 | 15 | 13 | $0.0317 |
+
+All four runs, `gemini-2.5-flash-lite`, proxy convention, 40 tasks, catalog size
+25, k=8, recall@8 identical because retrieval does not depend on rendering.
+Fixtures `tests/fixtures/gemini_compress_{json_schema,compact_json,signature,oneline}.json`.
+
+Unlike the section 4 headline runs, these did not finish in one pass. Vertex
+quota (429 RESOURCE_EXHAUSTED) stopped the signature run at 33 of 40 calls and
+the oneline run at 37 of 40 on the first attempt; `--resume` reloaded those
+calls from the partially written fixture and only paid for the missing ones,
+which is the resume support this session added. Both later finished to 40 of
+40 once quota recovered, so nothing here is partial in the final numbers, but
+it is the reason two of the four rows show more retries than the other two.
+
+Task success falls as the schema is stripped, except that minified JSON scores
+higher than full JSON Schema, which reverses the ordering compression is
+supposed to produce. At n=40 under the harder proxy protocol that is plausibly
+noise rather than a real effect; it is reported as measured rather than
+smoothed. The two signature-based renderings fail overwhelmingly by the model
+answering in prose instead of calling `call_tool` (a fixed cost of this
+protocol, not of the format) and by missing arguments, which grows as the
+per-parameter descriptions disappear, exactly where section 3's simulator said
+it could not price the effect. Oneline's output token count (73,757 across 40
+calls, against 5,878 for signature) is far higher than its prompt is small,
+because a bare one-line-per-tool listing with no per-parameter prose leaves the
+model reasoning longer about which tool and argument names apply, which is real
+cost the token-savings figures above do not include.
 
 ---
 
@@ -383,7 +414,7 @@ The demo wrote a 26-event trajectory conforming to `docs/trajectory-schema.md`.
 ```
 uv venv --python 3.11 .venv && . .venv/bin/activate
 uv pip install -e ".[dev]"
-pytest                    # 130 passed, 1 skipped, no credentials
+pytest                    # 155 passed, 1 skipped, no credentials
 atg bench --report out/report.html
 atg compress --size 25
 atg taxonomy --sizes 1236

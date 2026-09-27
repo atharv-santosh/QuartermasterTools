@@ -49,14 +49,32 @@
     "t0057",
     "t0131"
   ],
-  "rows": [],
+  "rows": [
+    {
+      "size": 25,
+      "n": 40,
+      "task_success": 0.275,
+      "recall_at_k": 1.0,
+      "failures": {
+        "missing_argument": 12,
+        "no_action": 17
+      },
+      "recall_hit_task_fail": 29,
+      "recall_miss_task_pass": 0,
+      "outcomes": {
+        "no_action": 17,
+        "success": 11,
+        "missing_argument": 12
+      }
+    }
+  ],
   "usage": {
     "model": "gemini-2.5-flash-lite",
-    "calls": 33,
-    "retries": 8,
-    "prompt_tokens": 20868,
-    "output_tokens": 5140,
-    "total_tokens": 26008,
-    "cost_usd_list_price": 0.004143
+    "calls": 40,
+    "retries": 16,
+    "prompt_tokens": 25199,
+    "output_tokens": 5878,
+    "total_tokens": 31077,
+    "cost_usd_list_price": 0.004871
   }
 }

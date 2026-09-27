@@ -1,15 +1,15 @@
 {
   "model": "gemini-2.5-flash-lite",
   "convention": "proxy",
-  "recorded_utc": "2026-09-27T00:57:56Z",
+  "recorded_utc": "2026-09-27T01:42:08Z",
   "usage": {
     "model": "gemini-2.5-flash-lite",
-    "calls": 37,
+    "calls": 40,
     "retries": 10,
-    "prompt_tokens": 20611,
-    "output_tokens": 10570,
-    "total_tokens": 31181,
-    "cost_usd_list_price": 0.006289
+    "prompt_tokens": 22251,
+    "output_tokens": 73757,
+    "total_tokens": 96008,
+    "cost_usd_list_price": 0.031728
   },
   "records": [
     {
@@ -447,6 +447,45 @@
       "args": {},
       "prompt_tokens": 483,
       "output_tokens": 0
+    },
+    {
+      "key": "{\"c\": \"proxy\", \"q\": \"Patch the cors policy id cp_2845508, setting 'priority=urgent'.\", \"v\": [\"cors_policy.update(cors_policy_id:id!, fields:str!, format:csv|json|parquet, limit:int, visibility:private|team|public)\", \"table.update(table_id:id!, fields:str!, dry_run:bool!, region:us-east-1|eu-west-1|ap-south-1, notes:str)\", \"update_filter(filter_id:id!, fields:str!, effective_at:date, limit:int)\", \"update_expense_report(expense_report_id:id!, fields:str!, notes:str, owner_email:email)\", \"shipment_update(shipment_id:id!, fields:str!, owner_email:email, dry_run:bool)\", \"warehouse_bin_update(warehouse_bin_id:id!, fields:str!, owner_email:email, region:us-east-1|eu-west-1|ap-south-1, name:str)\", \"archive_label(label_id:id!, name:str, priority:low|normal|urgent)\", \"erp_cost_center_update(cost_center_id:id!, fields:str!, status:active|paused|archived, amount:num, limit:int)\"]}",
+      "query": "Patch the cors policy id cp_2845508, setting 'priority=urgent'.",
+      "n_candidates": 8,
+      "fmt": "oneline",
+      "name": "call_tool",
+      "args": {
+        "arguments_json": "{'cors_policy_id': 'cp_2845508', 'fields': 'priority=urgent'}",
+        "name": "cors_policy.update"
+      },
+      "prompt_tokens": 595,
+      "output_tokens": 62943
+    },
+    {
+      "key": "{\"c\": \"proxy\", \"q\": \"Push 'close is done, books are locked' through the incoming webhook at https://cb.northwind.example/ingest.\", \"v\": [\"post_webhook_message(webhook_url:url!, text:str!)\", \"update_push_notification(push_notification_id:id!, fields:str!, visibility:private|team|public, effective_at:date, callback_url:url)\", \"index.export(limit:int, format:csv|json|parquet!)\", \"post_thread_reply(thread_ts:id!, text:str!)\", \"get_metric(metric_id:id!, status:active|paused|archived, notes:str)\", \"schedule_channel_message(channel:str!, text:str!, post_at:date!)\", \"post_channel_message(channel:str!, text:str!)\", \"list_availability(limit:int, owner_email:email!)\"]}",
+      "query": "Push 'close is done, books are locked' through the incoming webhook at https://cb.northwind.example/ingest.",
+      "n_candidates": 8,
+      "fmt": "oneline",
+      "name": "call_tool",
+      "args": {
+        "name": "post_webhook_message",
+        "arguments_json": "{\"webhook_url\": \"https://cb.northwind.example/ingest\", \"text\": \"close is done, books are locked\"}"
+      },
+      "prompt_tokens": 489,
+      "output_tokens": 147
+    },
+    {
+      "key": "{\"c\": \"proxy\", \"q\": \"Change the pinned item id pi_1144339.\", \"v\": [\"update_pinned_item(pinned_item_id:id!, fields:str!, dry_run:bool)\", \"company_update(company_id:id!, fields:str!, owner_email:email!, status:active|paused|archived, notes:str)\", \"alert_rule.create(name:str!, effective_at:date, visibility:private|team|public!)\", \"get_creative_asset(creative_asset_id:id!, owner_email:email!, notes:str!, name:str)\", \"archive_satisfaction_survey(satisfaction_survey_id:id!, notes:str, region:us-east-1|eu-west-1|ap-south-1, limit:int)\", \"get_dispute(dispute_id:id!, dry_run:bool!, notes:str)\", \"evaluation.get(evaluation_id:id!, name:str, effective_at:date, priority:low|normal|urgent, callback_url:url)\", \"index.delete(index_id:id!, status:active|paused|archived!, visibility:private|team|public!)\"]}",
+      "query": "Change the pinned item id pi_1144339.",
+      "n_candidates": 8,
+      "fmt": "oneline",
+      "name": "ask_user",
+      "args": {
+        "missing": "fields",
+        "tool": "update_pinned_item"
+      },
+      "prompt_tokens": 556,
+      "output_tokens": 97
     }
   ]
 }
