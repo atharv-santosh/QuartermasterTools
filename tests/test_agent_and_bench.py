@@ -9,7 +9,7 @@ from atg.events import Trajectory, fixed_clock
 from atg.llm_sim import decide, extract_mentions, select_shortlist
 from atg.render import FORMATS, view
 from atg.retrieval.strategies import Indexes, build_strategies
-from atg.tasks import Clarify, ToolCall, build_tasks
+from atg.tasks import ToolCall, build_tasks
 
 
 @pytest.fixture(scope="module")

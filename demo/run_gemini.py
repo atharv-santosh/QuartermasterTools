@@ -28,8 +28,8 @@ from atg.gemini_adapter import (
     credentials_available,
     make_gemini_decider,
 )
-from atg.retrieval.strategies import Indexes, build_strategies
 from atg.llm_sim import select_shortlist
+from atg.retrieval.strategies import Indexes, build_strategies
 from atg.tasks import build_tasks
 
 FIXTURES = Path(__file__).resolve().parent.parent / "tests" / "fixtures"
@@ -47,6 +47,11 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--sleep", type=float, default=0.6)
     parser.add_argument("--seed", type=int, default=99)
     parser.add_argument("--out", default=None)
+    parser.add_argument(
+        "--resume",
+        action="store_true",
+        help="reuse calls already recorded in the output fixture instead of re-paying for them",
+    )
     args = parser.parse_args(argv)
 
     if not credentials_available():
@@ -64,13 +69,35 @@ def main(argv: list[str] | None = None) -> int:
     registry = build_strategies(indexes, select_shortlist, fmt=args.fmt)
     strategy = registry[args.strategy]
 
-    recorder = CallRecorder(model=args.model, convention=args.convention)
-    decider = make_gemini_decider(
-        client=build_client(), model=args.model, convention=args.convention, recorder=recorder
-    )
-
     tag = f"{args.strategy}-{args.fmt}-{args.convention}"
     out = Path(args.out) if args.out else FIXTURES / f"gemini_{tag}.json"
+
+    recorder = CallRecorder(model=args.model, convention=args.convention)
+    cache: dict[str, dict[str, object]] = {}
+    if args.resume and out.exists():
+        # Quota on this project runs out mid-run. Reloading what a previous
+        # attempt already recorded means a resumed run only pays for the calls
+        # that are actually missing, and the fixture keeps every call either
+        # attempt made rather than being overwritten by a shorter one.
+        previous = json.loads(out.read_text())
+        for record in previous.get("records", []):
+            recorder.add(record)
+            cache[record["key"]] = {"name": record.get("name"), "args": record.get("args") or {}}
+        usage = previous.get("usage", {})
+        recorder.usage.calls = int(usage.get("calls", 0))
+        recorder.usage.retries = int(usage.get("retries", 0))
+        recorder.usage.prompt_tokens = int(usage.get("prompt_tokens", 0))
+        recorder.usage.output_tokens = int(usage.get("output_tokens", 0))
+        recorder.usage.total_tokens = int(usage.get("total_tokens", 0))
+        print(f"resuming from {len(cache)} recorded calls in {out}", flush=True)
+
+    decider = make_gemini_decider(
+        client=build_client(),
+        model=args.model,
+        convention=args.convention,
+        recorder=recorder,
+        cache=cache,
+    )
 
     rows: list[dict[str, object]] = []
     try:

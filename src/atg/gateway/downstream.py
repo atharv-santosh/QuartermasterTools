@@ -8,7 +8,7 @@ import subprocess
 import sys
 import threading
 import time
-from collections import OrderedDict, deque
+from collections import OrderedDict
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any, Callable, Sequence

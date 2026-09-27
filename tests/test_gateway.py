@@ -3,14 +3,12 @@
 from __future__ import annotations
 
 import json
-import os
 from dataclasses import replace
 
 import pytest
 
 from atg.gateway.downstream import (
     CircuitBreaker,
-    DownstreamServer,
     ServerConfig,
     TokenBucket,
     TtlCache,

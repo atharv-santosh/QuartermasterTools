@@ -8,7 +8,6 @@ from atg.catalog import build_catalog
 from atg.llm_sim import select_shortlist
 from atg.retrieval.bm25 import BM25Index
 from atg.retrieval.embed import (
-    EmbeddingIndex,
     cosine,
     fit_hashing_embedder,
     replay_embedder,

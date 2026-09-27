@@ -12,11 +12,9 @@ from __future__ import annotations
 import json
 import os
 import sys
-from dataclasses import replace
 from pathlib import Path
 
 from atg.events import Trajectory, fixed_clock
-from atg.gateway.downstream import default_servers
 from atg.gateway.protocol import RpcError
 from atg.gateway.server import InProcessClient, build_gateway
 

@@ -84,11 +84,11 @@ def _line_chart(
     if y_log:
         lo_y = max(1.0, min(values) / 1.6)
         hi_y = max(values) * 1.3
-        ypos = lambda v: _log_y(v, lo_y, hi_y)  # noqa: E731
+        ypos = lambda v: _log_y(v, lo_y, hi_y)
         ticks = [t for t in (100, 1_000, 10_000, 100_000, 1_000_000) if lo_y <= t <= hi_y]
     else:
         lo_y, hi_y = 0.0, y_max or 1.0
-        ypos = lambda v: _lin_y(v, lo_y, hi_y)  # noqa: E731
+        ypos = lambda v: _lin_y(v, lo_y, hi_y)
         ticks = [0.0, 0.25, 0.5, 0.75, 1.0] if hi_y >= 1.0 else [0.0, hi_y / 2, hi_y]
 
     def fmt(v: float) -> str:
@@ -122,6 +122,7 @@ def _line_chart(
         f'<text class="axis-label" x="10" y="{PAD_T + 4}" text-anchor="start">{_esc(y_label)}</text>'
     )
 
+    ends: list[tuple[float, int, str]] = []
     for slot, (name, points) in enumerate(series):
         color = f"var(--series-{slot + 1})"
         path = " ".join(
@@ -136,13 +137,39 @@ def _line_chart(
                 f'data-x="{int(x)}" data-y="{_esc(fmt(y))}"><title>'
                 f'{_esc(LABELS.get(name, name))}: {_esc(fmt(y))} at {int(x)} tools</title></circle>'
             )
-        last_x, last_y = points[-1]
+        ends.append((ypos(points[-1][1]), slot, fmt(points[-1][1])))
+
+    last_x = _log_x(series[0][1][-1][0], lo_x, hi_x) + 9
+    for y, slot, text in _spread(ends):
         parts.append(
-            f'<text class="end-label" x="{_log_x(last_x, lo_x, hi_x) + 8:.1f}" '
-            f'y="{ypos(last_y) + 4:.1f}" fill="{color}">{_esc(fmt(last_y))}</text>'
+            f'<text class="end-label" x="{last_x:.1f}" y="{y + 3.5:.1f}" '
+            f'fill="var(--series-{slot + 1})">{_esc(text)}</text>'
         )
     parts.append("</svg></figure>")
     return "".join(parts)
+
+
+_LABEL_GAP = 12.0
+
+
+def _spread(ends: list[tuple[float, int, str]]) -> list[tuple[float, int, str]]:
+    """Nudge end labels apart so converging series do not stack their values.
+
+    Converging lines are exactly where a value label is most wanted and most
+    likely to collide, so this keeps them and separates them rather than dropping
+    them: one pass down enforcing a minimum gap, one pass up to pull the group
+    back inside the plot, which is enough for the five series here.
+    """
+    ordered = sorted(ends, key=lambda e: e[0])
+    out: list[tuple[float, int, str]] = []
+    for y, slot, text in ordered:
+        if out and y - out[-1][0] < _LABEL_GAP:
+            y = out[-1][0] + _LABEL_GAP
+        out.append((y, slot, text))
+    overflow = out[-1][0] - (H - PAD_B)
+    if overflow > 0:
+        out = [(y - overflow, slot, text) for y, slot, text in out]
+    return out
 
 
 def _bar_chart(title: str, rows: list[tuple[str, int, float]]) -> str:

@@ -9,7 +9,7 @@ from atg.catalog import Catalog
 from atg.events import Trajectory
 from atg.render import Format, ToolView, view
 from atg.retrieval.strategies import Allowed, Shortlist, Strategy
-from atg.tasks import Action, Clarify, Grade, Outcome, Task, ToolCall, grade
+from atg.tasks import Action, Clarify, Outcome, Task, ToolCall, grade
 
 
 class Decider(Protocol):

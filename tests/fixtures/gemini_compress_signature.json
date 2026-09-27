@@ -1,15 +1,15 @@
 {
   "model": "gemini-2.5-flash-lite",
   "convention": "proxy",
-  "recorded_utc": "2026-09-27T00:28:39Z",
+  "recorded_utc": "2026-09-27T01:22:09Z",
   "usage": {
     "model": "gemini-2.5-flash-lite",
-    "calls": 30,
-    "retries": 1,
-    "prompt_tokens": 18969,
-    "output_tokens": 4490,
-    "total_tokens": 23459,
-    "cost_usd_list_price": 0.003693
+    "calls": 33,
+    "retries": 8,
+    "prompt_tokens": 20868,
+    "output_tokens": 5140,
+    "total_tokens": 26008,
+    "cost_usd_list_price": 0.004143
   },
   "records": [
     {
@@ -362,6 +362,42 @@
       },
       "prompt_tokens": 637,
       "output_tokens": 353
+    },
+    {
+      "key": "{\"c\": \"proxy\", \"q\": \"Extract the query suggestion as json in the search system.\", \"v\": [\"export_query_suggestion(limit:int, format:csv|json|parquet!, notes:str!, name:str) - Export query suggestions to a file.\", \"replication.search(limit:int, query:str!, path:path!, notes:str!, format:csv|json|parquet!, priority:low|normal|urgent) - Search replications by free text.\", \"update_analyzer_chain(analyzer_chain_id:id!, fields:str!, priority:low|normal|urgent!) - Update fields on an existing analyzer chain.\", \"update_refund(refund_id:id!, fields:str!, status:active|paused|archived!, priority:low|normal|urgent!, currency:str!) - Update fields on an existing refund.\", \"timeoff_request_create(name:str!, dry_run:bool!) - Create a new timeoff request in hr.\", \"update_room_booking(room_booking_id:id!, fields:str!, dry_run:bool, effective_at:date) - Update fields on an existing room booking.\", \"deployment.delete(deployment_id:id!, effective_at:date) - Permanently delete a deployment.\", \"list_refund(limit:int, status:active|paused|archived!) - List refunds with optional paging.\"]}",
+      "query": "Extract the query suggestion as json in the search system.",
+      "n_candidates": 8,
+      "fmt": "signature",
+      "name": "ask_user",
+      "args": {
+        "missing": "name",
+        "tool": "export_query_suggestion"
+      },
+      "prompt_tokens": 585,
+      "output_tokens": 538
+    },
+    {
+      "key": "{\"c\": \"proxy\", \"q\": \"Find the monitor matching 'overdue and unassigned'.\", \"v\": [\"legacy_finding_get(finding_id:id!, effective_at:date, owner_email:email!, name:str!, dry_run:bool) - Get a finding record via the legacy ERP bridge.\", \"index.search(limit:int, query:str!, dry_run:bool, format:csv|json|parquet, name:str) - Search indexs by free text.\", \"alert_rule.search(limit:int, query:str!, name:str, owner_email:email, region:us-east-1|eu-west-1|ap-south-1) - Search alert rules by free text.\", \"search_reconciliation(limit:int, query:str!, notes:str, region:us-east-1|eu-west-1|ap-south-1!, amount:num) - Search reconciliations by free text.\", \"export_filter(limit:int, format:csv|json|parquet!, name:str) - Export filters to a file.\", \"migration.export(limit:int, format:csv|json|parquet!, status:active|paused|archived, dry_run:bool!, effective_at:date!, notes:str) - Export migrations to a file.\", \"alert_rule.export(limit:int, format:csv|json|parquet!, dry_run:bool!) - Export alert rules to a file.\", \"export_digest(limit:int, format:csv|json|parquet!, dry_run:bool, callback_url:url, status:active|paused|archived) - Export digests to a file.\"]}",
+      "query": "Find the monitor matching 'overdue and unassigned'.",
+      "n_candidates": 8,
+      "fmt": "signature",
+      "name": null,
+      "args": {},
+      "prompt_tokens": 651,
+      "output_tokens": 0
+    },
+    {
+      "key": "{\"c\": \"proxy\", \"q\": \"Pull a file of the draft as json, effective 2026-11-15T17:30:00Z.\", \"v\": [\"export_draft(limit:int, format:csv|json|parquet!, effective_at:date!) - Export drafts to a file.\", \"index.export(limit:int, format:csv|json|parquet!) - Export indexs to a file.\", \"service.export(limit:int, format:csv|json|parquet!, callback_url:url, name:str, status:active|paused|archived!, dry_run:bool) - Export services to a file.\", \"incident.export(limit:int, format:csv|json|parquet!, dry_run:bool, effective_at:date!, callback_url:url) - Export incidents to a file.\", \"delete_sms(sms_id:id!, effective_at:date, status:active|paused|archived, dry_run:bool) - Permanently delete a sms.\", \"search_journal_entry(limit:int, query:str!, amount:num!, priority:low|normal|urgent!, effective_at:date, visibility:private|team|public) - Search journal entrys by free text.\", \"payroll_run_create(name:str!, dry_run:bool, effective_at:date, region:us-east-1|eu-west-1|ap-south-1) - Create a new payroll run in hr.\", \"geofence_update(geofence_id:id!, fields:str!, priority:low|normal|urgent, notes:str, effective_at:date) - Update fields on an existing geofence.\"]}",
+      "query": "Pull a file of the draft as json, effective 2026-11-15T17:30:00Z.",
+      "n_candidates": 8,
+      "fmt": "signature",
+      "name": "ask_user",
+      "args": {
+        "tool": "export_draft",
+        "missing": "limit"
+      },
+      "prompt_tokens": 663,
+      "output_tokens": 112
     }
   ]
 }

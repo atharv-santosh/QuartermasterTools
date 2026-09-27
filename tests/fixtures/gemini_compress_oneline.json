@@ -1,0 +1,452 @@
+{
+  "model": "gemini-2.5-flash-lite",
+  "convention": "proxy",
+  "recorded_utc": "2026-09-27T00:57:56Z",
+  "usage": {
+    "model": "gemini-2.5-flash-lite",
+    "calls": 37,
+    "retries": 10,
+    "prompt_tokens": 20611,
+    "output_tokens": 10570,
+    "total_tokens": 31181,
+    "cost_usd_list_price": 0.006289
+  },
+  "records": [
+    {
+      "key": "{\"c\": \"proxy\", \"q\": \"Fetch the funnel id f_5690735, dry run true, visibility public in the analytics system.\", \"v\": [\"get_funnel(funnel_id:id!, dry_run:bool!, limit:int, visibility:private|team|public!)\", \"create_dashboard(name:str!, notes:str, limit:int)\", \"device_get(device_id:id!, notes:str, owner_email:email, name:str)\", \"search_utm_link(limit:int, query:str!, effective_at:date, dry_run:bool, visibility:private|team|public!)\", \"storage_class.get(storage_class_id:id!, limit:int!, priority:low|normal|urgent!, path:path, format:csv|json|parquet)\", \"create_delivery_receipt(name:str!, dry_run:bool!)\", \"get_index_document(index_document_id:id!, limit:int, notes:str, effective_at:date, name:str)\", \"warehouse_bin_update(warehouse_bin_id:id!, fields:str!, owner_email:email, region:us-east-1|eu-west-1|ap-south-1, name:str)\"]}",
+      "query": "Fetch the funnel id f_5690735, dry run true, visibility public in the analytics system.",
+      "n_candidates": 8,
+      "fmt": "oneline",
+      "name": null,
+      "args": {},
+      "prompt_tokens": 568,
+      "output_tokens": 0
+    },
+    {
+      "key": "{\"c\": \"proxy\", \"q\": \"Cancel the uncaptured authorization on charge c_9828939 before it settles.\", \"v\": [\"void_charge(charge_id:id!)\", \"refund_charge_partial(charge_id:id!, amount:num!)\", \"refund_charge_full(charge_id:id!)\", \"create_credit_note(invoice_id:id!, amount:num!)\", \"list_direct_message(limit:int, notes:str, status:active|paused|archived)\", \"search_template_render(limit:int, query:str!, priority:low|normal|urgent!, notes:str, effective_at:date, callback_url:url!)\", \"list_channel(limit:int, status:active|paused|archived!, visibility:private|team|public, priority:low|normal|urgent)\", \"create_message(name:str!, effective_at:date, status:active|paused|archived, region:us-east-1|eu-west-1|ap-south-1)\"]}",
+      "query": "Cancel the uncaptured authorization on charge c_9828939 before it settles.",
+      "n_candidates": 8,
+      "fmt": "oneline",
+      "name": null,
+      "args": {},
+      "prompt_tokens": 516,
+      "output_tokens": 0
+    },
+    {
+      "key": "{\"c\": \"proxy\", \"q\": \"Set up a new lead notes 'raised by the vendor on the Thursday call'.\", \"v\": [\"lead_export(limit:int, format:csv|json|parquet!, owner_email:email, name:str, status:active|paused|archived!)\", \"lead_create(name:str!, notes:str!, effective_at:date)\", \"delete_thread(thread_id:id!, limit:int, status:active|paused|archived, visibility:private|team|public)\", \"device_export(limit:int, format:csv|json|parquet!, dry_run:bool, owner_email:email, name:str!)\", \"comment_export(limit:int, format:csv|json|parquet!, region:us-east-1|eu-west-1|ap-south-1!, effective_at:date, owner_email:email!)\", \"create_funnel(name:str!, effective_at:date!)\", \"list_reaction(limit:int, status:active|paused|archived)\", \"archive_quiet_hours(quiet_hours_id:id!, visibility:private|team|public, region:us-east-1|eu-west-1|ap-south-1!, limit:int)\"]}",
+      "query": "Set up a new lead notes 'raised by the vendor on the Thursday call'.",
+      "n_candidates": 8,
+      "fmt": "oneline",
+      "name": "ask_user",
+      "args": {
+        "tool": "lead_create",
+        "missing": "name"
+      },
+      "prompt_tokens": 563,
+      "output_tokens": 93
+    },
+    {
+      "key": "{\"c\": \"proxy\", \"q\": \"Dump the filter as parquet.\", \"v\": [\"export_filter(limit:int, format:csv|json|parquet!, name:str)\", \"delete_filter(filter_id:id!, limit:int)\", \"export_availability(limit:int, format:csv|json|parquet!, visibility:private|team|public!)\", \"sku_export(limit:int, format:csv|json|parquet!, name:str!)\", \"export_room_booking(limit:int, format:csv|json|parquet!, owner_email:email, priority:low|normal|urgent, status:active|paused|archived, region:us-east-1|eu-west-1|ap-south-1)\", \"archive_knowledge_article(knowledge_article_id:id!, limit:int)\", \"search_cost_center(limit:int, query:str!, notes:str, effective_at:date, region:us-east-1|eu-west-1|ap-south-1!)\", \"update_payout(payout_id:id!, fields:str!, currency:str!, amount:num, owner_email:email, region:us-east-1|eu-west-1|ap-south-1)\"]}",
+      "query": "Dump the filter as parquet.",
+      "n_candidates": 8,
+      "fmt": "oneline",
+      "name": "ask_user",
+      "args": {
+        "tool": "export_filter",
+        "missing": "name"
+      },
+      "prompt_tokens": 562,
+      "output_tokens": 2850
+    },
+    {
+      "key": "{\"c\": \"proxy\", \"q\": \"Bounce every pod of 'checkout-api' without changing what is deployed.\", \"v\": [\"deployment.restart(service:str!)\", \"service.update(service_id:id!, fields:str!, notes:str, region:us-east-1|eu-west-1|ap-south-1!)\", \"deal_create(name:str!, notes:str!, effective_at:date)\", \"deployment.create(service:str!, image:str!)\", \"rollout.pause(service:str!)\", \"deployment.rollback(service:str!)\", \"template_search(limit:int, query:str!, visibility:private|team|public, notes:str, region:us-east-1|eu-west-1|ap-south-1)\", \"deployment.create_sandbox(service:str!, image:str!)\"]}",
+      "query": "Bounce every pod of 'checkout-api' without changing what is deployed.",
+      "n_candidates": 8,
+      "fmt": "oneline",
+      "name": "call_tool",
+      "args": {
+        "name": "deployment.restart",
+        "arguments_json": "{\"service\": \"checkout-api\"}"
+      },
+      "prompt_tokens": 471,
+      "output_tokens": 107
+    },
+    {
+      "key": "{\"c\": \"proxy\", \"q\": \"Move the signature into the archive id s_2318400, owned by ops-team@northwind.example, status paused in the email system.\", \"v\": [\"archive_signature(signature_id:id!, dry_run:bool, owner_email:email!, status:active|paused|archived!, priority:low|normal|urgent!)\", \"create_signature(name:str!, status:active|paused|archived!, notes:str, limit:int!)\", \"archive_reindex_job(reindex_job_id:id!, priority:low|normal|urgent, name:str, region:us-east-1|eu-west-1|ap-south-1!)\", \"bucket.archive(bucket_id:id!, visibility:private|team|public)\", \"api_key.archive(api_key_id:id!, region:us-east-1|eu-west-1|ap-south-1, visibility:private|team|public, owner_email:email, name:str)\", \"signed_url.archive(signed_url_id:id!, path:path!, notes:str, effective_at:date, dry_run:bool)\", \"alert_rule.archive(alert_rule_id:id!, callback_url:url)\", \"object.archive(object_id:id!, limit:int, name:str, format:csv|json|parquet)\"]}",
+      "query": "Move the signature into the archive id s_2318400, owned by ops-team@northwind.example, status paused in the email system.",
+      "n_candidates": 8,
+      "fmt": "oneline",
+      "name": "ask_user",
+      "args": {
+        "tool": "archive_signature",
+        "missing": "priority"
+      },
+      "prompt_tokens": 602,
+      "output_tokens": 285
+    },
+    {
+      "key": "{\"c\": \"proxy\", \"q\": \"Enumerate the dataset split.\", \"v\": [\"dataset_split.list(limit:int, notes:str, visibility:private|team|public)\", \"erp_dataset_split_list(limit:int, notes:str, visibility:private|team|public)\", \"list_account(limit:int, priority:low|normal|urgent!, notes:str!, effective_at:date)\", \"prefix.list(limit:int, effective_at:date)\", \"update_stopword_list(stopword_list_id:id!, fields:str!, limit:int, dry_run:bool, effective_at:date)\", \"payroll_run_archive(payroll_run_id:id!, visibility:private|team|public, name:str, effective_at:date!, region:us-east-1|eu-west-1|ap-south-1)\", \"search_drip_sequence(limit:int, query:str!, status:active|paused|archived)\", \"ip_allowlist.export(limit:int, format:csv|json|parquet!, name:str, status:active|paused|archived!)\"]}",
+      "query": "Enumerate the dataset split.",
+      "n_candidates": 8,
+      "fmt": "oneline",
+      "name": null,
+      "args": {},
+      "prompt_tokens": 541,
+      "output_tokens": 0
+    },
+    {
+      "key": "{\"c\": \"proxy\", \"q\": \"Put the repeating meeting into the archive id rs_8916770.\", \"v\": [\"deal_archive(deal_id:id!, owner_email:email!)\", \"archive_creative_asset(creative_asset_id:id!, visibility:private|team|public!, priority:low|normal|urgent!, notes:str!)\", \"archive_recurring_series(recurring_series_id:id!, visibility:private|team|public, region:us-east-1|eu-west-1|ap-south-1, owner_email:email)\", \"archive_coupon(coupon_id:id!, currency:str!, status:active|paused|archived, owner_email:email, priority:low|normal|urgent)\", \"model_version.get(model_version_id:id!, effective_at:date)\", \"create_campaign(name:str!, visibility:private|team|public!, region:us-east-1|eu-west-1|ap-south-1)\", \"search_room_booking(limit:int, query:str!, status:active|paused|archived)\", \"get_cost_center(cost_center_id:id!, amount:num)\"]}",
+      "query": "Put the repeating meeting into the archive id rs_8916770.",
+      "n_candidates": 8,
+      "fmt": "oneline",
+      "name": "ask_user",
+      "args": {
+        "missing": "owner_email",
+        "tool": "archive_recurring_series"
+      },
+      "prompt_tokens": 555,
+      "output_tokens": 107
+    },
+    {
+      "key": "{\"c\": \"proxy\", \"q\": \"Dump the activity as csv in the crm system.\", \"v\": [\"activity_export(limit:int, format:csv|json|parquet!, name:str, owner_email:email, notes:str)\", \"contact_list(limit:int, effective_at:date, region:us-east-1|eu-west-1|ap-south-1, notes:str)\", \"shipment_update(shipment_id:id!, fields:str!, owner_email:email, dry_run:bool)\", \"update_webhook_post(webhook_post_id:id!, fields:str!, region:us-east-1|eu-west-1|ap-south-1, owner_email:email, notes:str!, limit:int)\", \"payroll_run_delete(payroll_run_id:id!, visibility:private|team|public!, owner_email:email, name:str)\", \"update_payment_method(payment_method_id:id!, fields:str!, region:us-east-1|eu-west-1|ap-south-1)\", \"list_creative_asset(limit:int, dry_run:bool)\", \"firewall_rule.create(name:str!, limit:int, status:active|paused|archived, visibility:private|team|public)\"]}",
+      "query": "Dump the activity as csv in the crm system.",
+      "n_candidates": 8,
+      "fmt": "oneline",
+      "name": null,
+      "args": {},
+      "prompt_tokens": 582,
+      "output_tokens": 0
+    },
+    {
+      "key": "{\"c\": \"proxy\", \"q\": \"Pull up the inventory count id sl_4454548, priority low, region ap-south-1 in the inventory system.\", \"v\": [\"stock_level_get(stock_level_id:id!, effective_at:date, limit:int, priority:low|normal|urgent!, region:us-east-1|eu-west-1|ap-south-1!)\", \"attachment_get(attachment_id:id!, limit:int)\", \"purchase_order_update(purchase_order_id:id!, fields:str!, status:active|paused|archived, visibility:private|team|public, effective_at:date, quantity:int)\", \"get_delivery_receipt(delivery_receipt_id:id!, dry_run:bool, notes:str)\", \"territory_export(limit:int, format:csv|json|parquet!, owner_email:email, region:us-east-1|eu-west-1|ap-south-1!, effective_at:date)\", \"update_invite(invite_id:id!, fields:str!, region:us-east-1|eu-west-1|ap-south-1!, dry_run:bool)\", \"get_filter(filter_id:id!, owner_email:email, dry_run:bool)\", \"delete_draft(draft_id:id!, region:us-east-1|eu-west-1|ap-south-1, visibility:private|team|public)\"]}",
+      "query": "Pull up the inventory count id sl_4454548, priority low, region ap-south-1 in the inventory system.",
+      "n_candidates": 8,
+      "fmt": "oneline",
+      "name": null,
+      "args": {},
+      "prompt_tokens": 619,
+      "output_tokens": 0
+    },
+    {
+      "key": "{\"c\": \"proxy\", \"q\": \"Show every note priority urgent, status paused in the crm system.\", \"v\": [\"note_list(limit:int, priority:low|normal|urgent!, name:str, status:active|paused|archived!)\", \"note_search(limit:int, query:str!, effective_at:date!, name:str!)\", \"archive_audience_list(audience_list_id:id!, priority:low|normal|urgent)\", \"company_get(company_id:id!, region:us-east-1|eu-west-1|ap-south-1)\", \"list_account(limit:int, priority:low|normal|urgent!, notes:str!, effective_at:date)\", \"revision_list(limit:int, priority:low|normal|urgent, effective_at:date, name:str)\", \"lead_export(limit:int, format:csv|json|parquet!, owner_email:email, name:str, status:active|paused|archived!)\", \"territory_get(territory_id:id!, limit:int, region:us-east-1|eu-west-1|ap-south-1)\"]}",
+      "query": "Show every note priority urgent, status paused in the crm system.",
+      "n_candidates": 8,
+      "fmt": "oneline",
+      "name": "ask_user",
+      "args": {
+        "missing": "name",
+        "tool": "note_list"
+      },
+      "prompt_tokens": 545,
+      "output_tokens": 3514
+    },
+    {
+      "key": "{\"c\": \"proxy\", \"q\": \"Get rid of the migration id m_3439006, status active in the database system.\", \"v\": [\"migration.delete(migration_id:id!, limit:int, status:active|paused|archived!, owner_email:email, effective_at:date)\", \"migration.update(migration_id:id!, fields:str!, dry_run:bool)\", \"legacy_migration_delete(migration_id:id!, limit:int, status:active|paused|archived!, owner_email:email, effective_at:date)\", \"get_calendar(calendar_id:id!, effective_at:date)\", \"index.export(limit:int, format:csv|json|parquet!)\", \"storage_class.get(storage_class_id:id!, limit:int!, priority:low|normal|urgent!, path:path, format:csv|json|parquet)\", \"query_job.delete(query_job_id:id!, dry_run:bool!, notes:str)\", \"create_event_stream(name:str!, owner_email:email, dry_run:bool, callback_url:url)\"]}",
+      "query": "Get rid of the migration id m_3439006, status active in the database system.",
+      "n_candidates": 8,
+      "fmt": "oneline",
+      "name": "ask_user",
+      "args": {
+        "missing": "limit",
+        "tool": "migration.delete"
+      },
+      "prompt_tokens": 542,
+      "output_tokens": 258
+    },
+    {
+      "key": "{\"c\": \"proxy\", \"q\": \"Adjust the quote id q_7080615, setting 'status=paused'.\", \"v\": [\"quote_update(quote_id:id!, fields:str!, effective_at:date)\", \"sku_get(sku_id:id!, region:us-east-1|eu-west-1|ap-south-1, name:str, quantity:int, notes:str)\", \"update_cohort(cohort_id:id!, fields:str!, effective_at:date, notes:str)\", \"export_job_get(export_job_id:id!, dry_run:bool!)\", \"company_delete(company_id:id!, priority:low|normal|urgent)\", \"pod.update(pod_id:id!, fields:str!, priority:low|normal|urgent)\", \"note_create(name:str!, visibility:private|team|public)\", \"create_signature(name:str!, status:active|paused|archived!, notes:str, limit:int!)\"]}",
+      "query": "Adjust the quote id q_7080615, setting 'status=paused'.",
+      "n_candidates": 8,
+      "fmt": "oneline",
+      "name": null,
+      "args": {},
+      "prompt_tokens": 512,
+      "output_tokens": 0
+    },
+    {
+      "key": "{\"c\": \"proxy\", \"q\": \"Claw back payout p_9474797, it already left our balance.\", \"v\": [\"reverse_payout(payout_id:id!)\", \"deployment.rollback(service:str!)\", \"offer_search(limit:int, query:str!, notes:str, priority:low|normal|urgent!, visibility:private|team|public!)\", \"timeoff_request_get(timeoff_request_id:id!, region:us-east-1|eu-west-1|ap-south-1, limit:int)\", \"list_channel(limit:int, status:active|paused|archived!, visibility:private|team|public, priority:low|normal|urgent)\", \"template_search(limit:int, query:str!, visibility:private|team|public, notes:str, region:us-east-1|eu-west-1|ap-south-1)\", \"payroll_run_get(payroll_run_id:id!, priority:low|normal|urgent, effective_at:date, visibility:private|team|public!, notes:str)\", \"export_channel_message(limit:int, format:csv|json|parquet!, effective_at:date, notes:str, visibility:private|team|public!)\"]}",
+      "query": "Claw back payout p_9474797, it already left our balance.",
+      "n_candidates": 8,
+      "fmt": "oneline",
+      "name": null,
+      "args": {},
+      "prompt_tokens": 569,
+      "output_tokens": 0
+    },
+    {
+      "key": "{\"c\": \"proxy\", \"q\": \"Adjust the access history id al_9883737, setting 'status=paused', status paused.\", \"v\": [\"audit_log.update(audit_log_id:id!, fields:str!, status:active|paused|archived!, visibility:private|team|public)\", \"firewall_rule.archive(firewall_rule_id:id!, priority:low|normal|urgent, notes:str!, limit:int, name:str!)\", \"archive_pinned_item(pinned_item_id:id!, region:us-east-1|eu-west-1|ap-south-1, owner_email:email, visibility:private|team|public, dry_run:bool)\", \"page_get(page_id:id!, owner_email:email)\", \"activity_create(name:str!, effective_at:date, dry_run:bool, notes:str)\", \"archive_analyzer_chain(analyzer_chain_id:id!, effective_at:date)\", \"get_sms(sms_id:id!, limit:int)\", \"signed_url.get(signed_url_id:id!, limit:int)\"]}",
+      "query": "Adjust the access history id al_9883737, setting 'status=paused', status paused.",
+      "n_candidates": 8,
+      "fmt": "oneline",
+      "name": "ask_user",
+      "args": {
+        "tool": "audit_log.update",
+        "missing": "fields"
+      },
+      "prompt_tokens": 546,
+      "output_tokens": 488
+    },
+    {
+      "key": "{\"c\": \"proxy\", \"q\": \"Wipe the deployment id d_8758930.\", \"v\": [\"deployment.delete(deployment_id:id!, effective_at:date)\", \"get_quiet_hours(quiet_hours_id:id!, region:us-east-1|eu-west-1|ap-south-1)\", \"get_channel(channel_id:id!, name:str, priority:low|normal|urgent!, effective_at:date)\", \"sku_get(sku_id:id!, region:us-east-1|eu-west-1|ap-south-1, name:str, quantity:int, notes:str)\", \"telemetry_stream_archive(telemetry_stream_id:id!, region:us-east-1|eu-west-1|ap-south-1)\", \"geofence_create(name:str!, dry_run:bool, effective_at:date)\", \"create_quiet_hours(name:str!, priority:low|normal|urgent, region:us-east-1|eu-west-1|ap-south-1, owner_email:email!)\", \"legacy_macro_delete(macro_id:id!, visibility:private|team|public, effective_at:date, limit:int)\"]}",
+      "query": "Wipe the deployment id d_8758930.",
+      "n_candidates": 8,
+      "fmt": "oneline",
+      "name": "ask_user",
+      "args": {
+        "tool": "deployment.delete",
+        "missing": "effective_at"
+      },
+      "prompt_tokens": 571,
+      "output_tokens": 102
+    },
+    {
+      "key": "{\"c\": \"proxy\", \"q\": \"Give me all the dataset split.\", \"v\": [\"dataset_split.list(limit:int, notes:str, visibility:private|team|public)\", \"erp_dataset_split_list(limit:int, notes:str, visibility:private|team|public)\", \"update_funnel(funnel_id:id!, fields:str!, visibility:private|team|public, callback_url:url, owner_email:email)\", \"ip_allowlist.create(name:str!, status:active|paused|archived!, limit:int)\", \"update_sla_policy(sla_policy_id:id!, fields:str!, dry_run:bool!)\", \"post_channel_message(channel:str!, text:str!)\", \"export_attribution_model(limit:int, format:csv|json|parquet!, visibility:private|team|public!, owner_email:email)\", \"geofence_archive(geofence_id:id!, name:str)\"]}",
+      "query": "Give me all the dataset split.",
+      "n_candidates": 8,
+      "fmt": "oneline",
+      "name": null,
+      "args": {},
+      "prompt_tokens": 506,
+      "output_tokens": 0
+    },
+    {
+      "key": "{\"c\": \"proxy\", \"q\": \"Adjust the pinned item setting 'owner_email=ops-team@northwind.example'.\", \"v\": [\"update_pinned_item(pinned_item_id:id!, fields:str!, dry_run:bool)\", \"archive_draft(draft_id:id!, owner_email:email, dry_run:bool)\", \"deployment.search(limit:int, query:str!, owner_email:email)\", \"update_payout(payout_id:id!, fields:str!, currency:str!, amount:num, owner_email:email, region:us-east-1|eu-west-1|ap-south-1)\", \"archive_subscription(subscription_id:id!, region:us-east-1|eu-west-1|ap-south-1, owner_email:email!)\", \"export_template_render(limit:int, format:csv|json|parquet!, owner_email:email)\", \"firewall_rule.update(firewall_rule_id:id!, fields:str!, region:us-east-1|eu-west-1|ap-south-1)\", \"template_export(limit:int, format:csv|json|parquet!, status:active|paused|archived, effective_at:date, owner_email:email!, name:str!)\"]}",
+      "query": "Adjust the pinned item setting 'owner_email=ops-team@northwind.example'.",
+      "n_candidates": 8,
+      "fmt": "oneline",
+      "name": "ask_user",
+      "args": {
+        "missing": "pinned_item_id",
+        "tool": "update_pinned_item"
+      },
+      "prompt_tokens": 579,
+      "output_tokens": 111
+    },
+    {
+      "key": "{\"c\": \"proxy\", \"q\": \"Enumerate the permission grant.\", \"v\": [\"export_stopword_list(limit:int, format:csv|json|parquet!, notes:str)\", \"list_budget(limit:int, priority:low|normal|urgent)\", \"list_drip_sequence(limit:int, visibility:private|team|public!, dry_run:bool, priority:low|normal|urgent!)\", \"role_binding.list(limit:int, status:active|paused|archived, notes:str, name:str, effective_at:date)\", \"list_signature(limit:int, priority:low|normal|urgent, region:us-east-1|eu-west-1|ap-south-1)\", \"search_subscription(limit:int, query:str!, amount:num!, effective_at:date)\", \"deal_update(deal_id:id!, fields:str!, status:active|paused|archived)\", \"job_requisition_update(job_requisition_id:id!, fields:str!, name:str, effective_at:date, notes:str, region:us-east-1|eu-west-1|ap-south-1)\"]}",
+      "query": "Enumerate the permission grant.",
+      "n_candidates": 8,
+      "fmt": "oneline",
+      "name": "ask_user",
+      "args": {
+        "tool": "role_binding.list",
+        "missing": "limit"
+      },
+      "prompt_tokens": 551,
+      "output_tokens": 340
+    },
+    {
+      "key": "{\"c\": \"proxy\", \"q\": \"Adjust the ad group id ag_4253676, setting 'status=paused', notes 'raised by the vendor on the Thursday call' - it has to go out from our own domain, which is already set up for it in the marketing system.\", \"v\": [\"update_ad_group(ad_group_id:id!, fields:str!, region:us-east-1|eu-west-1|ap-south-1, notes:str!, name:str)\", \"get_ad_group(ad_group_id:id!, owner_email:email)\", \"erp_ad_group_get(ad_group_id:id!, owner_email:email)\", \"create_ad_group(name:str!, effective_at:date, priority:low|normal|urgent)\", \"archive_ad_group(ad_group_id:id!, limit:int, name:str)\", \"search_ad_group(limit:int, query:str!, priority:low|normal|urgent, notes:str, dry_run:bool!, visibility:private|team|public)\", \"list_ad_group(limit:int, visibility:private|team|public, effective_at:date)\", \"delete_ad_group(ad_group_id:id!, owner_email:email!, limit:int)\"]}",
+      "query": "Adjust the ad group id ag_4253676, setting 'status=paused', notes 'raised by the vendor on the Thursday call' - it has to go out from our own domain, which is already set up for it in the marketing system.",
+      "n_candidates": 8,
+      "fmt": "oneline",
+      "name": null,
+      "args": {},
+      "prompt_tokens": 582,
+      "output_tokens": 0
+    },
+    {
+      "key": "{\"c\": \"proxy\", \"q\": \"Page through the dataset split.\", \"v\": [\"dataset_split.list(limit:int, notes:str, visibility:private|team|public)\", \"erp_dataset_split_list(limit:int, notes:str, visibility:private|team|public)\", \"list_macro(limit:int, status:active|paused|archived, name:str)\", \"list_push_notification(limit:int, visibility:private|team|public!)\", \"list_cost_center(limit:int, priority:low|normal|urgent!, name:str, dry_run:bool, cost_center:str)\", \"create_subscription(name:str!, effective_at:date, priority:low|normal|urgent)\", \"export_user_group(limit:int, format:csv|json|parquet!, notes:str, owner_email:email)\", \"runbook.update(runbook_id:id!, fields:str!, visibility:private|team|public!)\"]}",
+      "query": "Page through the dataset split.",
+      "n_candidates": 8,
+      "fmt": "oneline",
+      "name": "ask_user",
+      "args": {
+        "missing": "limit",
+        "tool": "dataset_split.list"
+      },
+      "prompt_tokens": 504,
+      "output_tokens": 278
+    },
+    {
+      "key": "{\"c\": \"proxy\", \"q\": \"Open a expense claim called 'EU customer export' in the finance system.\", \"v\": [\"create_expense_report(name:str!, region:us-east-1|eu-west-1|ap-south-1, owner_email:email!, cost_center:str, visibility:private|team|public)\", \"incident.export(limit:int, format:csv|json|parquet!, dry_run:bool, effective_at:date!, callback_url:url)\", \"export_event_stream(limit:int, format:csv|json|parquet!, callback_url:url, dry_run:bool!)\", \"pod.create(name:str!, status:active|paused|archived)\", \"lifecycle_rule.export(limit:int, format:csv|json|parquet!, visibility:private|team|public, effective_at:date, name:str)\", \"export_alias(limit:int, format:csv|json|parquet!, effective_at:date)\", \"archive_account(account_id:id!, status:active|paused|archived, priority:low|normal|urgent, cost_center:str!, limit:int)\", \"contact_anonymize(contact_id:id!)\"]}",
+      "query": "Open a expense claim called 'EU customer export' in the finance system.",
+      "n_candidates": 8,
+      "fmt": "oneline",
+      "name": "ask_user",
+      "args": {
+        "missing": "owner_email",
+        "tool": "create_expense_report"
+      },
+      "prompt_tokens": 558,
+      "output_tokens": 540
+    },
+    {
+      "key": "{\"c\": \"proxy\", \"q\": \"Read back the queue effective 2026-10-01T09:00:00Z.\", \"v\": [\"get_queue(queue_id:id!, owner_email:email, effective_at:date!, name:str, priority:low|normal|urgent)\", \"archive_digest(digest_id:id!, effective_at:date)\", \"legacy_migration_delete(migration_id:id!, limit:int, status:active|paused|archived!, owner_email:email, effective_at:date)\", \"create_room_booking(name:str!, notes:str, visibility:private|team|public!, effective_at:date)\", \"create_template_render(name:str!, callback_url:url, limit:int, effective_at:date, status:active|paused|archived)\", \"incident.get(incident_id:id!, visibility:private|team|public!, status:active|paused|archived, limit:int!)\", \"erp_charge_create(name:str!, currency:str!, limit:int!)\", \"archive_subscription_pref(subscription_pref_id:id!, dry_run:bool, notes:str)\"]}",
+      "query": "Read back the queue effective 2026-10-01T09:00:00Z.",
+      "n_candidates": 8,
+      "fmt": "oneline",
+      "name": "ask_user",
+      "args": {
+        "missing": "queue_id",
+        "tool": "get_queue"
+      },
+      "prompt_tokens": 555,
+      "output_tokens": 162
+    },
+    {
+      "key": "{\"c\": \"proxy\", \"q\": \"I need a new endpoint called 'EU customer export' in the ml system.\", \"v\": [\"endpoint.create(name:str!, notes:str)\", \"endpoint.update(endpoint_id:id!, fields:str!, visibility:private|team|public!, callback_url:url, limit:int!, effective_at:date)\", \"audit_log.export(limit:int, format:csv|json|parquet!, effective_at:date, region:us-east-1|eu-west-1|ap-south-1, dry_run:bool!)\", \"connection_pool.update(connection_pool_id:id!, fields:str!, priority:low|normal|urgent, format:csv|json|parquet, dry_run:bool, status:active|paused|archived)\", \"export_forwarding_rule(limit:int, format:csv|json|parquet!, owner_email:email!)\", \"geofence_create(name:str!, dry_run:bool, effective_at:date)\", \"lead_update(lead_id:id!, fields:str!, name:str, owner_email:email, status:active|paused|archived)\", \"provisioning_claim_archive(provisioning_claim_id:id!, name:str, region:us-east-1|eu-west-1|ap-south-1!, notes:str, owner_email:email)\"]}",
+      "query": "I need a new endpoint called 'EU customer export' in the ml system.",
+      "n_candidates": 8,
+      "fmt": "oneline",
+      "name": "ask_user",
+      "args": {
+        "missing": "notes",
+        "tool": "endpoint.create"
+      },
+      "prompt_tokens": 600,
+      "output_tokens": 94
+    },
+    {
+      "key": "{\"c\": \"proxy\", \"q\": \"Permanently remove the campaign page id lp_1755463.\", \"v\": [\"delete_landing_page(landing_page_id:id!, owner_email:email)\", \"erp_landing_page_delete(landing_page_id:id!, owner_email:email)\", \"review_cycle_delete(review_cycle_id:id!, status:active|paused|archived, notes:str!, dry_run:bool, owner_email:email)\", \"delete_refund(refund_id:id!, effective_at:date, notes:str)\", \"firewall_rule.delete(firewall_rule_id:id!, notes:str, visibility:private|team|public, region:us-east-1|eu-west-1|ap-south-1)\", \"export_job_list(limit:int, notes:str, region:us-east-1|eu-west-1|ap-south-1, priority:low|normal|urgent, name:str)\", \"list_coupon(limit:int, amount:num, notes:str)\", \"geofence_get(geofence_id:id!, dry_run:bool!)\"]}",
+      "query": "Permanently remove the campaign page id lp_1755463.",
+      "n_candidates": 8,
+      "fmt": "oneline",
+      "name": "ask_user",
+      "args": {
+        "missing": "owner_email",
+        "tool": "delete_landing_page"
+      },
+      "prompt_tokens": 553,
+      "output_tokens": 211
+    },
+    {
+      "key": "{\"c\": \"proxy\", \"q\": \"Ship the cohort status active.\", \"v\": [\"export_cohort(limit:int, format:csv|json|parquet!, callback_url:url, name:str, status:active|paused|archived!)\", \"archive_event_stream(event_stream_id:id!, callback_url:url!, status:active|paused|archived)\", \"storage_class.export(limit:int, format:csv|json|parquet!, name:str!, status:active|paused|archived)\", \"archive_utm_link(utm_link_id:id!, notes:str, status:active|paused|archived)\", \"archive_webhook_post(webhook_post_id:id!, dry_run:bool, notes:str, status:active|paused|archived, priority:low|normal|urgent!)\", \"config_map.create(name:str!, visibility:private|team|public, owner_email:email, status:active|paused|archived, region:us-east-1|eu-west-1|ap-south-1)\", \"migration.delete(migration_id:id!, limit:int, status:active|paused|archived!, owner_email:email, effective_at:date)\", \"update_user_group(user_group_id:id!, fields:str!, priority:low|normal|urgent, notes:str, region:us-east-1|eu-west-1|ap-south-1!, dry_run:bool!)\"]}",
+      "query": "Ship the cohort status active.",
+      "n_candidates": 8,
+      "fmt": "oneline",
+      "name": "ask_user",
+      "args": {
+        "missing": "format",
+        "tool": "export_cohort"
+      },
+      "prompt_tokens": 618,
+      "output_tokens": 177
+    },
+    {
+      "key": "{\"c\": \"proxy\", \"q\": \"Enumerate the activity status active, visibility public in the crm system.\", \"v\": [\"activity_list(limit:int, status:active|paused|archived!, priority:low|normal|urgent, visibility:private|team|public!)\", \"list_attribution_model(limit:int, effective_at:date, region:us-east-1|eu-west-1|ap-south-1)\", \"revision_delete(revision_id:id!, limit:int, status:active|paused|archived, effective_at:date!)\", \"create_recurring_series(name:str!, region:us-east-1|eu-west-1|ap-south-1, limit:int, visibility:private|team|public, priority:low|normal|urgent)\", \"get_digest(digest_id:id!, visibility:private|team|public, region:us-east-1|eu-west-1|ap-south-1!, callback_url:url)\", \"config_map.get(config_map_id:id!, name:str, dry_run:bool, status:active|paused|archived!, region:us-east-1|eu-west-1|ap-south-1!)\", \"create_queue(name:str!, region:us-east-1|eu-west-1|ap-south-1, notes:str, visibility:private|team|public)\", \"bucket.archive(bucket_id:id!, visibility:private|team|public)\"]}",
+      "query": "Enumerate the activity status active, visibility public in the crm system.",
+      "n_candidates": 8,
+      "fmt": "oneline",
+      "name": null,
+      "args": {},
+      "prompt_tokens": 623,
+      "output_tokens": 0
+    },
+    {
+      "key": "{\"c\": \"proxy\", \"q\": \"Retire the telemetry stream into the archive id ts_4057303 in the iot system.\", \"v\": [\"telemetry_stream_archive(telemetry_stream_id:id!, region:us-east-1|eu-west-1|ap-south-1)\", \"archive_invoice(invoice_id:id!, notes:str, effective_at:date)\", \"provisioning_claim_archive(provisioning_claim_id:id!, name:str, region:us-east-1|eu-west-1|ap-south-1!, notes:str, owner_email:email)\", \"get_account(account_id:id!, visibility:private|team|public, region:us-east-1|eu-west-1|ap-south-1, owner_email:email!, status:active|paused|archived)\", \"export_journal_entry(limit:int, format:csv|json|parquet!, owner_email:email, name:str, notes:str)\", \"get_webhook_post(webhook_post_id:id!, region:us-east-1|eu-west-1|ap-south-1)\", \"revision_get(revision_id:id!, effective_at:date, visibility:private|team|public, status:active|paused|archived)\", \"note_export(limit:int, format:csv|json|parquet!, owner_email:email, name:str)\"]}",
+      "query": "Retire the telemetry stream into the archive id ts_4057303 in the iot system.",
+      "n_candidates": 8,
+      "fmt": "oneline",
+      "name": "ask_user",
+      "args": {
+        "tool": "telemetry_stream_archive",
+        "missing": "region"
+      },
+      "prompt_tokens": 611,
+      "output_tokens": 103
+    },
+    {
+      "key": "{\"c\": \"proxy\", \"q\": \"Stage an email to priya@vendor.example for me to review before it goes out, subject line 'Renewal terms attached', body 'please countersign by Friday'.\", \"v\": [\"email_draft_create(to:email!, subject:str!, body:str!)\", \"send_email(to:email!, subject:str!, body:str!)\", \"send_bulk_email(recipients:email!, subject:str!, body:str!)\", \"send_email_verified_domain(to:email!, subject:str!, body:str!)\", \"notify_via_email(to:email!, event:str!)\", \"send_email_template(to:email!, template_id:id!)\", \"search_alias(limit:int, query:str!, owner_email:email)\", \"carrier_rate_get(carrier_rate_id:id!, status:active|paused|archived, owner_email:email)\"]}",
+      "query": "Stage an email to priya@vendor.example for me to review before it goes out, subject line 'Renewal terms attached', body 'please countersign by Friday'.",
+      "n_candidates": 8,
+      "fmt": "oneline",
+      "name": null,
+      "args": {},
+      "prompt_tokens": 489,
+      "output_tokens": 0
+    },
+    {
+      "key": "{\"c\": \"proxy\", \"q\": \"Wipe the migration id m_8428690, status active.\", \"v\": [\"migration.delete(migration_id:id!, limit:int, status:active|paused|archived!, owner_email:email, effective_at:date)\", \"legacy_migration_delete(migration_id:id!, limit:int, status:active|paused|archived!, owner_email:email, effective_at:date)\", \"quote_create(name:str!, status:active|paused|archived!, limit:int, notes:str, owner_email:email)\", \"get_macro(macro_id:id!, region:us-east-1|eu-west-1|ap-south-1)\", \"archive_calendar(calendar_id:id!, effective_at:date, notes:str, status:active|paused|archived, name:str)\", \"training_job.delete(training_job_id:id!, dry_run:bool, visibility:private|team|public!)\", \"get_alias(alias_id:id!, priority:low|normal|urgent, name:str, status:active|paused|archived)\", \"device_group_delete(device_group_id:id!, status:active|paused|archived!)\"]}",
+      "query": "Wipe the migration id m_8428690, status active.",
+      "n_candidates": 8,
+      "fmt": "oneline",
+      "name": "call_tool",
+      "args": {
+        "arguments_json": "{\"migration_id\": \"m_8428690\", \"status\": \"active\"}",
+        "name": "migration.delete"
+      },
+      "prompt_tokens": 570,
+      "output_tokens": 216
+    },
+    {
+      "key": "{\"c\": \"proxy\", \"q\": \"Extract the query suggestion as json in the search system.\", \"v\": [\"export_query_suggestion(limit:int, format:csv|json|parquet!, notes:str!, name:str)\", \"replication.search(limit:int, query:str!, path:path!, notes:str!, format:csv|json|parquet!, priority:low|normal|urgent)\", \"update_analyzer_chain(analyzer_chain_id:id!, fields:str!, priority:low|normal|urgent!)\", \"update_refund(refund_id:id!, fields:str!, status:active|paused|archived!, priority:low|normal|urgent!, currency:str!)\", \"timeoff_request_create(name:str!, dry_run:bool!)\", \"update_room_booking(room_booking_id:id!, fields:str!, dry_run:bool, effective_at:date)\", \"deployment.delete(deployment_id:id!, effective_at:date)\", \"list_refund(limit:int, status:active|paused|archived!)\"]}",
+      "query": "Extract the query suggestion as json in the search system.",
+      "n_candidates": 8,
+      "fmt": "oneline",
+      "name": "ask_user",
+      "args": {
+        "tool": "export_query_suggestion",
+        "missing": "notes"
+      },
+      "prompt_tokens": 519,
+      "output_tokens": 152
+    },
+    {
+      "key": "{\"c\": \"proxy\", \"q\": \"Find the monitor matching 'overdue and unassigned'.\", \"v\": [\"legacy_finding_get(finding_id:id!, effective_at:date, owner_email:email!, name:str!, dry_run:bool)\", \"index.search(limit:int, query:str!, dry_run:bool, format:csv|json|parquet, name:str)\", \"alert_rule.search(limit:int, query:str!, name:str, owner_email:email, region:us-east-1|eu-west-1|ap-south-1)\", \"search_reconciliation(limit:int, query:str!, notes:str, region:us-east-1|eu-west-1|ap-south-1!, amount:num)\", \"export_filter(limit:int, format:csv|json|parquet!, name:str)\", \"migration.export(limit:int, format:csv|json|parquet!, status:active|paused|archived, dry_run:bool!, effective_at:date!, notes:str)\", \"alert_rule.export(limit:int, format:csv|json|parquet!, dry_run:bool!)\", \"export_digest(limit:int, format:csv|json|parquet!, dry_run:bool, callback_url:url, status:active|paused|archived)\"]}",
+      "query": "Find the monitor matching 'overdue and unassigned'.",
+      "n_candidates": 8,
+      "fmt": "oneline",
+      "name": null,
+      "args": {},
+      "prompt_tokens": 587,
+      "output_tokens": 0
+    },
+    {
+      "key": "{\"c\": \"proxy\", \"q\": \"Pull a file of the draft as json, effective 2026-11-15T17:30:00Z.\", \"v\": [\"export_draft(limit:int, format:csv|json|parquet!, effective_at:date!)\", \"index.export(limit:int, format:csv|json|parquet!)\", \"service.export(limit:int, format:csv|json|parquet!, callback_url:url, name:str, status:active|paused|archived!, dry_run:bool)\", \"incident.export(limit:int, format:csv|json|parquet!, dry_run:bool, effective_at:date!, callback_url:url)\", \"delete_sms(sms_id:id!, effective_at:date, status:active|paused|archived, dry_run:bool)\", \"search_journal_entry(limit:int, query:str!, amount:num!, priority:low|normal|urgent!, effective_at:date, visibility:private|team|public)\", \"payroll_run_create(name:str!, dry_run:bool, effective_at:date, region:us-east-1|eu-west-1|ap-south-1)\", \"geofence_update(geofence_id:id!, fields:str!, priority:low|normal|urgent, notes:str, effective_at:date)\"]}",
+      "query": "Pull a file of the draft as json, effective 2026-11-15T17:30:00Z.",
+      "n_candidates": 8,
+      "fmt": "oneline",
+      "name": "ask_user",
+      "args": {
+        "tool": "export_draft",
+        "missing": "limit"
+      },
+      "prompt_tokens": 599,
+      "output_tokens": 185
+    },
+    {
+      "key": "{\"c\": \"proxy\", \"q\": \"Patch the ad group id ag_5345671, setting 'owner_email=ops-team@northwind.example', notes 'follow up after month end' - it has to go out from our own domain, which is already set up for it.\", \"v\": [\"update_ad_group(ad_group_id:id!, fields:str!, region:us-east-1|eu-west-1|ap-south-1, notes:str!, name:str)\", \"get_ad_group(ad_group_id:id!, owner_email:email)\", \"archive_ad_group(ad_group_id:id!, limit:int, name:str)\", \"delete_ad_group(ad_group_id:id!, owner_email:email!, limit:int)\", \"erp_ad_group_get(ad_group_id:id!, owner_email:email)\", \"export_ad_group(limit:int, format:csv|json|parquet!, visibility:private|team|public, effective_at:date, owner_email:email!)\", \"list_ad_group(limit:int, visibility:private|team|public, effective_at:date)\", \"create_ad_group(name:str!, effective_at:date, priority:low|normal|urgent)\"]}",
+      "query": "Patch the ad group id ag_5345671, setting 'owner_email=ops-team@northwind.example', notes 'follow up after month end' - it has to go out from our own domain, which is already set up for it.",
+      "n_candidates": 8,
+      "fmt": "oneline",
+      "name": null,
+      "args": {},
+      "prompt_tokens": 582,
+      "output_tokens": 0
+    },
+    {
+      "key": "{\"c\": \"proxy\", \"q\": \"Amend the budget code id cc_6321292, setting 'status=paused' in the finance system.\", \"v\": [\"erp_cost_center_update(cost_center_id:id!, fields:str!, status:active|paused|archived, amount:num, limit:int)\", \"get_invoice(invoice_id:id!, limit:int, dry_run:bool, status:active|paused|archived)\", \"update_cost_center(cost_center_id:id!, fields:str!, status:active|paused|archived, amount:num, limit:int)\", \"delete_journal_entry(journal_entry_id:id!, limit:int, visibility:private|team|public!, status:active|paused|archived)\", \"space_get(space_id:id!, dry_run:bool)\", \"query_job.delete(query_job_id:id!, dry_run:bool!, notes:str)\", \"payroll_run_get(payroll_run_id:id!, priority:low|normal|urgent, effective_at:date, visibility:private|team|public!, notes:str)\", \"model_version.delete(model_version_id:id!, dry_run:bool, visibility:private|team|public, limit:int!)\"]}",
+      "query": "Amend the budget code id cc_6321292, setting 'status=paused' in the finance system.",
+      "n_candidates": 8,
+      "fmt": "oneline",
+      "name": "ask_user",
+      "args": {
+        "tool": "update_cost_center",
+        "missing": "fields"
+      },
+      "prompt_tokens": 579,
+      "output_tokens": 197
+    },
+    {
+      "key": "{\"c\": \"proxy\", \"q\": \"Read back the offer id o_2397740.\", \"v\": [\"offer_get(offer_id:id!, name:str, limit:int)\", \"pipeline_get(pipeline_id:id!, visibility:private|team|public, notes:str)\", \"signed_url.get(signed_url_id:id!, limit:int)\", \"device_get(device_id:id!, notes:str, owner_email:email, name:str)\", \"comment_get(comment_id:id!, effective_at:date, owner_email:email)\", \"get_working_hours(working_hours_id:id!, dry_run:bool, priority:low|normal|urgent, status:active|paused|archived)\", \"grant.get(grant_id:id!, priority:low|normal|urgent, notes:str!)\", \"archive_digest(digest_id:id!, effective_at:date)\"]}",
+      "query": "Read back the offer id o_2397740.",
+      "n_candidates": 8,
+      "fmt": "oneline",
+      "name": null,
+      "args": {},
+      "prompt_tokens": 499,
+      "output_tokens": 0
+    },
+    {
+      "key": "{\"c\": \"proxy\", \"q\": \"Add a coupon called 'EU customer export' in the payments system.\", \"v\": [\"create_coupon(name:str!, notes:str, visibility:private|team|public)\", \"get_coupon(coupon_id:id!, amount:num!)\", \"replication.create(name:str!, path:path)\", \"incident.create(name:str!, visibility:private|team|public, callback_url:url)\", \"geofence_create(name:str!, dry_run:bool, effective_at:date)\", \"signed_url.export(limit:int, format:csv|json|parquet!, priority:low|normal|urgent!)\", \"export_availability(limit:int, format:csv|json|parquet!, visibility:private|team|public!)\", \"ip_allowlist.create(name:str!, status:active|paused|archived!, limit:int)\"]}",
+      "query": "Add a coupon called 'EU customer export' in the payments system.",
+      "n_candidates": 8,
+      "fmt": "oneline",
+      "name": null,
+      "args": {},
+      "prompt_tokens": 483,
+      "output_tokens": 0
+    }
+  ]
+}

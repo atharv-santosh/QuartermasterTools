@@ -7,7 +7,7 @@ import pytest
 
 from atg.calibrate import CALIBRATION_FIXTURE, report_calibration
 from atg.catalog import build_catalog
-from atg.render import FORMATS, block_tokens, render, render_many, view
+from atg.render import FORMATS, block_tokens, render, view
 from atg.tokens import count_tokens
 
 

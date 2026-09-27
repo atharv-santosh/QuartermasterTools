@@ -17,7 +17,7 @@ import sys
 import time
 from dataclasses import dataclass, field
 from pathlib import Path
-from typing import Any, Callable, Sequence, TextIO
+from typing import Any, Sequence, TextIO
 
 from atg.catalog import Catalog, Param, Tool
 from atg.events import Trajectory
