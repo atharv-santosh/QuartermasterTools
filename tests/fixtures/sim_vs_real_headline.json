@@ -1,0 +1,98 @@
+{
+  "model": "gemini-2.5-flash-lite",
+  "convention": "native",
+  "strategy": "rerank",
+  "fmt": "json_schema",
+  "k": 8,
+  "n": 60,
+  "sample_seed": 99,
+  "usage": {
+    "model": "gemini-2.5-flash-lite",
+    "calls": 180,
+    "retries": 3,
+    "prompt_tokens": 131875,
+    "output_tokens": 227458,
+    "total_tokens": 359333,
+    "cost_usd_list_price": 0.104171
+  },
+  "rows": [
+    {
+      "size": 25,
+      "n": 60,
+      "recall_at_k": 1.0,
+      "sim_task_success": 0.5333,
+      "real_task_success": 0.6667,
+      "gap": 0.1333,
+      "sim_failures": {
+        "wrong_tool_selected": 13,
+        "near_duplicate_confusion": 5,
+        "hallucinated_argument": 5,
+        "missing_argument": 4,
+        "wrong_argument_value": 1
+      },
+      "real_failures": {
+        "wrong_tool_selected": 3,
+        "hallucinated_argument": 3,
+        "missing_argument": 4,
+        "wrong_argument_value": 3,
+        "no_action": 7
+      },
+      "sim_recall_hit_task_fail": 28,
+      "real_recall_hit_task_fail": 20
+    },
+    {
+      "size": 200,
+      "n": 60,
+      "recall_at_k": 0.9,
+      "sim_task_success": 0.4167,
+      "real_task_success": 0.6667,
+      "gap": 0.25,
+      "sim_failures": {
+        "wrong_tool_selected": 18,
+        "near_duplicate_confusion": 3,
+        "below_cutoff": 3,
+        "deep_retrieval_miss": 3,
+        "hallucinated_argument": 4,
+        "missing_argument": 3,
+        "wrong_argument_value": 1
+      },
+      "real_failures": {
+        "wrong_tool_selected": 2,
+        "below_cutoff": 2,
+        "deep_retrieval_miss": 3,
+        "hallucinated_argument": 5,
+        "missing_argument": 2,
+        "wrong_argument_value": 3,
+        "no_action": 3
+      },
+      "sim_recall_hit_task_fail": 29,
+      "real_recall_hit_task_fail": 15
+    },
+    {
+      "size": 1236,
+      "n": 60,
+      "recall_at_k": 0.8167,
+      "sim_task_success": 0.2833,
+      "real_task_success": 0.6167,
+      "gap": 0.3333,
+      "sim_failures": {
+        "wrong_tool_selected": 28,
+        "near_duplicate_confusion": 3,
+        "below_cutoff": 3,
+        "deep_retrieval_miss": 8,
+        "missing_argument": 1
+      },
+      "real_failures": {
+        "wrong_tool_selected": 5,
+        "below_cutoff": 3,
+        "deep_retrieval_miss": 8,
+        "hallucinated_argument": 1,
+        "missing_argument": 1,
+        "wrong_argument_value": 4,
+        "no_action": 1
+      },
+      "sim_recall_hit_task_fail": 32,
+      "real_recall_hit_task_fail": 12
+    }
+  ]
+}

@@ -55,10 +55,14 @@ def parse_request(line: str) -> Request:
         raise RpcError(PARSE_ERROR, f"invalid JSON: {exc}") from exc
     if not isinstance(obj, dict) or obj.get("jsonrpc") != "2.0" or "method" not in obj:
         raise RpcError(INVALID_REQUEST, "not a JSON-RPC 2.0 request")
-    params = obj.get("params") or {}
-    if not isinstance(params, dict):
+    # JSON-RPC allows positional params; MCP never uses them. Check the value as
+    # given, since `or {}` would let an empty array through as an empty object.
+    raw_params = obj.get("params")
+    if raw_params is None:
+        raw_params = {}
+    if not isinstance(raw_params, dict):
         raise RpcError(INVALID_PARAMS, "params must be an object")
-    return Request(obj.get("id"), str(obj["method"]), params)
+    return Request(obj.get("id"), str(obj["method"]), raw_params)
 
 
 def response(request_id: Any, result: Any) -> str:

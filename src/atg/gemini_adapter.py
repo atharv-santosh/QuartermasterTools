@@ -39,16 +39,35 @@ PRICE_PER_MTOK: dict[str, tuple[float, float]] = {
     "gemini-2.5-flash": (0.30, 2.50),
 }
 
-SYSTEM_PROMPT = (
-    "You are the tool-calling layer of an agent. You are given a user request and a "
-    "set of candidate tools. Choose exactly one tool and call it with arguments taken "
-    "from the request. Copy argument values verbatim from the request; never invent a "
-    "value the request does not contain. If a required argument is genuinely absent "
-    "from the request, call ask_user instead, naming the tool you would use and the "
-    "single missing argument. Some candidates are near duplicates of each other and "
-    "differ only in a constraint stated in their description; read those before "
-    "choosing."
+_SHARED_RULES = (
+    "Copy argument values verbatim from the request; never invent a value the request "
+    "does not contain. If a required argument is genuinely absent from the request, call "
+    "ask_user instead, naming the tool you would use and the single missing argument. "
+    "Some candidates are near duplicates of each other and differ only in a constraint "
+    "stated in their description; read those before choosing. Always answer with a "
+    "function call, never with prose."
 )
+
+NATIVE_SYSTEM_PROMPT = (
+    "You are the tool-calling layer of an agent. You are given a user request and a set "
+    "of candidate tools as function declarations. Choose exactly one and call it. "
+    + _SHARED_RULES
+)
+
+# The proxy convention needs its own prompt. Told only to "choose a tool", a model
+# given a single call_tool declaration and a list of tools in the prompt text mostly
+# answers in prose, because the tool it was handed is not the tool it was asked to
+# pick. Naming the indirection explicitly is what fixes it.
+PROXY_SYSTEM_PROMPT = (
+    "You are the tool-calling layer of an agent. The candidate tools are listed in the "
+    "prompt text, not as function declarations. To use one, call the function call_tool "
+    "with name set to the exact tool name from that list and arguments_json set to a "
+    "JSON object string of its arguments, for example "
+    '{"to": "a@b.example", "subject": "Renewal"}. '
+    "Call call_tool exactly once. " + _SHARED_RULES
+)
+
+SYSTEM_PROMPT = NATIVE_SYSTEM_PROMPT
 
 
 class GeminiUnavailable(RuntimeError):
@@ -242,11 +261,12 @@ def _declarations(views: Sequence[ToolView], convention: Convention) -> list[Any
                 type="OBJECT",
                 properties={
                     "name": types.Schema(type="STRING", description="Exact tool name from the list."),
-                    "arguments": types.Schema(
-                        type="STRING", description="JSON object of argument name to value."
+                    "arguments_json": types.Schema(
+                        type="STRING",
+                        description='A JSON object string, e.g. {"sku": "SKU-1187"}.',
                     ),
                 },
-                required=["name", "arguments"],
+                required=["name", "arguments_json"],
             ),
         )
         return [types.Tool(function_declarations=[call, ask])]
@@ -309,7 +329,7 @@ def _to_action(name: str, args: dict[str, Any], views: Sequence[ToolView], conve
     if convention == "proxy":
         if name != "call_tool":
             return None
-        raw = args.get("arguments", "{}")
+        raw = args.get("arguments_json", args.get("arguments", "{}"))
         try:
             parsed = json.loads(raw) if isinstance(raw, str) else dict(raw)
         except json.JSONDecodeError:
@@ -342,7 +362,7 @@ def make_gemini_decider(
             model=model,
             contents=_prompt(query, shown, convention),
             config=types.GenerateContentConfig(
-                system_instruction=SYSTEM_PROMPT,
+                system_instruction=NATIVE_SYSTEM_PROMPT if convention == "native" else PROXY_SYSTEM_PROMPT,
                 tools=_declarations(shown, convention),
                 temperature=0.0,
                 automatic_function_calling=types.AutomaticFunctionCallingConfig(disable=True),
@@ -375,15 +395,16 @@ def make_gemini_decider(
 
 
 def load_cache(path: Path) -> dict[str, dict[str, Any]]:
-    """Replay cache from a recorded fixture."""
+    """Replay cache from a recorded fixture.
+
+    Records where the model produced no function call are kept, with a null name.
+    Dropping them would turn a recorded "the model answered in prose" into a
+    replay miss, which is a different result.
+    """
     if not path.exists():
         return {}
     payload = json.loads(path.read_text())
-    return {
-        r["key"]: {"name": r["name"], "args": r["args"]}
-        for r in payload.get("records", [])
-        if r.get("name")
-    }
+    return {r["key"]: {"name": r.get("name"), "args": r.get("args") or {}} for r in payload.get("records", [])}
 
 
 def make_replay_decider(path: Path, *, convention: Convention = "native", strict: bool = True):
@@ -392,10 +413,12 @@ def make_replay_decider(path: Path, *, convention: Convention = "native", strict
 
     def decide(views: Sequence[ToolView], query: str) -> Action:
         key = cache_key(query, list(views), convention)
-        hit = cache.get(key)
-        if hit is None:
+        if key not in cache:
             if strict:
                 raise KeyError(f"no recorded Gemini call for {query[:60]!r} with {len(views)} candidates")
+            return None
+        hit = cache[key]
+        if hit["name"] is None:
             return None
         return _to_action(hit["name"], hit["args"], list(views), convention)
 
