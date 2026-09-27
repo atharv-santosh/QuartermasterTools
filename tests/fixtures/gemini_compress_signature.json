@@ -1,0 +1,367 @@
+{
+  "model": "gemini-2.5-flash-lite",
+  "convention": "proxy",
+  "recorded_utc": "2026-09-27T00:28:39Z",
+  "usage": {
+    "model": "gemini-2.5-flash-lite",
+    "calls": 30,
+    "retries": 1,
+    "prompt_tokens": 18969,
+    "output_tokens": 4490,
+    "total_tokens": 23459,
+    "cost_usd_list_price": 0.003693
+  },
+  "records": [
+    {
+      "key": "{\"c\": \"proxy\", \"q\": \"Fetch the funnel id f_5690735, dry run true, visibility public in the analytics system.\", \"v\": [\"get_funnel(funnel_id:id!, dry_run:bool!, limit:int, visibility:private|team|public!) - Retrieve a single funnel by id.\", \"create_dashboard(name:str!, notes:str, limit:int) - Create a new dashboard in analytics.\", \"device_get(device_id:id!, notes:str, owner_email:email, name:str) - Retrieve a single device by id.\", \"search_utm_link(limit:int, query:str!, effective_at:date, dry_run:bool, visibility:private|team|public!) - Search utm links by free text.\", \"storage_class.get(storage_class_id:id!, limit:int!, priority:low|normal|urgent!, path:path, format:csv|json|parquet) - Retrieve a single storage class by id.\", \"create_delivery_receipt(name:str!, dry_run:bool!) - Create a new delivery receipt in notifications. Only valid when the sending domain has completed DKIM verification.\", \"get_index_document(index_document_id:id!, limit:int, notes:str, effective_at:date, name:str) - Retrieve a single index document by id.\", \"warehouse_bin_update(warehouse_bin_id:id!, fields:str!, owner_email:email, region:us-east-1|eu-west-1|ap-south-1, name:str) - Update fields on an existing warehouse bin.\"]}",
+      "query": "Fetch the funnel id f_5690735, dry run true, visibility public in the analytics system.",
+      "n_candidates": 8,
+      "fmt": "signature",
+      "name": null,
+      "args": {},
+      "prompt_tokens": 649,
+      "output_tokens": 0
+    },
+    {
+      "key": "{\"c\": \"proxy\", \"q\": \"Cancel the uncaptured authorization on charge c_9828939 before it settles.\", \"v\": [\"void_charge(charge_id:id!) - Void an authorization that has not captured yet.\", \"refund_charge_partial(charge_id:id!, amount:num!) - Refund part of a charge's amount. Only valid when the caller is settling only part of the original amount.\", \"refund_charge_full(charge_id:id!) - Refund the entire original amount of a charge.\", \"create_credit_note(invoice_id:id!, amount:num!) - Issue a credit note against an invoice.\", \"list_direct_message(limit:int, notes:str, status:active|paused|archived) - List direct messages with optional paging.\", \"search_template_render(limit:int, query:str!, priority:low|normal|urgent!, notes:str, effective_at:date, callback_url:url!) - Search template renders by free text.\", \"list_channel(limit:int, status:active|paused|archived!, visibility:private|team|public, priority:low|normal|urgent) - List channels with optional paging.\", \"create_message(name:str!, effective_at:date, status:active|paused|archived, region:us-east-1|eu-west-1|ap-south-1) - Create a new message in email.\"]}",
+      "query": "Cancel the uncaptured authorization on charge c_9828939 before it settles.",
+      "n_candidates": 8,
+      "fmt": "signature",
+      "name": null,
+      "args": {},
+      "prompt_tokens": 600,
+      "output_tokens": 0
+    },
+    {
+      "key": "{\"c\": \"proxy\", \"q\": \"Set up a new lead notes 'raised by the vendor on the Thursday call'.\", \"v\": [\"lead_export(limit:int, format:csv|json|parquet!, owner_email:email, name:str, status:active|paused|archived!) - Export leads to a file.\", \"lead_create(name:str!, notes:str!, effective_at:date) - Create a new lead in crm.\", \"delete_thread(thread_id:id!, limit:int, status:active|paused|archived, visibility:private|team|public) - Permanently delete a thread.\", \"device_export(limit:int, format:csv|json|parquet!, dry_run:bool, owner_email:email, name:str!) - Export devices to a file.\", \"comment_export(limit:int, format:csv|json|parquet!, region:us-east-1|eu-west-1|ap-south-1!, effective_at:date, owner_email:email!) - Export comments to a file.\", \"create_funnel(name:str!, effective_at:date!) - Create a new funnel in analytics.\", \"list_reaction(limit:int, status:active|paused|archived) - List reactions with optional paging.\", \"archive_quiet_hours(quiet_hours_id:id!, visibility:private|team|public, region:us-east-1|eu-west-1|ap-south-1!, limit:int) - Archive a quiet hours without deleting it.\"]}",
+      "query": "Set up a new lead notes 'raised by the vendor on the Thursday call'.",
+      "n_candidates": 8,
+      "fmt": "signature",
+      "name": "ask_user",
+      "args": {
+        "tool": "lead_create",
+        "missing": "name"
+      },
+      "prompt_tokens": 624,
+      "output_tokens": 72
+    },
+    {
+      "key": "{\"c\": \"proxy\", \"q\": \"Dump the filter as parquet.\", \"v\": [\"export_filter(limit:int, format:csv|json|parquet!, name:str) - Export filters to a file.\", \"delete_filter(filter_id:id!, limit:int) - Permanently delete a filter.\", \"export_availability(limit:int, format:csv|json|parquet!, visibility:private|team|public!) - Export availabilitys to a file.\", \"sku_export(limit:int, format:csv|json|parquet!, name:str!) - Export skus to a file.\", \"export_room_booking(limit:int, format:csv|json|parquet!, owner_email:email, priority:low|normal|urgent, status:active|paused|archived, region:us-east-1|eu-west-1|ap-south-1) - Export room bookings to a file.\", \"archive_knowledge_article(knowledge_article_id:id!, limit:int) - Archive a knowledge article without deleting it.\", \"search_cost_center(limit:int, query:str!, notes:str, effective_at:date, region:us-east-1|eu-west-1|ap-south-1!) - Search cost centers by free text.\", \"update_payout(payout_id:id!, fields:str!, currency:str!, amount:num, owner_email:email, region:us-east-1|eu-west-1|ap-south-1) - Update fields on an existing payout.\"]}",
+      "query": "Dump the filter as parquet.",
+      "n_candidates": 8,
+      "fmt": "signature",
+      "name": "call_tool",
+      "args": {
+        "arguments_json": "{\"format\": \"parquet\", \"name\": \"filter\"}",
+        "name": "export_filter"
+      },
+      "prompt_tokens": 625,
+      "output_tokens": 22
+    },
+    {
+      "key": "{\"c\": \"proxy\", \"q\": \"Bounce every pod of 'checkout-api' without changing what is deployed.\", \"v\": [\"deployment.restart(service:str!) - Restart all pods of a service without changing the image.\", \"service.update(service_id:id!, fields:str!, notes:str, region:us-east-1|eu-west-1|ap-south-1!) - Update fields on an existing service.\", \"deal_create(name:str!, notes:str!, effective_at:date) - Create a new deal in crm.\", \"deployment.create(service:str!, image:str!) - Roll out a new deployment revision to production.\", \"rollout.pause(service:str!) - Pause an in-progress progressive rollout.\", \"deployment.rollback(service:str!) - Roll a service back to its previous revision.\", \"template_search(limit:int, query:str!, visibility:private|team|public, notes:str, region:us-east-1|eu-west-1|ap-south-1) - Search templates by free text.\", \"deployment.create_sandbox(service:str!, image:str!) - Roll out a revision to the sandbox cluster only. Only valid when operating against the sandbox environment, not production.\"]}",
+      "query": "Bounce every pod of 'checkout-api' without changing what is deployed.",
+      "n_candidates": 8,
+      "fmt": "signature",
+      "name": null,
+      "args": {},
+      "prompt_tokens": 559,
+      "output_tokens": 0
+    },
+    {
+      "key": "{\"c\": \"proxy\", \"q\": \"Move the signature into the archive id s_2318400, owned by ops-team@northwind.example, status paused in the email system.\", \"v\": [\"archive_signature(signature_id:id!, dry_run:bool, owner_email:email!, status:active|paused|archived!, priority:low|normal|urgent!) - Archive a signature without deleting it.\", \"create_signature(name:str!, status:active|paused|archived!, notes:str, limit:int!) - Create a new signature in email.\", \"archive_reindex_job(reindex_job_id:id!, priority:low|normal|urgent, name:str, region:us-east-1|eu-west-1|ap-south-1!) - Archive a reindex job without deleting it.\", \"bucket.archive(bucket_id:id!, visibility:private|team|public) - Archive a bucket without deleting it.\", \"api_key.archive(api_key_id:id!, region:us-east-1|eu-west-1|ap-south-1, visibility:private|team|public, owner_email:email, name:str) - Archive a api key without deleting it.\", \"signed_url.archive(signed_url_id:id!, path:path!, notes:str, effective_at:date, dry_run:bool) - Archive a signed url without deleting it.\", \"alert_rule.archive(alert_rule_id:id!, callback_url:url) - Archive a alert rule without deleting it.\", \"object.archive(object_id:id!, limit:int, name:str, format:csv|json|parquet) - Archive a object without deleting it.\"]}",
+      "query": "Move the signature into the archive id s_2318400, owned by ops-team@northwind.example, status paused in the email system.",
+      "n_candidates": 8,
+      "fmt": "signature",
+      "name": "ask_user",
+      "args": {
+        "tool": "archive_signature",
+        "missing": "dry_run"
+      },
+      "prompt_tokens": 671,
+      "output_tokens": 172
+    },
+    {
+      "key": "{\"c\": \"proxy\", \"q\": \"Enumerate the dataset split.\", \"v\": [\"dataset_split.list(limit:int, notes:str, visibility:private|team|public) - List dataset splits with optional paging.\", \"erp_dataset_split_list(limit:int, notes:str, visibility:private|team|public) - List a dataset split record via the legacy ERP bridge.\", \"list_account(limit:int, priority:low|normal|urgent!, notes:str!, effective_at:date) - List accounts with optional paging.\", \"prefix.list(limit:int, effective_at:date) - List prefixs with optional paging.\", \"update_stopword_list(stopword_list_id:id!, fields:str!, limit:int, dry_run:bool, effective_at:date) - Update fields on an existing stopword list.\", \"payroll_run_archive(payroll_run_id:id!, visibility:private|team|public, name:str, effective_at:date!, region:us-east-1|eu-west-1|ap-south-1) - Archive a payroll run without deleting it.\", \"search_drip_sequence(limit:int, query:str!, status:active|paused|archived) - Search drip sequences by free text.\", \"ip_allowlist.export(limit:int, format:csv|json|parquet!, name:str, status:active|paused|archived!) - Export ip allowlists to a file.\"]}",
+      "query": "Enumerate the dataset split.",
+      "n_candidates": 8,
+      "fmt": "signature",
+      "name": null,
+      "args": {},
+      "prompt_tokens": 612,
+      "output_tokens": 0
+    },
+    {
+      "key": "{\"c\": \"proxy\", \"q\": \"Put the repeating meeting into the archive id rs_8916770.\", \"v\": [\"deal_archive(deal_id:id!, owner_email:email!) - Archive a deal without deleting it.\", \"archive_creative_asset(creative_asset_id:id!, visibility:private|team|public!, priority:low|normal|urgent!, notes:str!) - Archive a creative asset without deleting it.\", \"archive_recurring_series(recurring_series_id:id!, visibility:private|team|public, region:us-east-1|eu-west-1|ap-south-1, owner_email:email) - Archive a recurring series without deleting it.\", \"archive_coupon(coupon_id:id!, currency:str!, status:active|paused|archived, owner_email:email, priority:low|normal|urgent) - Archive a coupon without deleting it.\", \"model_version.get(model_version_id:id!, effective_at:date) - Retrieve a single model version by id.\", \"create_campaign(name:str!, visibility:private|team|public!, region:us-east-1|eu-west-1|ap-south-1) - Create a new campaign in marketing.\", \"search_room_booking(limit:int, query:str!, status:active|paused|archived) - Search room bookings by free text.\", \"get_cost_center(cost_center_id:id!, amount:num) - Retrieve a single cost center by id.\"]}",
+      "query": "Put the repeating meeting into the archive id rs_8916770.",
+      "n_candidates": 8,
+      "fmt": "signature",
+      "name": "ask_user",
+      "args": {
+        "missing": "owner_email",
+        "tool": "archive_recurring_series"
+      },
+      "prompt_tokens": 623,
+      "output_tokens": 112
+    },
+    {
+      "key": "{\"c\": \"proxy\", \"q\": \"Dump the activity as csv in the crm system.\", \"v\": [\"activity_export(limit:int, format:csv|json|parquet!, name:str, owner_email:email, notes:str) - Export activitys to a file.\", \"contact_list(limit:int, effective_at:date, region:us-east-1|eu-west-1|ap-south-1, notes:str) - List contacts with optional paging.\", \"shipment_update(shipment_id:id!, fields:str!, owner_email:email, dry_run:bool) - Update fields on an existing shipment.\", \"update_webhook_post(webhook_post_id:id!, fields:str!, region:us-east-1|eu-west-1|ap-south-1, owner_email:email, notes:str!, limit:int) - Update fields on an existing webhook post.\", \"payroll_run_delete(payroll_run_id:id!, visibility:private|team|public!, owner_email:email, name:str) - Permanently delete a payroll run.\", \"update_payment_method(payment_method_id:id!, fields:str!, region:us-east-1|eu-west-1|ap-south-1) - Update fields on an existing payment method. Only valid when the caller is settling only part of the original amount.\", \"list_creative_asset(limit:int, dry_run:bool) - List creative assets with optional paging.\", \"firewall_rule.create(name:str!, limit:int, status:active|paused|archived, visibility:private|team|public) - Create a new firewall rule in security.\"]}",
+      "query": "Dump the activity as csv in the crm system.",
+      "n_candidates": 8,
+      "fmt": "signature",
+      "name": "call_tool",
+      "args": {
+        "name": "activity_export",
+        "arguments_json": "{\"format\": \"csv\", \"name\": \"crm system\"}"
+      },
+      "prompt_tokens": 662,
+      "output_tokens": 23
+    },
+    {
+      "key": "{\"c\": \"proxy\", \"q\": \"Pull up the inventory count id sl_4454548, priority low, region ap-south-1 in the inventory system.\", \"v\": [\"stock_level_get(stock_level_id:id!, effective_at:date, limit:int, priority:low|normal|urgent!, region:us-east-1|eu-west-1|ap-south-1!) - Retrieve a single stock level by id.\", \"attachment_get(attachment_id:id!, limit:int) - Retrieve a single attachment by id.\", \"purchase_order_update(purchase_order_id:id!, fields:str!, status:active|paused|archived, visibility:private|team|public, effective_at:date, quantity:int) - Update fields on an existing purchase order.\", \"get_delivery_receipt(delivery_receipt_id:id!, dry_run:bool, notes:str) - Retrieve a single delivery receipt by id.\", \"territory_export(limit:int, format:csv|json|parquet!, owner_email:email, region:us-east-1|eu-west-1|ap-south-1!, effective_at:date) - Export territorys to a file.\", \"update_invite(invite_id:id!, fields:str!, region:us-east-1|eu-west-1|ap-south-1!, dry_run:bool) - Update fields on an existing invite.\", \"get_filter(filter_id:id!, owner_email:email, dry_run:bool) - Retrieve a single filter by id.\", \"delete_draft(draft_id:id!, region:us-east-1|eu-west-1|ap-south-1, visibility:private|team|public) - Permanently delete a draft.\"]}",
+      "query": "Pull up the inventory count id sl_4454548, priority low, region ap-south-1 in the inventory system.",
+      "n_candidates": 8,
+      "fmt": "signature",
+      "name": null,
+      "args": {},
+      "prompt_tokens": 685,
+      "output_tokens": 0
+    },
+    {
+      "key": "{\"c\": \"proxy\", \"q\": \"Show every note priority urgent, status paused in the crm system.\", \"v\": [\"note_list(limit:int, priority:low|normal|urgent!, name:str, status:active|paused|archived!) - List notes with optional paging.\", \"note_search(limit:int, query:str!, effective_at:date!, name:str!) - Search notes by free text.\", \"archive_audience_list(audience_list_id:id!, priority:low|normal|urgent) - Archive a audience list without deleting it.\", \"company_get(company_id:id!, region:us-east-1|eu-west-1|ap-south-1) - Retrieve a single company by id.\", \"list_account(limit:int, priority:low|normal|urgent!, notes:str!, effective_at:date) - List accounts with optional paging.\", \"revision_list(limit:int, priority:low|normal|urgent, effective_at:date, name:str) - List revisions with optional paging.\", \"lead_export(limit:int, format:csv|json|parquet!, owner_email:email, name:str, status:active|paused|archived!) - Export leads to a file.\", \"territory_get(territory_id:id!, limit:int, region:us-east-1|eu-west-1|ap-south-1) - Retrieve a single territory by id.\"]}",
+      "query": "Show every note priority urgent, status paused in the crm system.",
+      "n_candidates": 8,
+      "fmt": "signature",
+      "name": "call_tool",
+      "args": {
+        "arguments_json": "{\"priority\": \"urgent\", \"status\": \"paused\", \"name\": \"crm system\"}",
+        "name": "note_list"
+      },
+      "prompt_tokens": 605,
+      "output_tokens": 1690
+    },
+    {
+      "key": "{\"c\": \"proxy\", \"q\": \"Get rid of the migration id m_3439006, status active in the database system.\", \"v\": [\"migration.delete(migration_id:id!, limit:int, status:active|paused|archived!, owner_email:email, effective_at:date) - Permanently delete a migration.\", \"migration.update(migration_id:id!, fields:str!, dry_run:bool) - Update fields on an existing migration.\", \"legacy_migration_delete(migration_id:id!, limit:int, status:active|paused|archived!, owner_email:email, effective_at:date) - Delete a migration record via the legacy ERP bridge.\", \"get_calendar(calendar_id:id!, effective_at:date) - Retrieve a single calendar by id.\", \"index.export(limit:int, format:csv|json|parquet!) - Export indexs to a file.\", \"storage_class.get(storage_class_id:id!, limit:int!, priority:low|normal|urgent!, path:path, format:csv|json|parquet) - Retrieve a single storage class by id.\", \"query_job.delete(query_job_id:id!, dry_run:bool!, notes:str) - Permanently delete a query job. Only valid when operating against the sandbox environment, not production.\", \"create_event_stream(name:str!, owner_email:email, dry_run:bool, callback_url:url) - Create a new event stream in analytics.\"]}",
+      "query": "Get rid of the migration id m_3439006, status active in the database system.",
+      "n_candidates": 8,
+      "fmt": "signature",
+      "name": null,
+      "args": {},
+      "prompt_tokens": 622,
+      "output_tokens": 0
+    },
+    {
+      "key": "{\"c\": \"proxy\", \"q\": \"Adjust the quote id q_7080615, setting 'status=paused'.\", \"v\": [\"quote_update(quote_id:id!, fields:str!, effective_at:date) - Update fields on an existing quote.\", \"sku_get(sku_id:id!, region:us-east-1|eu-west-1|ap-south-1, name:str, quantity:int, notes:str) - Retrieve a single sku by id.\", \"update_cohort(cohort_id:id!, fields:str!, effective_at:date, notes:str) - Update fields on an existing cohort.\", \"export_job_get(export_job_id:id!, dry_run:bool!) - Retrieve a single export job by id.\", \"company_delete(company_id:id!, priority:low|normal|urgent) - Permanently delete a company.\", \"pod.update(pod_id:id!, fields:str!, priority:low|normal|urgent) - Update fields on an existing pod.\", \"note_create(name:str!, visibility:private|team|public) - Create a new note in crm.\", \"create_signature(name:str!, status:active|paused|archived!, notes:str, limit:int!) - Create a new signature in email.\"]}",
+      "query": "Adjust the quote id q_7080615, setting 'status=paused'.",
+      "n_candidates": 8,
+      "fmt": "signature",
+      "name": null,
+      "args": {},
+      "prompt_tokens": 577,
+      "output_tokens": 0
+    },
+    {
+      "key": "{\"c\": \"proxy\", \"q\": \"Claw back payout p_9474797, it already left our balance.\", \"v\": [\"reverse_payout(payout_id:id!) - Reverse a payout that already left the platform balance.\", \"deployment.rollback(service:str!) - Roll a service back to its previous revision.\", \"offer_search(limit:int, query:str!, notes:str, priority:low|normal|urgent!, visibility:private|team|public!) - Search offers by free text.\", \"timeoff_request_get(timeoff_request_id:id!, region:us-east-1|eu-west-1|ap-south-1, limit:int) - Retrieve a single timeoff request by id.\", \"list_channel(limit:int, status:active|paused|archived!, visibility:private|team|public, priority:low|normal|urgent) - List channels with optional paging.\", \"template_search(limit:int, query:str!, visibility:private|team|public, notes:str, region:us-east-1|eu-west-1|ap-south-1) - Search templates by free text.\", \"payroll_run_get(payroll_run_id:id!, priority:low|normal|urgent, effective_at:date, visibility:private|team|public!, notes:str) - Retrieve a single payroll run by id.\", \"export_channel_message(limit:int, format:csv|json|parquet!, effective_at:date, notes:str, visibility:private|team|public!) - Export channel messages to a file.\"]}",
+      "query": "Claw back payout p_9474797, it already left our balance.",
+      "n_candidates": 8,
+      "fmt": "signature",
+      "name": null,
+      "args": {},
+      "prompt_tokens": 638,
+      "output_tokens": 0
+    },
+    {
+      "key": "{\"c\": \"proxy\", \"q\": \"Adjust the access history id al_9883737, setting 'status=paused', status paused.\", \"v\": [\"audit_log.update(audit_log_id:id!, fields:str!, status:active|paused|archived!, visibility:private|team|public) - Update fields on an existing audit log.\", \"firewall_rule.archive(firewall_rule_id:id!, priority:low|normal|urgent, notes:str!, limit:int, name:str!) - Archive a firewall rule without deleting it.\", \"archive_pinned_item(pinned_item_id:id!, region:us-east-1|eu-west-1|ap-south-1, owner_email:email, visibility:private|team|public, dry_run:bool) - Archive a pinned item without deleting it.\", \"page_get(page_id:id!, owner_email:email) - Retrieve a single page by id.\", \"activity_create(name:str!, effective_at:date, dry_run:bool, notes:str) - Create a new activity in crm.\", \"archive_analyzer_chain(analyzer_chain_id:id!, effective_at:date) - Archive a analyzer chain without deleting it.\", \"get_sms(sms_id:id!, limit:int) - Retrieve a single sms by id.\", \"signed_url.get(signed_url_id:id!, limit:int) - Retrieve a single signed url by id.\"]}",
+      "query": "Adjust the access history id al_9883737, setting 'status=paused', status paused.",
+      "n_candidates": 8,
+      "fmt": "signature",
+      "name": "ask_user",
+      "args": {
+        "tool": "audit_log.update",
+        "missing": "fields"
+      },
+      "prompt_tokens": 616,
+      "output_tokens": 566
+    },
+    {
+      "key": "{\"c\": \"proxy\", \"q\": \"Wipe the deployment id d_8758930.\", \"v\": [\"deployment.delete(deployment_id:id!, effective_at:date) - Permanently delete a deployment.\", \"get_quiet_hours(quiet_hours_id:id!, region:us-east-1|eu-west-1|ap-south-1) - Retrieve a single quiet hours by id.\", \"get_channel(channel_id:id!, name:str, priority:low|normal|urgent!, effective_at:date) - Retrieve a single channel by id.\", \"sku_get(sku_id:id!, region:us-east-1|eu-west-1|ap-south-1, name:str, quantity:int, notes:str) - Retrieve a single sku by id.\", \"telemetry_stream_archive(telemetry_stream_id:id!, region:us-east-1|eu-west-1|ap-south-1) - Archive a telemetry stream without deleting it.\", \"geofence_create(name:str!, dry_run:bool, effective_at:date) - Create a new geofence in iot.\", \"create_quiet_hours(name:str!, priority:low|normal|urgent, region:us-east-1|eu-west-1|ap-south-1, owner_email:email!) - Create a new quiet hours in notifications.\", \"legacy_macro_delete(macro_id:id!, visibility:private|team|public, effective_at:date, limit:int) - Delete a macro record via the legacy ERP bridge.\"]}",
+      "query": "Wipe the deployment id d_8758930.",
+      "n_candidates": 8,
+      "fmt": "signature",
+      "name": "ask_user",
+      "args": {
+        "tool": "deployment.delete",
+        "missing": "effective_at"
+      },
+      "prompt_tokens": 642,
+      "output_tokens": 100
+    },
+    {
+      "key": "{\"c\": \"proxy\", \"q\": \"Give me all the dataset split.\", \"v\": [\"dataset_split.list(limit:int, notes:str, visibility:private|team|public) - List dataset splits with optional paging.\", \"erp_dataset_split_list(limit:int, notes:str, visibility:private|team|public) - List a dataset split record via the legacy ERP bridge.\", \"update_funnel(funnel_id:id!, fields:str!, visibility:private|team|public, callback_url:url, owner_email:email) - Update fields on an existing funnel.\", \"ip_allowlist.create(name:str!, status:active|paused|archived!, limit:int) - Create a new ip allowlist in security.\", \"update_sla_policy(sla_policy_id:id!, fields:str!, dry_run:bool!) - Update fields on an existing sla policy.\", \"post_channel_message(channel:str!, text:str!) - Post a message to a channel.\", \"export_attribution_model(limit:int, format:csv|json|parquet!, visibility:private|team|public!, owner_email:email) - Export attribution models to a file.\", \"geofence_archive(geofence_id:id!, name:str) - Archive a geofence without deleting it.\"]}",
+      "query": "Give me all the dataset split.",
+      "n_candidates": 8,
+      "fmt": "signature",
+      "name": "call_tool",
+      "args": {
+        "name": "dataset_split.list",
+        "arguments_json": "{\"limit\": 100, \"notes\": \"Give me all the dataset split.\"}"
+      },
+      "prompt_tokens": 579,
+      "output_tokens": 32
+    },
+    {
+      "key": "{\"c\": \"proxy\", \"q\": \"Adjust the pinned item setting 'owner_email=ops-team@northwind.example'.\", \"v\": [\"update_pinned_item(pinned_item_id:id!, fields:str!, dry_run:bool) - Update fields on an existing pinned item.\", \"archive_draft(draft_id:id!, owner_email:email, dry_run:bool) - Archive a draft without deleting it.\", \"deployment.search(limit:int, query:str!, owner_email:email) - Search deployments by free text.\", \"update_payout(payout_id:id!, fields:str!, currency:str!, amount:num, owner_email:email, region:us-east-1|eu-west-1|ap-south-1) - Update fields on an existing payout.\", \"archive_subscription(subscription_id:id!, region:us-east-1|eu-west-1|ap-south-1, owner_email:email!) - Archive a subscription without deleting it.\", \"export_template_render(limit:int, format:csv|json|parquet!, owner_email:email) - Export template renders to a file.\", \"firewall_rule.update(firewall_rule_id:id!, fields:str!, region:us-east-1|eu-west-1|ap-south-1) - Update fields on an existing firewall rule.\", \"template_export(limit:int, format:csv|json|parquet!, status:active|paused|archived, effective_at:date, owner_email:email!, name:str!) - Export templates to a file.\"]}",
+      "query": "Adjust the pinned item setting 'owner_email=ops-team@northwind.example'.",
+      "n_candidates": 8,
+      "fmt": "signature",
+      "name": "ask_user",
+      "args": {
+        "tool": "update_pinned_item",
+        "missing": "pinned_item_id"
+      },
+      "prompt_tokens": 643,
+      "output_tokens": 113
+    },
+    {
+      "key": "{\"c\": \"proxy\", \"q\": \"Enumerate the permission grant.\", \"v\": [\"export_stopword_list(limit:int, format:csv|json|parquet!, notes:str) - Export stopword lists to a file.\", \"list_budget(limit:int, priority:low|normal|urgent) - List budgets with optional paging.\", \"list_drip_sequence(limit:int, visibility:private|team|public!, dry_run:bool, priority:low|normal|urgent!) - List drip sequences with optional paging.\", \"role_binding.list(limit:int, status:active|paused|archived, notes:str, name:str, effective_at:date) - List role bindings with optional paging.\", \"list_signature(limit:int, priority:low|normal|urgent, region:us-east-1|eu-west-1|ap-south-1) - List signatures with optional paging.\", \"search_subscription(limit:int, query:str!, amount:num!, effective_at:date) - Search subscriptions by free text.\", \"deal_update(deal_id:id!, fields:str!, status:active|paused|archived) - Update fields on an existing deal.\", \"job_requisition_update(job_requisition_id:id!, fields:str!, name:str, effective_at:date, notes:str, region:us-east-1|eu-west-1|ap-south-1) - Update fields on an existing job requisition.\"]}",
+      "query": "Enumerate the permission grant.",
+      "n_candidates": 8,
+      "fmt": "signature",
+      "name": null,
+      "args": {},
+      "prompt_tokens": 614,
+      "output_tokens": 0
+    },
+    {
+      "key": "{\"c\": \"proxy\", \"q\": \"Adjust the ad group id ag_4253676, setting 'status=paused', notes 'raised by the vendor on the Thursday call' - it has to go out from our own domain, which is already set up for it in the marketing system.\", \"v\": [\"update_ad_group(ad_group_id:id!, fields:str!, region:us-east-1|eu-west-1|ap-south-1, notes:str!, name:str) - Update fields on an existing ad group. Only valid when the sending domain has completed DKIM verification.\", \"get_ad_group(ad_group_id:id!, owner_email:email) - Retrieve a single ad group by id.\", \"erp_ad_group_get(ad_group_id:id!, owner_email:email) - Get a ad group record via the legacy ERP bridge.\", \"create_ad_group(name:str!, effective_at:date, priority:low|normal|urgent) - Create a new ad group in marketing. Only valid when sending to more than 50 recipients in one call.\", \"archive_ad_group(ad_group_id:id!, limit:int, name:str) - Archive a ad group without deleting it.\", \"search_ad_group(limit:int, query:str!, priority:low|normal|urgent, notes:str, dry_run:bool!, visibility:private|team|public) - Search ad groups by free text.\", \"list_ad_group(limit:int, visibility:private|team|public, effective_at:date) - List ad groups with optional paging.\", \"delete_ad_group(ad_group_id:id!, owner_email:email!, limit:int) - Permanently delete a ad group.\"]}",
+      "query": "Adjust the ad group id ag_4253676, setting 'status=paused', notes 'raised by the vendor on the Thursday call' - it has to go out from our own domain, which is already set up for it in the marketing system.",
+      "n_candidates": 8,
+      "fmt": "signature",
+      "name": "call_tool",
+      "args": {
+        "name": "update_ad_group",
+        "arguments_json": "{\"ad_group_id\": \"ag_4253676\", \"fields\": \"status=paused\", \"notes\": \"raised by the vendor on the Thursday call\"}"
+      },
+      "prompt_tokens": 681,
+      "output_tokens": 391
+    },
+    {
+      "key": "{\"c\": \"proxy\", \"q\": \"Page through the dataset split.\", \"v\": [\"dataset_split.list(limit:int, notes:str, visibility:private|team|public) - List dataset splits with optional paging.\", \"erp_dataset_split_list(limit:int, notes:str, visibility:private|team|public) - List a dataset split record via the legacy ERP bridge.\", \"list_macro(limit:int, status:active|paused|archived, name:str) - List macros with optional paging.\", \"list_push_notification(limit:int, visibility:private|team|public!) - List push notifications with optional paging.\", \"list_cost_center(limit:int, priority:low|normal|urgent!, name:str, dry_run:bool, cost_center:str) - List cost centers with optional paging.\", \"create_subscription(name:str!, effective_at:date, priority:low|normal|urgent) - Create a new subscription in payments.\", \"export_user_group(limit:int, format:csv|json|parquet!, notes:str, owner_email:email) - Export user groups to a file.\", \"runbook.update(runbook_id:id!, fields:str!, visibility:private|team|public!) - Update fields on an existing runbook.\"]}",
+      "query": "Page through the dataset split.",
+      "n_candidates": 8,
+      "fmt": "signature",
+      "name": "ask_user",
+      "args": {
+        "missing": "limit",
+        "tool": "dataset_split.list"
+      },
+      "prompt_tokens": 572,
+      "output_tokens": 72
+    },
+    {
+      "key": "{\"c\": \"proxy\", \"q\": \"Open a expense claim called 'EU customer export' in the finance system.\", \"v\": [\"create_expense_report(name:str!, region:us-east-1|eu-west-1|ap-south-1, owner_email:email!, cost_center:str, visibility:private|team|public) - Create a new expense report in finance.\", \"incident.export(limit:int, format:csv|json|parquet!, dry_run:bool, effective_at:date!, callback_url:url) - Export incidents to a file.\", \"export_event_stream(limit:int, format:csv|json|parquet!, callback_url:url, dry_run:bool!) - Export event streams to a file.\", \"pod.create(name:str!, status:active|paused|archived) - Create a new pod in devops.\", \"lifecycle_rule.export(limit:int, format:csv|json|parquet!, visibility:private|team|public, effective_at:date, name:str) - Export lifecycle rules to a file.\", \"export_alias(limit:int, format:csv|json|parquet!, effective_at:date) - Export aliass to a file.\", \"archive_account(account_id:id!, status:active|paused|archived, priority:low|normal|urgent, cost_center:str!, limit:int) - Archive a account without deleting it.\", \"contact_anonymize(contact_id:id!) - Strip personal fields from a contact under legal hold. Only valid when the record is under legal hold and cannot be hard deleted.\"]}",
+      "query": "Open a expense claim called 'EU customer export' in the finance system.",
+      "n_candidates": 8,
+      "fmt": "signature",
+      "name": "ask_user",
+      "args": {
+        "tool": "create_expense_report",
+        "missing": "owner_email"
+      },
+      "prompt_tokens": 641,
+      "output_tokens": 265
+    },
+    {
+      "key": "{\"c\": \"proxy\", \"q\": \"Read back the queue effective 2026-10-01T09:00:00Z.\", \"v\": [\"get_queue(queue_id:id!, owner_email:email, effective_at:date!, name:str, priority:low|normal|urgent) - Retrieve a single queue by id.\", \"archive_digest(digest_id:id!, effective_at:date) - Archive a digest without deleting it.\", \"legacy_migration_delete(migration_id:id!, limit:int, status:active|paused|archived!, owner_email:email, effective_at:date) - Delete a migration record via the legacy ERP bridge.\", \"create_room_booking(name:str!, notes:str, visibility:private|team|public!, effective_at:date) - Create a new room booking in calendar.\", \"create_template_render(name:str!, callback_url:url, limit:int, effective_at:date, status:active|paused|archived) - Create a new template render in notifications.\", \"incident.get(incident_id:id!, visibility:private|team|public!, status:active|paused|archived, limit:int!) - Retrieve a single incident by id.\", \"erp_charge_create(name:str!, currency:str!, limit:int!) - Create a charge record via the legacy ERP bridge.\", \"archive_subscription_pref(subscription_pref_id:id!, dry_run:bool, notes:str) - Archive a subscription pref without deleting it.\"]}",
+      "query": "Read back the queue effective 2026-10-01T09:00:00Z.",
+      "n_candidates": 8,
+      "fmt": "signature",
+      "name": "ask_user",
+      "args": {
+        "tool": "get_queue",
+        "missing": "queue_id"
+      },
+      "prompt_tokens": 628,
+      "output_tokens": 175
+    },
+    {
+      "key": "{\"c\": \"proxy\", \"q\": \"I need a new endpoint called 'EU customer export' in the ml system.\", \"v\": [\"endpoint.create(name:str!, notes:str) - Create a new endpoint in ml.\", \"endpoint.update(endpoint_id:id!, fields:str!, visibility:private|team|public!, callback_url:url, limit:int!, effective_at:date) - Update fields on an existing endpoint.\", \"audit_log.export(limit:int, format:csv|json|parquet!, effective_at:date, region:us-east-1|eu-west-1|ap-south-1, dry_run:bool!) - Export audit logs to a file.\", \"connection_pool.update(connection_pool_id:id!, fields:str!, priority:low|normal|urgent, format:csv|json|parquet, dry_run:bool, status:active|paused|archived) - Update fields on an existing connection pool.\", \"export_forwarding_rule(limit:int, format:csv|json|parquet!, owner_email:email!) - Export forwarding rules to a file. Only valid when sending to more than 50 recipients in one call.\", \"geofence_create(name:str!, dry_run:bool, effective_at:date) - Create a new geofence in iot.\", \"lead_update(lead_id:id!, fields:str!, name:str, owner_email:email, status:active|paused|archived) - Update fields on an existing lead.\", \"provisioning_claim_archive(provisioning_claim_id:id!, name:str, region:us-east-1|eu-west-1|ap-south-1!, notes:str, owner_email:email) - Archive a provisioning claim without deleting it.\"]}",
+      "query": "I need a new endpoint called 'EU customer export' in the ml system.",
+      "n_candidates": 8,
+      "fmt": "signature",
+      "name": null,
+      "args": {},
+      "prompt_tokens": 683,
+      "output_tokens": 0
+    },
+    {
+      "key": "{\"c\": \"proxy\", \"q\": \"Permanently remove the campaign page id lp_1755463.\", \"v\": [\"delete_landing_page(landing_page_id:id!, owner_email:email) - Permanently delete a landing page.\", \"erp_landing_page_delete(landing_page_id:id!, owner_email:email) - Delete a landing page record via the legacy ERP bridge.\", \"review_cycle_delete(review_cycle_id:id!, status:active|paused|archived, notes:str!, dry_run:bool, owner_email:email) - Permanently delete a review cycle.\", \"delete_refund(refund_id:id!, effective_at:date, notes:str) - Permanently delete a refund.\", \"firewall_rule.delete(firewall_rule_id:id!, notes:str, visibility:private|team|public, region:us-east-1|eu-west-1|ap-south-1) - Permanently delete a firewall rule. Only valid when the record is under legal hold and cannot be hard deleted.\", \"export_job_list(limit:int, notes:str, region:us-east-1|eu-west-1|ap-south-1, priority:low|normal|urgent, name:str) - List export jobs with optional paging.\", \"list_coupon(limit:int, amount:num, notes:str) - List coupons with optional paging.\", \"geofence_get(geofence_id:id!, dry_run:bool!) - Retrieve a single geofence by id.\"]}",
+      "query": "Permanently remove the campaign page id lp_1755463.",
+      "n_candidates": 8,
+      "fmt": "signature",
+      "name": "ask_user",
+      "args": {
+        "missing": "owner_email",
+        "tool": "delete_landing_page"
+      },
+      "prompt_tokens": 636,
+      "output_tokens": 192
+    },
+    {
+      "key": "{\"c\": \"proxy\", \"q\": \"Ship the cohort status active.\", \"v\": [\"export_cohort(limit:int, format:csv|json|parquet!, callback_url:url, name:str, status:active|paused|archived!) - Export cohorts to a file.\", \"archive_event_stream(event_stream_id:id!, callback_url:url!, status:active|paused|archived) - Archive a event stream without deleting it.\", \"storage_class.export(limit:int, format:csv|json|parquet!, name:str!, status:active|paused|archived) - Export storage classs to a file.\", \"archive_utm_link(utm_link_id:id!, notes:str, status:active|paused|archived) - Archive a utm link without deleting it.\", \"archive_webhook_post(webhook_post_id:id!, dry_run:bool, notes:str, status:active|paused|archived, priority:low|normal|urgent!) - Archive a webhook post without deleting it.\", \"config_map.create(name:str!, visibility:private|team|public, owner_email:email, status:active|paused|archived, region:us-east-1|eu-west-1|ap-south-1) - Create a new config map in devops.\", \"migration.delete(migration_id:id!, limit:int, status:active|paused|archived!, owner_email:email, effective_at:date) - Permanently delete a migration.\", \"update_user_group(user_group_id:id!, fields:str!, priority:low|normal|urgent, notes:str, region:us-east-1|eu-west-1|ap-south-1!, dry_run:bool!) - Update fields on an existing user group.\"]}",
+      "query": "Ship the cohort status active.",
+      "n_candidates": 8,
+      "fmt": "signature",
+      "name": null,
+      "args": {},
+      "prompt_tokens": 688,
+      "output_tokens": 41
+    },
+    {
+      "key": "{\"c\": \"proxy\", \"q\": \"Enumerate the activity status active, visibility public in the crm system.\", \"v\": [\"activity_list(limit:int, status:active|paused|archived!, priority:low|normal|urgent, visibility:private|team|public!) - List activitys with optional paging.\", \"list_attribution_model(limit:int, effective_at:date, region:us-east-1|eu-west-1|ap-south-1) - List attribution models with optional paging.\", \"revision_delete(revision_id:id!, limit:int, status:active|paused|archived, effective_at:date!) - Permanently delete a revision.\", \"create_recurring_series(name:str!, region:us-east-1|eu-west-1|ap-south-1, limit:int, visibility:private|team|public, priority:low|normal|urgent) - Create a new recurring series in calendar.\", \"get_digest(digest_id:id!, visibility:private|team|public, region:us-east-1|eu-west-1|ap-south-1!, callback_url:url) - Retrieve a single digest by id.\", \"config_map.get(config_map_id:id!, name:str, dry_run:bool, status:active|paused|archived!, region:us-east-1|eu-west-1|ap-south-1!) - Retrieve a single config map by id.\", \"create_queue(name:str!, region:us-east-1|eu-west-1|ap-south-1, notes:str, visibility:private|team|public) - Create a new queue in support.\", \"bucket.archive(bucket_id:id!, visibility:private|team|public) - Archive a bucket without deleting it.\"]}",
+      "query": "Enumerate the activity status active, visibility public in the crm system.",
+      "n_candidates": 8,
+      "fmt": "signature",
+      "name": null,
+      "args": {},
+      "prompt_tokens": 688,
+      "output_tokens": 0
+    },
+    {
+      "key": "{\"c\": \"proxy\", \"q\": \"Retire the telemetry stream into the archive id ts_4057303 in the iot system.\", \"v\": [\"telemetry_stream_archive(telemetry_stream_id:id!, region:us-east-1|eu-west-1|ap-south-1) - Archive a telemetry stream without deleting it.\", \"archive_invoice(invoice_id:id!, notes:str, effective_at:date) - Archive a invoice without deleting it.\", \"provisioning_claim_archive(provisioning_claim_id:id!, name:str, region:us-east-1|eu-west-1|ap-south-1!, notes:str, owner_email:email) - Archive a provisioning claim without deleting it.\", \"get_account(account_id:id!, visibility:private|team|public, region:us-east-1|eu-west-1|ap-south-1, owner_email:email!, status:active|paused|archived) - Retrieve a single account by id.\", \"export_journal_entry(limit:int, format:csv|json|parquet!, owner_email:email, name:str, notes:str) - Export journal entrys to a file.\", \"get_webhook_post(webhook_post_id:id!, region:us-east-1|eu-west-1|ap-south-1) - Retrieve a single webhook post by id.\", \"revision_get(revision_id:id!, effective_at:date, visibility:private|team|public, status:active|paused|archived) - Retrieve a single revision by id.\", \"note_export(limit:int, format:csv|json|parquet!, owner_email:email, name:str) - Export notes to a file.\"]}",
+      "query": "Retire the telemetry stream into the archive id ts_4057303 in the iot system.",
+      "n_candidates": 8,
+      "fmt": "signature",
+      "name": "ask_user",
+      "args": {
+        "missing": "region",
+        "tool": "telemetry_stream_archive"
+      },
+      "prompt_tokens": 678,
+      "output_tokens": 99
+    },
+    {
+      "key": "{\"c\": \"proxy\", \"q\": \"Stage an email to priya@vendor.example for me to review before it goes out, subject line 'Renewal terms attached', body 'please countersign by Friday'.\", \"v\": [\"email_draft_create(to:email!, subject:str!, body:str!) - Create an unsent draft email.\", \"send_email(to:email!, subject:str!, body:str!) - Send a single email message immediately.\", \"send_bulk_email(recipients:email!, subject:str!, body:str!) - Send one email to many recipients at once. Only valid when sending to more than 50 recipients in one call.\", \"send_email_verified_domain(to:email!, subject:str!, body:str!) - Send email from a DKIM verified custom domain. Only valid when the sending domain has completed DKIM verification.\", \"notify_via_email(to:email!, event:str!) - Send a system notification email from the platform address.\", \"send_email_template(to:email!, template_id:id!) - Send an email rendered from a saved template.\", \"search_alias(limit:int, query:str!, owner_email:email) - Search aliass by free text.\", \"carrier_rate_get(carrier_rate_id:id!, status:active|paused|archived, owner_email:email) - Retrieve a single carrier rate by id.\"]}",
+      "query": "Stage an email to priya@vendor.example for me to review before it goes out, subject line 'Renewal terms attached', body 'please countersign by Friday'.",
+      "n_candidates": 8,
+      "fmt": "signature",
+      "name": null,
+      "args": {},
+      "prompt_tokens": 591,
+      "output_tokens": 0
+    },
+    {
+      "key": "{\"c\": \"proxy\", \"q\": \"Wipe the migration id m_8428690, status active.\", \"v\": [\"migration.delete(migration_id:id!, limit:int, status:active|paused|archived!, owner_email:email, effective_at:date) - Permanently delete a migration.\", \"legacy_migration_delete(migration_id:id!, limit:int, status:active|paused|archived!, owner_email:email, effective_at:date) - Delete a migration record via the legacy ERP bridge.\", \"quote_create(name:str!, status:active|paused|archived!, limit:int, notes:str, owner_email:email) - Create a new quote in crm.\", \"get_macro(macro_id:id!, region:us-east-1|eu-west-1|ap-south-1) - Retrieve a single macro by id.\", \"archive_calendar(calendar_id:id!, effective_at:date, notes:str, status:active|paused|archived, name:str) - Archive a calendar without deleting it.\", \"training_job.delete(training_job_id:id!, dry_run:bool, visibility:private|team|public!) - Permanently delete a training job.\", \"get_alias(alias_id:id!, priority:low|normal|urgent, name:str, status:active|paused|archived) - Retrieve a single alias by id.\", \"device_group_delete(device_group_id:id!, status:active|paused|archived!) - Permanently delete a device group.\"]}",
+      "query": "Wipe the migration id m_8428690, status active.",
+      "n_candidates": 8,
+      "fmt": "signature",
+      "name": "ask_user",
+      "args": {
+        "missing": "limit",
+        "tool": "migration.delete"
+      },
+      "prompt_tokens": 637,
+      "output_tokens": 353
+    }
+  ]
+}

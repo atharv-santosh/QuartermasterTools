@@ -1,0 +1,133 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.11", "3.12"]
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v3
+
+      - name: Set up Python ${{ matrix.python-version }}
+        run: uv python install ${{ matrix.python-version }}
+
+      - name: Create venv and install
+        run: |
+          uv venv --python ${{ matrix.python-version }} .venv
+          . .venv/bin/activate
+          uv pip install -e ".[dev]"
+
+      # No credentials are configured for this job on purpose. The real-model
+      # tests must skip cleanly rather than fail, and everything else must pass
+      # without network access.
+      - name: Run the test suite with no credentials
+        run: |
+          . .venv/bin/activate
+          python -m pytest -v --timeout=900
+
+      - name: Confirm the real-model tests skipped rather than ran
+        run: |
+          . .venv/bin/activate
+          python -m pytest tests/test_gemini_replay.py -q -rs | tee /tmp/replay.txt
+          grep -q "skipped" /tmp/replay.txt
+
+      - name: Catalog is the size and shape the measurements assume
+        run: |
+          . .venv/bin/activate
+          atg catalog | tee /tmp/catalog.txt
+          grep -qE "^tools +12[0-9][0-9]$" /tmp/catalog.txt
+          atg tasks --show 2
+
+      - name: Token estimator still agrees with the recorded Vertex counts
+        run: |
+          . .venv/bin/activate
+          atg calibrate
+
+      - name: Measurement sweep, reduced sizes to keep CI quick
+        run: |
+          . .venv/bin/activate
+          atg bench --sizes 10,50,400,1236 --report out/report.html --trajectory
+          test -s out/results.json
+          test -s out/report.html
+          test -s out/sweep.jsonl
+
+      - name: Trajectory validates against the shared schema
+        run: |
+          . .venv/bin/activate
+          python - <<'PY'
+          from pathlib import Path
+          from atg.events import EVENT_TYPES, read_trajectory
+          events = read_trajectory(Path("out/sweep.jsonl"))
+          assert events, "empty trajectory"
+          assert events[0].type == "run_start" and events[-1].type == "run_end"
+          assert [e.seq for e in events] == list(range(len(events)))
+          assert all(e.type in EVENT_TYPES for e in events)
+          print(f"{len(events)} events validated")
+          PY
+
+      - name: Compression and taxonomy tables
+        run: |
+          . .venv/bin/activate
+          atg compress --size 25
+          atg taxonomy --sizes 1236
+
+      - name: Gateway demo against two real downstream subprocesses
+        run: |
+          . .venv/bin/activate
+          python demo/gateway_demo.py
+
+      - name: Gateway answers over a real stdio pipe, not just in process
+        run: |
+          . .venv/bin/activate
+          printf '%s\n' \
+            '{"jsonrpc":"2.0","id":1,"method":"initialize","params":{}}' \
+            '{"jsonrpc":"2.0","id":2,"method":"tools/list","params":{}}' \
+            '{"jsonrpc":"2.0","id":3,"method":"tools/call","params":{"name":"find_tools","arguments":{"request":"how much stock is left of SKU-1187","limit":2}}}' \
+            '{"jsonrpc":"2.0","id":4,"method":"tools/call","params":{"name":"gateway_health","arguments":{}}}' \
+            | ATG_MAILROOM_TOKEN=ci-token atg gateway > /tmp/gateway.jsonl
+          cat /tmp/gateway.jsonl
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          lines = [json.loads(x) for x in Path("/tmp/gateway.jsonl").read_text().splitlines() if x.strip()]
+          assert len(lines) == 4, len(lines)
+          assert [r["id"] for r in lines] == [1, 2, 3, 4]
+          assert all("error" not in r for r in lines), lines
+          exposed = [t["name"] for t in lines[1]["result"]["tools"]]
+          assert exposed == ["find_tools", "describe_tool", "call_tool", "gateway_health"], exposed
+          found = json.loads(lines[2]["result"]["content"][0]["text"])
+          assert found["tools"][0]["name"] == "warehouse.get_stock_level", found
+          assert found["catalog_size"] == 9, found
+          health = json.loads(lines[3]["result"]["content"][0]["text"])
+          servers = {s["server"]: s for s in health["servers"]}
+          assert set(servers) == {"mailroom", "warehouse"}, servers
+          assert all(s["alive"] and s["breaker"] == "closed" for s in servers.values()), servers
+          print("gateway stdio transport verified")
+          PY
+
+      - name: Simulator against the recorded real-model run, offline
+        run: |
+          . .venv/bin/activate
+          python demo/compare_sim_vs_real.py
+
+      - name: Upload the report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: measurements-py${{ matrix.python-version }}
+          path: |
+            out/report.html
+            out/results.json
+            out/sweep.jsonl
+          if-no-files-found: ignore
