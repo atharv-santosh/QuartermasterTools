@@ -1,93 +1,56 @@
 # agent-tool-gateway
 
-Tool retrieval for agents whose catalog is too large to put in context, measured
-on whether the task got done rather than on whether the right tool was retrieved.
-Plus an MCP gateway that applies the retrieval layer in front of several
-downstream servers.
+Tool retrieval for agents whose catalog is too big for context, scored on whether the
+task got done rather than whether the right tool was retrieved. Plus an MCP gateway
+that puts the retrieval layer in front of several downstream servers.
 
-An agent with a thousand tools cannot fit their schemas in context, and the
-failure is quiet. A model that never sees the tool it needed does not report a
-missing capability. It reaches for the nearest thing it can see, or fills in
-arguments it was never given. So tool selection is a retrieval problem, and
-retrieval quality has to be measured against something that notices when the
+An agent with a thousand tools cannot fit their schemas in context, and the failure is
+quiet. A model that never sees the tool it needed does not report a missing capability,
+it reaches for the nearest thing it can see or invents arguments. So tool selection is
+a retrieval problem and it has to be measured against something that notices when the
 work does not happen.
 
-## What it measures
+## Numbers
 
-A deterministic synthetic catalog of 1236 tools across twenty domains, including
-six hand-written clusters of near duplicates where `send_email`,
-`send_bulk_email` and `email_draft_create` differ only in a clause of their
-description, 36 operations exposed twice under different names by different
-servers, and 41 tools that are correct only under a stated condition. Then 240
-tasks phrased with synonyms so a query is not a lexical copy of the tool it should
-reach, graded end to end: the right tool, called with values actually present in
-the request. Five strategies at eight catalog sizes: all tools in context, BM25
-implemented here, local deterministic embeddings, retrieve then rerank, and
-progressive disclosure where the model first sees one line per tool.
+Task success as the catalog grows, 1,236 tools at the far end:
 
-## The numbers
+```
+                        10      100     1236
+all tools in context    0.671   0.388   0.246
+BM25                    0.662   0.525   0.325
+embedding               0.675   0.575   0.338
+retrieve then rerank    0.671   0.542   0.338
+progressive disclosure  0.671   0.508   0.287
+```
 
-Everything scores the same while the catalog fits in the shortlist. Past that, from
-10 to 1236 tools, the all-tools baseline falls from 0.671 task success to 0.246
-while reranking holds 0.338, and the baseline's prompt grows from 2,293 tokens to
-293,876 while reranking's stays flat around 1,850. Progressive disclosure pays two
-model calls and still scores below single-stage retrieval, because its first pass
-discards the catalog having seen only one line per tool.
+All tools in context has recall@8 of 1.000 at every size. The right tool is always
+there and task success still collapses, which is the whole point: recall@k is an
+optimistic upper bound here, not a proxy.
 
-The result worth having is the gap between the two metrics, and its direction. At
-the full catalog, 587 of 1200 attempts put the correct tool in front of the model
-and still failed, 48.9%. The reverse never happened once: no task was completed
-whose gold tool was missing from the shortlist, not even with the same operation
-available under a second name on another server. Recall@k is an optimistic upper
-bound on task success here, not a proxy for it. The baseline shows that most
-bluntly, scoring recall@8 of 1.000 at every catalog size while its task success
-falls by two thirds.
+It goes one way only. Every task that got done had the gold tool in its shortlist, and
+about half the attempts that put the right tool in front of the model still failed. No
+task was ever solved by a substitute, even though 36 tools are deliberately exposed
+twice under different names to make that possible. Substitution happens 11 times, never
+on a task that succeeded.
 
-The gap is widest where a metric most needs to be honest. Where the correct tool is
-correct only under a condition the request states, retrieval succeeds 96% of the
-time and the task 18%, because choosing between near-identical tools on one
-sentence of description is not a retrieval problem. Where the request omits a
-required value and the right move is to ask rather than invent, retrieval succeeds
-86% and the task 7%.
+Schema compression, whole catalog:
 
-Compressing schemas to one-line signatures saves 80.8% of the tokens per query,
-84.9% without the summary, taking the whole catalog from 293,876 tokens to 50,589.
-The offline token counter is fitted against 240 recorded Vertex `count_tokens`
-results and scores 3.8% mean absolute error on a held-out split.
+```
+full JSON Schema      293,876 tokens          task success 0.400
+minified JSON          176,416   39.8% less                0.475
+signature + summary     50,589   80.8% less                0.275
+signature only          39,432   84.9% less                0.300
+```
 
-Against real `gemini-2.5-flash-lite` task success runs well above the simulator and
-degrades far less, falling 0.050 from 25 to 1236 tools where the simulator falls
-0.250. The simulated curves are a lower bound; what transfers is the ordering of
-strategies and the metric disagreement, present in both. That run cost $0.104 at
-list prices and replays offline from a committed fixture.
-
-MEASUREMENTS.md has all of it, labelled simulated or real with model ids and dates.
-NOTES.md is the build log, including the four argument-extraction bugs that had the
-first measurement pinned at 10%.
-
-## The gateway
-
-`atg gateway` multiplexes downstream MCP servers behind one endpoint and applies
-the retrieval layer, so a client sees four tools rather than the whole estate. Each
-server's credential lives in the gateway, not the client. Read-only calls are
-cached with a TTL and mutating ones never are, rate limits are per server and tell
-the caller when to come back, and a circuit breaker fails fast once a server stops
-answering. Tools on a dead server keep appearing in `find_tools` marked
-unreachable, which is more use to a caller than pretending they vanished.
-`python demo/gateway_demo.py` runs two real downstream subprocesses and kills one
-with a real signal.
+Minified beating full schema is measured, not tidied.
 
 ## Running it
 
 ```
-uv pip install -e ".[dev]"
-pytest
-atg bench --report out/report.html
+uv pip install -e ".[gemini]"
+atg bench
 python demo/gateway_demo.py
 ```
 
-`pytest` passes with no credentials and the real-model tests skip cleanly. The
-measurement runs offline on a deterministic simulated model and the recorded Gemini
-runs replay from fixtures; re-recording them needs `gcloud auth
-application-default login` and `python demo/run_gemini.py`. `atg catalog`,
-`atg tasks`, `atg compress`, `atg taxonomy` and `atg calibrate` print the rest.
+The gateway demo runs two downstream servers and kills one, so you can see the breaker
+open while the other keeps serving. Works offline on a deterministic model.
