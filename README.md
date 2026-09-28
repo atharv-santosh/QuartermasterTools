@@ -11,9 +11,6 @@ a retrieval problem and it has to be measured against something that notices whe
 work does not happen.
 
 ## Numbers
-
-Task success as the catalog grows, 1,236 tools at the far end:
-
 ```
                         10      100     1236
 all tools in context    0.671   0.388   0.246
@@ -33,16 +30,12 @@ task was ever solved by a substitute, even though 36 tools are deliberately expo
 twice under different names to make that possible. Substitution happens 11 times, never
 on a task that succeeded.
 
-Schema compression, whole catalog:
-
 ```
 full JSON Schema      293,876 tokens          task success 0.400
 minified JSON          176,416   39.8% less                0.475
 signature + summary     50,589   80.8% less                0.275
 signature only          39,432   84.9% less                0.300
 ```
-
-Minified beating full schema is measured, not tidied.
 
 ## Running it
 
