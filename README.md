@@ -1,4 +1,4 @@
-# agent-tool-gateway
+# Quartermaster Tools
 
 Tool retrieval for agents whose catalog is too big for context, scored on whether the
 task got done rather than whether the right tool was retrieved. Plus an MCP gateway
